@@ -1,0 +1,338 @@
+# Copyright (C) 2016 Basic Theme, Wp Puzzle
+msgid ""
+msgstr ""
+"Project-Id-Version: Basic\n"
+"POT-Creation-Date: 2016-01-11 15:05+0200\n"
+"PO-Revision-Date: 2016-01-11 15:24+0200\n"
+"Language: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2016-01-06 14:25+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+
+#: archive.php:8
+msgid "Category"
+msgstr ""
+
+#: archive.php:10
+msgid "Tag"
+msgstr ""
+
+#: archive.php:11
+msgid "Day archives:"
+msgstr ""
+
+#: archive.php:12
+msgid "Monthly archives:"
+msgstr ""
+
+#: archive.php:13
+msgid "Year archives:"
+msgstr ""
+
+#: archive.php:14
+msgid "Author archives"
+msgstr ""
+
+#: archive.php:15
+msgid "Archive"
+msgstr ""
+
+#: archive.php:30 index.php:16
+msgid "Posts not found"
+msgstr ""
+
+#: comments.php:9 content.php:18
+msgid "Comments"
+msgstr ""
+
+#: comments.php:13 comments.php:33
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:14 comments.php:34
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:43
+msgid "Your Name"
+msgstr ""
+
+#: comments.php:44
+msgid "Your E-mail"
+msgstr ""
+
+#: comments.php:45
+msgid "Your Website"
+msgstr ""
+
+#: comments.php:49
+msgid "Message"
+msgstr ""
+
+#: content.php:39
+msgid "Read more"
+msgstr ""
+
+#: footer.php:8
+msgid "All rights reserved"
+msgstr ""
+
+#: footer.php:10
+msgid "Design and development:"
+msgstr ""
+
+#: footer.php:11
+msgid "WP Puzzle"
+msgstr ""
+
+#: functions.php:30
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:31
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:101
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:103
+msgid "Add widgets here to appear in your sidebar."
+msgstr ""
+
+#: functions.php:171 functions.php:221
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:174 functions.php:224
+msgid "Edit"
+msgstr ""
+
+#: functions.php:178 functions.php:228
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: header.php:38
+msgid "Menu"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:11 inc/admin/meta-boxes.php:13
+msgid "Select Layout"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:27
+msgid "Default"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:32 inc/admin/options.php:54
+#: inc/admin/options.php:66 inc/admin/options.php:78 inc/admin/options.php:91
+msgid "Rightbar"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:37 inc/admin/options.php:55
+#: inc/admin/options.php:67 inc/admin/options.php:79 inc/admin/options.php:92
+msgid "Leftbar"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:42 inc/admin/options.php:56
+#: inc/admin/options.php:68 inc/admin/options.php:80 inc/admin/options.php:93
+msgid "Fullwidth Content"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:47 inc/admin/options.php:57
+#: inc/admin/options.php:69 inc/admin/options.php:81 inc/admin/options.php:94
+msgid "Centered Content"
+msgstr ""
+
+#: inc/admin/options.php:37
+msgid "General theme options"
+msgstr ""
+
+#: inc/admin/options.php:37
+msgid "General"
+msgstr ""
+
+#: inc/admin/options.php:41
+msgid "Main color"
+msgstr ""
+
+#: inc/admin/options.php:42
+msgid "Choose main color"
+msgstr ""
+
+#: inc/admin/options.php:49
+msgid "Default layout"
+msgstr ""
+
+#: inc/admin/options.php:50
+msgid "Default layout for all pages"
+msgstr ""
+
+#: inc/admin/options.php:61
+msgid "Home layout"
+msgstr ""
+
+#: inc/admin/options.php:73
+msgid "Post layout"
+msgstr ""
+
+#: inc/admin/options.php:86
+msgid "Pages layout"
+msgstr ""
+
+#: inc/admin/options.php:103
+msgid "Additional code"
+msgstr ""
+
+#: inc/admin/options.php:103
+msgid "Code"
+msgstr ""
+
+#: inc/admin/options.php:108
+msgid "Scripts in header"
+msgstr ""
+
+#: inc/admin/options.php:109
+msgid "HTML code in &lt;head&gt; tag"
+msgstr ""
+
+#: inc/admin/options.php:115
+msgid "Scripts in site footer"
+msgstr ""
+
+#: inc/admin/options.php:116
+msgid "HTML code before &lt;/body&gt; tag"
+msgstr ""
+
+#: inc/admin/options.php:122
+msgid "Custom styles"
+msgstr ""
+
+#: inc/admin/options.php:123
+msgid "Add your custom CSS styles"
+msgstr ""
+
+#: inc/admin/options.php:132
+msgid "Social buttons"
+msgstr ""
+
+#: inc/admin/options.php:132
+msgid "Social"
+msgstr ""
+
+#: inc/admin/options.php:138
+msgid "Social data"
+msgstr ""
+
+#: inc/admin/options.php:139
+msgid "Add Open Graph tags to &lt;head&gt;"
+msgstr ""
+
+#: inc/admin/options.php:146
+msgid "Social share buttons"
+msgstr ""
+
+#: inc/admin/options.php:147
+msgid "Select option to show or hide social share buttons after post"
+msgstr ""
+
+#: inc/admin/options.php:152
+msgid "Hide"
+msgstr ""
+
+#: inc/admin/options.php:153
+msgid "Custom theme buttons"
+msgstr ""
+
+#: inc/admin/options.php:154
+msgid "Share42 Buttons"
+msgstr ""
+
+#: inc/admin/options.php:155
+msgid "Yandex Buttons"
+msgstr ""
+
+#: inc/admin/options.php:163
+msgid "Structured Data"
+msgstr ""
+
+#: inc/admin/options.php:167
+msgid "Schema.org Mark up"
+msgstr ""
+
+#: inc/admin/options.php:168
+msgid "Schema.org mark up according Creative Work->Article and Comment"
+msgstr ""
+
+#: inc/admin/options.php:176
+msgid "Publisher logo"
+msgstr ""
+
+#: inc/admin/options.php:177 inc/admin/options.php:184
+#: inc/admin/options.php:191
+msgid "use in https://schema.org/Organization"
+msgstr ""
+
+#: inc/admin/options.php:183
+msgid "Adress"
+msgstr ""
+
+#: inc/admin/options.php:190
+msgid "Phone"
+msgstr ""
+
+#: inc/admin/options.php:403 inc/admin/options.php:448
+msgid "Theme options"
+msgstr ""
+
+#: inc/admin/options.php:452
+msgid "Options saved"
+msgstr ""
+
+#: inc/functions.php:20
+msgid "&laquo; Prev"
+msgstr ""
+
+#: inc/functions.php:21
+msgid "Next &raquo;"
+msgstr ""
+
+#: inc/functions.php:29
+msgid "Page "
+msgstr ""
+
+#: inc/functions.php:29
+msgid " from "
+msgstr ""
+
+#: inc/hooks.php:95 inc/hooks.php:98 inc/hooks.php:99
+msgid "Share in"
+msgstr ""
+
+#: inc/hooks.php:96
+msgid "Share in VK"
+msgstr ""
+
+#: inc/hooks.php:97
+msgid "Share in OK"
+msgstr ""
+
+#: search.php:6
+msgid "Search results for"
+msgstr ""
+
+#: search.php:22
+msgid "No results for "
+msgstr ""
+
+#: searchform.php:3
+msgid "Search"
+msgstr ""
+
+#: sidebar.php:17
+msgid "Categories"
+msgstr ""

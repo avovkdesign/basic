@@ -1,0 +1,36 @@
+#themeoptions { position: relative; margin: 0; padding: 0; }
+#themeoptions .description {color: #939393; }
+#themeoptions form { margin-top: 30px; }
+#themeoptions .manage-menus p { padding: 5px 0; margin: 0; }
+#themeoptions h2 { margin: 30px 0 10px; padding: 0; line-height: 20px; } 
+#themeoptions form h2, #themeoptions form h3 { margin: 0; padding: 0 0 0 1%; width: 99%; height: 41px; font-size: 14px; line-height: 20px; border-bottom: 1px solid #ccc; }
+#themeoptions form h2 a, #themeoptions form h3 a { float: left; padding: 10px 15px; margin-right: 2px; border: 1px solid #ccc; background: #e4e4e4; color: #555; line-height: 20px; text-decoration: none; outline: none; }
+#themeoptions form h2 a b, #themeoptions form h3 a b { font-weight: normal; }
+#themeoptions form h2 a:hover, #themeoptions form h3 a:hover { background: #fff; }
+#themeoptions form h2 a.active, #themeoptions form h3 a.active { background: #f1f1f1; border-bottom-color: #f1f1f1; }
+#themeoptions select { min-width: 160px; }
+#themeoptions .checkbox_group, #themeoptions .radio_group {margin-bottom: 10px;}
+#themeoptions .checkbox_group label, #themeoptions .radio_group label {margin: 0 20px 10px 0;}
+#themeoptions .radio_group label {display: block;}
+#themeoptions .tabitem { width: 100%; border-top: 0; padding: 0; }
+#themeoptions .submit { display: block; }
+#themeoptions form h3 a:before { float: left; margin: 5px 5px 0 0; font-size: 22px; line-height: 9px; font-family: "dashicons"; }
+#themeoptions .dashicons { margin-right: 10px; }
+#themeoptions h4 { font-weight: bold; }
+#themeoptions .message { background: #fff; }
+#themeoptions #poststuff { min-width: 705px; }
+#themeoptions #poststuff h3 { font-weight: normal; }
+#themeoptions .postbox { width: 66%; }
+#themeoptions .postbox .handlediv:before { content: '\f142'; right: 12px; font: 400 20px/1 dashicons; speak: none; display: inline-block; padding: 12px 10px; top: 0; position: relative; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-decoration: none!important; }
+#themeoptions .postbox.closed .handlediv:before { content: '\f140'; }
+#themeoptions .idtooltip { text-decoration: underline; cursor: pointer; }
+@media only screen and (max-width: 850px) { 
+	#themeoptions .dashicons { margin-right: 0; }
+	#themeoptions form h3 a b { display: none; }
+	#themeoptions form h3 a:before { line-height: 15px; }
+}
+@media only screen and (max-width: 1200px) { 
+	#themeoptions .postbox { width: 100%; }
+}
+#themeoptions .popup-colorpicker { width: 70px; }
+.button { outline: none; } 

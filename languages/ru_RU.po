@@ -1,0 +1,346 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Theme Basic\n"
+"POT-Creation-Date: 2016-01-11 15:05+0200\n"
+"PO-Revision-Date: 2016-01-11 15:24+0200\n"
+"Last-Translator: Alexandra Vovk <avovkdesign@gmail.com>\n"
+"Language-Team: WP Puzzle <wppuzzle@gmail.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: _;_e;__;_x\n"
+"X-Poedit-SearchPathExcluded-0: img\n"
+"X-Poedit-SearchPathExcluded-1: js\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: archive.php:8
+msgid "Category"
+msgstr "Рубрики"
+
+#: archive.php:10
+msgid "Tag"
+msgstr "Записи с меткой"
+
+#: archive.php:11
+msgid "Day archives:"
+msgstr "Архивы за день"
+
+#: archive.php:12
+msgid "Monthly archives:"
+msgstr "Архивы за месяц"
+
+#: archive.php:13
+msgid "Year archives:"
+msgstr "Архивы за год"
+
+#: archive.php:14
+msgid "Author archives"
+msgstr "Архивы автора"
+
+#: archive.php:15
+msgid "Archive"
+msgstr "Архивы блога"
+
+#: archive.php:30 index.php:16
+msgid "Posts not found"
+msgstr "Записей не найдено"
+
+#: comments.php:9 content.php:18
+msgid "Comments"
+msgstr "Комментарии"
+
+#: comments.php:13 comments.php:33
+msgid "&larr; Older Comments"
+msgstr "&larr; Предыдущие"
+
+#: comments.php:14 comments.php:34
+msgid "Newer Comments &rarr;"
+msgstr "Следующие &rarr;"
+
+#: comments.php:43
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: comments.php:44
+msgid "Your E-mail"
+msgstr "Ваш E-mail"
+
+#: comments.php:45
+msgid "Your Website"
+msgstr "Ваш Вебсайт"
+
+#: comments.php:49
+msgid "Message"
+msgstr "Сообщение"
+
+#: content.php:39
+msgid "Read more"
+msgstr "Читать далее"
+
+#: footer.php:8
+msgid "All rights reserved"
+msgstr "Все права защищены"
+
+#: footer.php:10
+msgid "Design and development:"
+msgstr "Дизайн и разработка:"
+
+#: footer.php:11
+msgid "WP Puzzle"
+msgstr "WP Puzzle"
+
+#: functions.php:30
+msgid "Main Menu"
+msgstr "Главное меню"
+
+#: functions.php:31
+msgid "Footer Menu"
+msgstr "Меню в подвале"
+
+#: functions.php:101
+msgid "Sidebar"
+msgstr "Боковая колонка"
+
+#: functions.php:103
+msgid "Add widgets here to appear in your sidebar."
+msgstr "Добавьте сюда виджеты, чтобы вывести их в боковой колонке"
+
+#: functions.php:171 functions.php:221
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s в %2$s"
+
+#: functions.php:174 functions.php:224
+msgid "Edit"
+msgstr "Редактировать"
+
+#: functions.php:178 functions.php:228
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий ожидает модерации."
+
+#: header.php:38
+msgid "Menu"
+msgstr "Меню"
+
+#: inc/admin/meta-boxes.php:11 inc/admin/meta-boxes.php:13
+msgid "Select Layout"
+msgstr "Выберите структуру"
+
+#: inc/admin/meta-boxes.php:27
+msgid "Default"
+msgstr "По-умолчанию"
+
+#: inc/admin/meta-boxes.php:32 inc/admin/options.php:54
+#: inc/admin/options.php:66 inc/admin/options.php:78 inc/admin/options.php:91
+msgid "Rightbar"
+msgstr "Правая колонка"
+
+#: inc/admin/meta-boxes.php:37 inc/admin/options.php:55
+#: inc/admin/options.php:67 inc/admin/options.php:79 inc/admin/options.php:92
+msgid "Leftbar"
+msgstr "Левая колонка"
+
+#: inc/admin/meta-boxes.php:42 inc/admin/options.php:56
+#: inc/admin/options.php:68 inc/admin/options.php:80 inc/admin/options.php:93
+msgid "Fullwidth Content"
+msgstr "На всю ширину"
+
+#: inc/admin/meta-boxes.php:47 inc/admin/options.php:57
+#: inc/admin/options.php:69 inc/admin/options.php:81 inc/admin/options.php:94
+msgid "Centered Content"
+msgstr "По центру"
+
+#: inc/admin/options.php:37
+msgid "General theme options"
+msgstr "Общие настройки"
+
+#: inc/admin/options.php:37
+msgid "General"
+msgstr "Общие"
+
+#: inc/admin/options.php:41
+msgid "Main color"
+msgstr "Основной цвет"
+
+#: inc/admin/options.php:42
+msgid "Choose main color"
+msgstr "Выберите основной цвет"
+
+#: inc/admin/options.php:49
+msgid "Default layout"
+msgstr "Структура по-умолчанию"
+
+#: inc/admin/options.php:50
+msgid "Default layout for all pages"
+msgstr "Структура по-умолчанию для страниц"
+
+#: inc/admin/options.php:61
+msgid "Home layout"
+msgstr "Структура главной странцы"
+
+#: inc/admin/options.php:73
+msgid "Post layout"
+msgstr "Структура записей"
+
+#: inc/admin/options.php:86
+msgid "Pages layout"
+msgstr "Структура страниц"
+
+#: inc/admin/options.php:103
+msgid "Additional code"
+msgstr "Дополнительный код"
+
+#: inc/admin/options.php:103
+msgid "Code"
+msgstr "Код"
+
+#: inc/admin/options.php:108
+msgid "Scripts in header"
+msgstr "Скрипты в хедере"
+
+#: inc/admin/options.php:109
+msgid "HTML code in &lt;head&gt; tag"
+msgstr "HTML код  в &lt;head&gt;"
+
+#: inc/admin/options.php:115
+msgid "Scripts in site footer"
+msgstr "Скрипты в подвале сайта"
+
+#: inc/admin/options.php:116
+msgid "HTML code before &lt;/body&gt; tag"
+msgstr "HTML код перед &lt;/body&gt; "
+
+#: inc/admin/options.php:122
+msgid "Custom styles"
+msgstr "Пользовательские стили"
+
+#: inc/admin/options.php:123
+msgid "Add your custom CSS styles"
+msgstr "Добавьте свои CSS стили"
+
+#: inc/admin/options.php:132
+msgid "Social buttons"
+msgstr "Кнопки соцсетей"
+
+#: inc/admin/options.php:132
+msgid "Social"
+msgstr "Соцсети"
+
+#: inc/admin/options.php:138
+msgid "Social data"
+msgstr "Данные для соцсетей"
+
+#: inc/admin/options.php:139
+msgid "Add Open Graph tags to &lt;head&gt;"
+msgstr "Добавить теги Open Graph в &lt;head&gt;"
+
+#: inc/admin/options.php:146
+msgid "Social share buttons"
+msgstr "Кнопки поделиться в соцсетях"
+
+#: inc/admin/options.php:147
+msgid "Select option to show or hide social share buttons after post"
+msgstr ""
+"Выберите опцию, чтобы показать скрыть кнопки социальных сетей после контента"
+
+#: inc/admin/options.php:152
+msgid "Hide"
+msgstr "Скрыть"
+
+#: inc/admin/options.php:153
+msgid "Custom theme buttons"
+msgstr "Стандартные кнопки (от разработчиков темы)"
+
+#: inc/admin/options.php:154
+msgid "Share42 Buttons"
+msgstr "Кнопки Share42"
+
+#: inc/admin/options.php:155
+msgid "Yandex Buttons"
+msgstr "Кнопки Yandex"
+
+#: inc/admin/options.php:163
+msgid "Structured Data"
+msgstr "Микроразметка"
+
+#: inc/admin/options.php:167
+msgid "Schema.org Mark up"
+msgstr "Разметка Schema.org"
+
+#: inc/admin/options.php:168
+msgid "Schema.org mark up according Creative Work->Article and Comment"
+msgstr "Разметка Schema.org согласно схемам Article и Comment"
+
+#: inc/admin/options.php:176
+msgid "Publisher logo"
+msgstr "Логитип издателя"
+
+#: inc/admin/options.php:177 inc/admin/options.php:184
+#: inc/admin/options.php:191
+msgid "use in https://schema.org/Organization"
+msgstr "используется в схеме https://schema.org/Organization"
+
+#: inc/admin/options.php:183
+msgid "Adress"
+msgstr "Адресс"
+
+#: inc/admin/options.php:190
+msgid "Phone"
+msgstr "Телефон"
+
+#: inc/admin/options.php:403 inc/admin/options.php:448
+msgid "Theme options"
+msgstr "Настройки темы"
+
+#: inc/admin/options.php:452
+msgid "Options saved"
+msgstr "Настройки сохранены"
+
+#: inc/functions.php:20
+msgid "&laquo; Prev"
+msgstr "&laquo; Назад"
+
+#: inc/functions.php:21
+msgid "Next &raquo;"
+msgstr "Вперед &raquo;"
+
+#: inc/functions.php:29
+msgid "Page "
+msgstr "Страница"
+
+#: inc/functions.php:29
+msgid " from "
+msgstr "от"
+
+#: inc/hooks.php:95 inc/hooks.php:98 inc/hooks.php:99
+msgid "Share in"
+msgstr "Поделиться в"
+
+#: inc/hooks.php:96
+msgid "Share in VK"
+msgstr "Поделиться во ВКонтакте"
+
+#: inc/hooks.php:97
+msgid "Share in OK"
+msgstr "Поделиться в Одноклассниках"
+
+#: search.php:6
+msgid "Search results for"
+msgstr "Результаты поиска по фразе"
+
+#: search.php:22
+msgid "No results for "
+msgstr "Ничего не найдено по запросу"
+
+#: searchform.php:3
+msgid "Search"
+msgstr "Поиск"
+
+#: sidebar.php:17
+msgid "Categories"
+msgstr "Рубрики"
