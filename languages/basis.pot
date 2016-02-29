@@ -79,13 +79,17 @@ msgstr ""
 msgid "All rights reserved"
 msgstr ""
 
-#: footer.php:10
-msgid "Design and development:"
-msgstr ""
+#: footer.php:22
+msgid "All rights reserved"
+msgstr "Все права защищены"
 
-#: footer.php:11
+#: footer.php:24
+msgid "Theme by"
+msgstr "Шаблон от"
+
+#: footer.php:25
 msgid "WP Puzzle"
-msgstr ""
+msgstr "WP Puzzle"
 
 #: functions.php:30
 msgid "Main Menu"

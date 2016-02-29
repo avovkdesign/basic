@@ -22,7 +22,6 @@ function basic_setup() {
 	add_theme_support( 'custom-header', array(
 		'flex-width'    => true,
 		'width'         => 1080,
-		'flex-width'    => true,
 		'height'        => 300,
 	) );
 	
@@ -315,6 +314,9 @@ function the_markup_schemaorg(){
 
 // admin page options
 	require_once ( get_stylesheet_directory() . '/inc/admin/options.php' );
+
+// theme customizer
+require_once ( get_stylesheet_directory() . '/inc/admin/theme-customizer.php' );
 
 
 if ( is_admin() ) :

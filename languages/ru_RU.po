@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Theme Basic\n"
-"POT-Creation-Date: 2016-01-11 15:05+0200\n"
-"PO-Revision-Date: 2016-01-11 15:24+0200\n"
+"POT-Creation-Date: 2016-03-01 00:54+0200\n"
+"PO-Revision-Date: 2016-03-01 00:54+0200\n"
 "Last-Translator: Alexandra Vovk <avovkdesign@gmail.com>\n"
 "Language-Team: WP Puzzle <wppuzzle@gmail.com>\n"
 "Language: ru_RU\n"
@@ -78,54 +78,58 @@ msgstr "Ваш Вебсайт"
 msgid "Message"
 msgstr "Сообщение"
 
-#: content.php:39
+#: content.php:40
 msgid "Read more"
 msgstr "Читать далее"
 
-#: footer.php:8
+#: footer.php:22
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: footer.php:10
-msgid "Design and development:"
-msgstr "Дизайн и разработка:"
+#: footer.php:24
+msgid "Theme by"
+msgstr "Шаблон от"
 
-#: footer.php:11
+#: footer.php:25
 msgid "WP Puzzle"
 msgstr "WP Puzzle"
 
-#: functions.php:30
+#: functions.php:29
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: functions.php:31
+#: functions.php:30
 msgid "Footer Menu"
 msgstr "Меню в подвале"
 
-#: functions.php:101
+#: functions.php:100
 msgid "Sidebar"
 msgstr "Боковая колонка"
 
-#: functions.php:103
+#: functions.php:102
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Добавьте сюда виджеты, чтобы вывести их в боковой колонке"
 
-#: functions.php:171 functions.php:221
+#: functions.php:170 functions.php:220
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s в %2$s"
 
-#: functions.php:174 functions.php:224
+#: functions.php:173 functions.php:223
 msgid "Edit"
 msgstr "Редактировать"
 
-#: functions.php:178 functions.php:228
+#: functions.php:177 functions.php:227
 msgid "Your comment is awaiting moderation."
 msgstr "Ваш комментарий ожидает модерации."
 
-#: header.php:38
+#: header.php:33
 msgid "Menu"
 msgstr "Меню"
+
+#: header.php:45 header.php:47
+msgid "Home"
+msgstr "Главная"
 
 #: inc/admin/meta-boxes.php:11 inc/admin/meta-boxes.php:13
 msgid "Select Layout"
@@ -301,19 +305,19 @@ msgstr "Настройки темы"
 msgid "Options saved"
 msgstr "Настройки сохранены"
 
-#: inc/functions.php:20
+#: inc/functions.php:35
 msgid "&laquo; Prev"
 msgstr "&laquo; Назад"
 
-#: inc/functions.php:21
+#: inc/functions.php:36
 msgid "Next &raquo;"
 msgstr "Вперед &raquo;"
 
-#: inc/functions.php:29
+#: inc/functions.php:44
 msgid "Page "
 msgstr "Страница"
 
-#: inc/functions.php:29
+#: inc/functions.php:44
 msgid " from "
 msgstr "от"
 

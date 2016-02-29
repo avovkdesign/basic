@@ -1,8 +1,8 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 3.5
-Tested up to: WordPress 4.4
-Version: 1.0.3
+Tested up to: WordPress 4.4.2
+Version: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -23,6 +23,44 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 2. Type in basic in the search form and press the 'Enter' key on your keyboard.
 3. Click on the 'Activate' button to use your new theme right away.
 4. Navigate to Appearance > Theme Options in your admin panel and customize to taste.
+
+
+== Changelog ==
+
+= 1.0.4 =
+ 
+* Кнопка "Читать далее" выравнивается по правой стороне
+* В главном меню при выводе страниц по-умолчанию, также выводится ссылка на главную страницу
+* Настраиваемый цвет логотипа в шапке
+* Исправлены стили в шапке (блок с логотипом теперь на всю ширину)
+* Исправлена ошибка с отображением меню в подвале
+* Исправлены стили с абсолютным позиционированием в подвале
+* Добавлена обратная совсместимость wp_title() для WordPress ниже 4.0
+
+
+= 1.0.3 =
+
+* Добавлены стили для визуального редактора в админке
+* Исправлены конфликты стилей с галереями WordPress
+* Мелкие правки, рефакторинг кода
+
+= 1.0.2 =
+
+* Исправлен формат даты в микроразметке
+* Ссылка на wp-puzzle.com убрана в noindex, nofollow
+* Внесены уточнения в перевод, добавлен перевод новых настроек
+* Исправлено предупреждение в пагинации
+
+= 1.0.1 =
+
+* Исправлена микроразметка (с отдельных вариантов для яндекс и google, на один универсальный)
+* Исправлен формат вывода комментариев, убрана ссылка на себя в имени автора статьи
+
+= 1.0 =
+
+Релиз
+
+
 
 == Copyright ==
 

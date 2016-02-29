@@ -36,7 +36,9 @@
 				?>
 				
 				<?php if ( !is_single() ) : ?>
+				<p class="more-link-box">	
 					<a class="more-link" href="<?php the_permalink() ?>#more-<?php the_ID(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Read more', 'basic'); ?></a>
+				</p>
 				<?php endif; ?>
 				
 			</div>

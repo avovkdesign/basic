@@ -4,7 +4,7 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.0.3
+ * Version: 1.0.4
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -36,7 +36,7 @@ body { width: 100%; min-width: 280px; }
 #main { padding: 60px 0; margin: 0 auto; position: relative; }
 #content { width: 100%; float: none; }
 #sidebar { display: none; }
-#footer { width: 100%; height: 60px; margin: 0; background: #936; }
+#footer { width: 100%; padding: 20px 0; margin: 0; background: #936; }
 .maxwidth { margin: 0 auto; position: relative; width: 89.6551724137931%; max-width: 1080px; }
 body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1160px; }
 
@@ -280,6 +280,7 @@ input[type=button]:hover,
 .medium { max-width: 50%; height: auto; }
 .thumbnail { max-width: 30%; height: auto; }
 
+.more-link-box {text-align: right;}
 .more-link { display: inline-block; padding: 10px 20px; background: #936; color: #fff; text-decoration: none; -webkit-border-radius: 5px; border-radius: 5px; -webkit-transition: opacity 0.2s; transition: opacity 0.2s; position: relative; }
 .more-link:after { content: '➤'; float: right; margin-left: 10px; margin-right: -5px; }
 .more-link:hover { opacity: 0.8; color: #fff; }
@@ -377,7 +378,7 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
 .widget li { padding: 5px 0 5px 20px; position: relative; }
 .widget ul li:before { content: '»'; position: absolute; top: 7px; left: 0; line-height: 100%; }
 .widget .children { margin-left: 20px; }
-
+.widget_calendar td, .widget_calendar th {padding: 10px}
 
 
 
@@ -406,13 +407,19 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 /* ============================================================================
  *		FOOTER
  * ============================================================================ */
-#footer p, #footer a { color: #fff; font-size: 14px; line-height: 120%; text-decoration: none; }
-#footer p { padding: 0; }
+#footer { color: #fff; font-size: 14px; line-height: 120%; text-decoration: none; }
+#footer a {color: #fff; transition: opacity 0.3s;}
 #footer a:hover { color: #999999; text-decoration: underline; }
 #footer .maxwidth { position: relative; }
-#footer #copy { position: absolute; top: 15px; left: 0; width: 55%; text-align: left; font-size: 12px; }
-#footer #designedby { position: absolute; top: 17px; right: 0; width: 40%; text-align: right; opacity: 0.8; }
-#footer #designedby, #footer #designedby a { font: normal 10px/120% Tahoma, Verdana, Segoe, sans-serif; color: #fff; }
+
+.footer-menu { border-bottom: 1px solid rgba(255, 255, 255, 0.2); margin-bottom: 30px; }
+.footmenu { padding: 0 0 20px 0; margin: 0; text-align: center; }
+.footer-menu li { display: inline-block; padding: 5px 10px; }
+#footer .footer-menu a:hover { color: #fff; opacity: 0.7; }
+
+#copy { text-align: center; font-size: 12px; }
+#designedby { text-align: center; opacity: 0.8; }
+#designedby, #designedby a { font: normal 10px/120% Tahoma, Verdana, Segoe, sans-serif; color: #fff; }
 #toTop { position: fixed; z-index: 1000; bottom: 20px; right: 20px; margin: 0; padding: 14px 12px; display: none; cursor: pointer; 
 	background: #222; color: #fff !important; border-radius: 3px; transform: rotate(-90deg); font-size: 24px; text-align: center; }
 #toTop:hover { background: #999; text-decoration: none !important; border-radius: 3px; }
@@ -460,6 +467,9 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	.tile .thumbnail { float: left; margin: 5px 1.5em 0.5em 0; }
 	.tile .medium { float: none; width: 100%; max-width: 100%; height: auto; }
 	.tile .thumbnail { width: 30%; height: auto; }
+
+	#copy {text-align: left;} 
+	#designedby {text-align: right;}
 	
 }
 
