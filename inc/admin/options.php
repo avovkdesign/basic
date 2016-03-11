@@ -404,11 +404,12 @@ function basic_options_menu() {
 		'manage_options', 'basic_options_page', 'basic_options_func'
 	);
     add_action( "admin_print_scripts-$hook_suffix", 'basic_admin_print_scripts' );
-    add_action( "admin_footer-$hook_suffix",
-    	function(){ echo '<script>jQuery(document).ready(function(){ postboxes.add_postbox_toggles(pagenow); });</script>'; }
-    );
+    add_action( "admin_footer-$hook_suffix", 'function_for_php5_2' );
 }
 add_action( 'admin_menu', 'basic_options_menu' );
+
+function function_for_php5_2(){ echo '<script>jQuery(document).ready(function(){ postboxes.add_postbox_toggles(pagenow); });</script>'; }
+
 /* ----------------------------------------------------------------------------- */
 
 
