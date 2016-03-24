@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 3.5
 Tested up to: WordPress 4.4.2
-Version: 1.0.4
+Version: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -27,8 +27,18 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 == Changelog ==
 
+= 1.0.5 =
+
+* Добавлен вывод описания для первой страницы архива метки и автора
+* В микроразметке статьи подключается ссылка на полную картнку (Google требует фото от 600 пикс.)
+* Исправлены стили маркеров списка (перекрывались с картинками)
+* Исправлена проблема с некорректным отображением стиле произвольного меню
+* Исправлена проблема с переводом настроек в дочерних темах
+* Исправлена пробблема совместимости с PHP ниже 5.5
+
+
 = 1.0.4 =
- 
+
 * Кнопка "Читать далее" выравнивается по правой стороне
 * В главном меню при выводе страниц по-умолчанию, также выводится ссылка на главную страницу
 * Настраиваемый цвет логотипа в шапке

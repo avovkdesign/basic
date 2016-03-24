@@ -1,8 +1,14 @@
 <?php
 
-$themename = wp_get_theme().'';
-$themedir = get_template();
-$optionname = 'theme_options_'.$themedir;
+//$themename = wp_get_theme().'';
+
+if ( !defined('APP_NAME') ) {
+	define( 'APP_NAME', get_template() );
+}
+define( 'BASIC_OPTION_NAME', 'theme_options_' . APP_NAME );
+
+//$themedir = get_template();
+//$optionname = 'theme_options_'.$themedir;
 
 
 /* ==========================================================================
@@ -10,15 +16,14 @@ $optionname = 'theme_options_'.$themedir;
  * ========================================================================== */
 if ( ! function_exists( 'get_avd_option' ) ) :
 function get_avd_option( $key ) {
-	global $optionname;
 
-    $cache = wp_cache_get( 'avd_'.$optionname );
+    $cache = wp_cache_get( 'avd_'. BASIC_OPTION_NAME );
     if ( $cache ) {
 		return ( isset($cache[$key]) ) ? $cache[$key] : false;
     }
 
-	$opt = get_option( $optionname );
-    wp_cache_add( 'avd_'.$optionname, $opt  );
+	$opt = get_option( BASIC_OPTION_NAME );
+    wp_cache_add( 'avd_'. BASIC_OPTION_NAME, $opt  );
 
     return ( isset($opt[$key]) ) ? $opt[$key] : false;
 }
@@ -30,172 +35,184 @@ endif;
 /* =============================================================================
  * theme options array with defaults
  * ============================================================================= */
-$avd_options = array (	
-	
-	// GENERAL
-    // .........................................................................
-	array( "name" => "<a href='#tabgeneral' class='tab-title general' title='". __('General theme options', 'basic') ."'><span class='dashicons dashicons-admin-generic'></span><b>". __('General', 'basic') ."</b></a>",
-		   "id" => "general",
-       	   "type" => "section"),    
+function basic_get_options_list() {
 
-			array( 	"name" => __("Main color", 'basic'),
-					"desc" => __("Choose main color", 'basic'),
-		            "id" => "maincolor",
-		            "std" => "#936",
-		            "type" => "color",
+	$avd_options = array(
+
+		// GENERAL
+		// .........................................................................
+		array(
+			"name" => "<a href='#tabgeneral' class='tab-title general' title='" . __( 'General theme options', 'basic' ) . "'><span class='dashicons dashicons-admin-generic'></span><b>" . __( 'General', 'basic' ) . "</b></a>",
+			"id"   => "general",
+			"type" => "section"
+		),
+		array(
+			"name" => __( "Main color", 'basic' ),
+			"desc" => __( "Choose main color", 'basic' ),
+			"id"   => "maincolor",
+			"std"  => "#936",
+			"type" => "color",
+		),
+		array(
+			"name"    => __( "Default layout", 'basic' ),
+			"desc"    => __( "Default layout for all pages", 'basic' ),
+			"id"      => "layout_default",
+			"std"     => "rightbar",
+			"type"    => "select",
+			"options" => array(
+				'rightbar' => __( "Rightbar", 'basic' ),
+				'leftbar'  => __( "Leftbar", 'basic' ),
+				'full'     => __( "Fullwidth Content", 'basic' ),
+				'center'   => __( "Centered Content", 'basic' )
+			)
+		),
+		array(
+			"name"    => __( "Home layout", 'basic' ),
+			"desc"    => "",
+			"id"      => "layout_home",
+			"std"     => "rightbar",
+			"type"    => "select",
+			"options" => array(
+				'rightbar' => __( "Rightbar", 'basic' ),
+				'leftbar'  => __( "Leftbar", 'basic' ),
+				'full'     => __( "Fullwidth Content", 'basic' ),
+				'center'   => __( "Centered Content", 'basic' )
+			)
+		),
+		array(
+			"name"    => __( "Post layout", 'basic' ),
+			"desc"    => "",
+			"id"      => "layout_post",
+			"std"     => "rightbar",
+			"type"    => "select",
+			"options" => array(
+				'rightbar' => __( "Rightbar", 'basic' ),
+				'leftbar'  => __( "Leftbar", 'basic' ),
+				'full'     => __( "Fullwidth Content", 'basic' ),
+				'center'   => __( "Centered Content", 'basic' )
+			)
+		),
+		array(
+			"name"    => __( "Pages layout", 'basic' ),
+			"desc"    => "",
+			"id"      => "layout_page",
+			"std"     => "center",
+			"type"    => "select",
+			"options" => array(
+				'rightbar' => __( "Rightbar", 'basic' ),
+				'leftbar'  => __( "Leftbar", 'basic' ),
+				'full'     => __( "Fullwidth Content", 'basic' ),
+				'center'   => __( "Centered Content", 'basic' )
+			)
+		),
+		// CODE
+		// .........................................................................
+		array(
+			"name" => "<a href='#tabcode' class='tab-title code' title='" . __( 'Additional code', 'basic' ) . "'><span class='dashicons dashicons-editor-code'></span><b>" . __( 'Code', 'basic' ) . "</b></a>",
+			"id"   => "code",
+			"type" => "section"
+		),
+		array(
+			"name" => __( "Scripts in header", 'basic' ),
+			"desc" => __( "HTML code in &lt;head&gt; tag", 'basic' ),
+			"id"   => "head_scripts",
+			"std"  => "<!-- header html from theme option -->",
+			"type" => "textarea",
+		),
+		array(
+			"name" => __( "Scripts in site footer", 'basic' ),
+			"desc" => __( "HTML code before &lt;/body&gt; tag", 'basic' ),
+			"id"   => "footer_scripts",
+			"std"  => "<!-- footer html from theme option -->",
+			"type" => "textarea",
+		),
+		array(
+			"name" => __( "Custom styles", 'basic' ),
+			"desc" => __( "Add your custom CSS styles", 'basic' ),
+			"id"   => "custom_styles",
+			"std"  => "",
+			"type" => "textarea",
+		),
+		// SOCIAL
+		// .........................................................................
+		array(
+			"name" => "<a href='#tabsocial' class='tab-title social' title='" . __( 'Social buttons', 'basic' ) . "'><span class='dashicons dashicons-twitter'></span><b>" . __( 'Social', 'basic' ) . "</b></a>",
+			"id"   => "social",
+			"type" => "section"
+		),
+		array(
+			"name" => __( "Social data", 'basic' ),
+			"desc" => __( "Add Open Graph tags to &lt;head&gt;", 'basic' ),
+			"id"   => "add_social_meta",
+			"std"  => 0,
+			"type" => "checkbox",
+		),
+		array(
+			"name"    => __( "Social share buttons", 'basic' ),
+			"desc"    => __( "Select option to show or hide social share buttons after post", 'basic' ),
+			"id"      => "social_share",
+			"std"     => 'hide',
+			"type"    => "select",
+			"options" => array(
+				'hide'    => __( "Hide", 'basic' ),
+				'custom'  => __( "Custom theme buttons", 'basic' ),
+				'share42' => __( "Share42 Buttons", 'basic' ),
+				'yandex'  => __( "Yandex Buttons", 'basic' ),
 			),
-    
-	
-			array( 	"name" => __("Default layout", 'basic'),
-					"desc" => __("Default layout for all pages", 'basic'),
-		            "id" => "layout_default",
-		            "std" => "rightbar",
-		            "type" => "select",
-				 	"options" => array( 'rightbar' => __("Rightbar", 'basic'), 
-									    'leftbar' => __("Leftbar", 'basic'), 
-									    'full' => __("Fullwidth Content", 'basic'),
-									    'center' => __("Centered Content", 'basic') 
-									  )
-			),
+		),
+		// SOCIAL
+		// .........................................................................
+		array(
+			"name" => "<a href='#tabstructureddata' class='tab-title structured-data' title='" . __( 'Structured Data', 'basic' ) . "'><span class='dashicons dashicons-schedule'></span><b>" . __( 'Structured Data', 'basic' ) . "</b></a>",
+			"id"   => "structureddata",
+			"type" => "section"
+		),
+		array(
+			"name" => __( "Schema.org Mark up", 'basic' ),
+			"desc" => __( "Schema.org mark up according Creative Work->Article and Comment", 'basic' ),
+			"id"   => "schema_mark",
+			"std"  => "0",
+			"type" => "checkbox",
 
-			array( 	"name" => __("Home layout", 'basic'),
-					"desc" => "",
-		            "id" => "layout_home",
-		            "std" => "rightbar",
-		            "type" => "select",
-				 	"options" => array( 'rightbar' => __("Rightbar", 'basic'), 
-									    'leftbar' => __("Leftbar", 'basic'), 
-									    'full' => __("Fullwidth Content", 'basic'),
-									    'center' => __("Centered Content", 'basic') 
-									  )
-			),
-
-			array( 	"name" => __("Post layout", 'basic'),
-					"desc" => "",
-		            "id" => "layout_post",
-		            "std" => "rightbar",
-		            "type" => "select",
-				 	"options" => array( 'rightbar' => __("Rightbar", 'basic'), 
-									    'leftbar' => __("Leftbar", 'basic'), 
-									    'full' => __("Fullwidth Content", 'basic'),
-									    'center' => __("Centered Content", 'basic') 
-									  )
-			),
-	
-
-			array( 	"name" => __("Pages layout", 'basic'),
-					"desc" => "",
-		            "id" => "layout_page",
-		            "std" => "center",
-		            "type" => "select",
-				 	"options" => array( 'rightbar' => __("Rightbar", 'basic'), 
-									    'leftbar' => __("Leftbar", 'basic'), 
-									    'full' => __("Fullwidth Content", 'basic'),
-									    'center' => __("Centered Content", 'basic') 
-									  )
-			),			     
+		),
+		array(
+			"name" => __( "Publisher logo", 'basic' ),
+			"desc" => __( "use in https://schema.org/Organization", 'basic' ),
+			"id"   => "markup_logo",
+			"std"  => get_template_directory_uri() . '/img/logo.jpg',
+			"type" => "text",
+		),
+		array(
+			"name" => __( "Adress", 'basic' ),
+			"desc" => __( "use in https://schema.org/Organization", 'basic' ),
+			"id"   => "markup_adress",
+			"std"  => "Russia",
+			"type" => "text",
+		),
+		array(
+			"name" => __( "Phone", 'basic' ),
+			"desc" => __( "use in https://schema.org/Organization", 'basic' ),
+			"id"   => "markup_telephone",
+			"std"  => "+7 (000) 000-000-00",
+			"type" => "text",
+		),
 
 
+	);
 
-			
-	// CODE
-    // .........................................................................
-	array( "name" => "<a href='#tabcode' class='tab-title code' title='". __('Additional code', 'basic') ."'><span class='dashicons dashicons-editor-code'></span><b>". __('Code', 'basic') ."</b></a>",
-		   "id" => "code",
-       	   "type" => "section"),    
-    
-	
-			array( 	"name" => __("Scripts in header", 'basic'),
-					"desc" => __("HTML code in &lt;head&gt; tag", 'basic'),
-		            "id" => "head_scripts",
-		            "std" => "<!-- header html from theme option -->",
-		            "type" => "textarea",
-			),      
-	
-			array( 	"name" => __("Scripts in site footer", 'basic'),
-					"desc" => __("HTML code before &lt;/body&gt; tag", 'basic'),
-		            "id" => "footer_scripts",
-		            "std" => "<!-- footer html from theme option -->",
-		            "type" => "textarea",
-			),    
-	
-			array( 	"name" => __("Custom styles", 'basic'),
-					"desc" => __("Add your custom CSS styles", 'basic'),
-		            "id" => "custom_styles",
-		            "std" => "",
-		            "type" => "textarea",
-			),
+	// create defaults array
+	$defaults = array();
+	foreach ( $avd_options as $val ){
+		if( is_array($val) && isset($val['std']) )
+			$defaults[ $val['id'] ] = $val['std'];
+	}
+
+	add_option( BASIC_OPTION_NAME, $defaults, '', 'yes' );
 
 
-	// SOCIAL
-    // .........................................................................
-	array( "name" => "<a href='#tabsocial' class='tab-title social' title='". __('Social buttons', 'basic') ."'><span class='dashicons dashicons-twitter'></span><b>". __('Social', 'basic') ."</b></a>",
-		   "id" => "social",
-       	   "type" => "section"),    
-    
+	return $avd_options;
 
-
-			array( 	"name" => __("Social data", 'basic'),
-					"desc" => __("Add Open Graph tags to &lt;head&gt;", 'basic'),
-		            "id" => "add_social_meta",
-		            "std" => 0,
-		            "type" => "checkbox",
-			),
-
-
-			array( 	"name" => __("Social share buttons", 'basic'),
-					"desc" => __("Select option to show or hide social share buttons after post", 'basic'),
-		            "id" => "social_share",
-		            "std" => 'hide',
-		            "type" => "select",
-		            "options" => array(
-		            		'hide' => __("Hide", 'basic'),
-		            		'custom' => __("Custom theme buttons", 'basic'),
-		            		'share42' => __("Share42 Buttons", 'basic'),
-		            		'yandex' => __("Yandex Buttons", 'basic'),
-		            	),
-			),
-
-
-
-	// SOCIAL
-    // .........................................................................
-	array( "name" => "<a href='#tabstructureddata' class='tab-title structured-data' title='". __('Structured Data', 'basic') ."'><span class='dashicons dashicons-schedule'></span><b>". __('Structured Data', 'basic') ."</b></a>",
-		   "id" => "structureddata",
-       	   "type" => "section"),    
-    
-			array( 	"name" => __("Schema.org Mark up", 'basic'),
-					"desc" => __("Schema.org mark up according Creative Work->Article and Comment", 'basic'),
-		            "id" => "schema_mark",
-		            "std" => "0",
-		            "type" => "checkbox",
-				 	
-			),	
-			
-	
-			array( 	"name" => __("Publisher logo", 'basic'),
-					"desc" => __("use in https://schema.org/Organization", 'basic'),
-		            "id" => "markup_logo",
-		            "std" => get_template_directory_uri() .'/img/logo.jpg',
-		            "type" => "text",
-			),      
-	
-			array( 	"name" => __("Adress", 'basic'),
-					"desc" => __("use in https://schema.org/Organization", 'basic'),
-		            "id" => "markup_adress",
-		            "std" => "Russia",
-		            "type" => "text",
-			),      
-	
-			array( 	"name" => __("Phone", 'basic'),
-					"desc" => __("use in https://schema.org/Organization", 'basic'),
-		            "id" => "markup_telephone",
-		            "std" => "+7 (000) 000-000-00",
-		            "type" => "text",
-			), 
-
-
-);
+}
 /* ============================================================================= */
 
 
@@ -203,27 +220,28 @@ $avd_options = array (
 /* =============================================================================
  * load settings in admin console only
  * ============================================================================= */
-if ( is_admin() ) :
+//if ( is_admin() ) :
 
-// create defaults array
-$defaults = array();
-foreach ( $avd_options as $val ){
-	if( is_array($val) && isset($val['std']) )
-	$defaults[ $val['id'] ] = $val['std'];
-}
+//// create defaults array
+//$defaults = array();
+//foreach ( $avd_options as $val ){
+//	if( is_array($val) && isset($val['std']) )
+//	$defaults[ $val['id'] ] = $val['std'];
+//}
 
 // create option in database
-add_option( $optionname, $defaults, '', 'yes' );
+//	add_option( $optionname, $defaults, '', 'yes' );
 
 
 /* -----------------------------------------------------------------------------
  * register options and callback function
  * ----------------------------------------------------------------------------- */
 function basic_register_settings() {
-	global $avd_options, $themename, $optionname;
+
+	$avd_options = basic_get_options_list();
 
 	// options register
-    register_setting( $optionname, $optionname); //, 'basic_validate_options' );
+    register_setting( BASIC_OPTION_NAME, BASIC_OPTION_NAME ); //, 'basic_validate_options' );
 
 	$current_section = '';
 	foreach ($avd_options as $opt) {
@@ -294,28 +312,27 @@ add_action( 'admin_init', 'basic_register_settings' );
  * display all options
  * ----------------------------------------------------------------------------- */
 function basic_display_setting($args) {
-	global $optionname;
     extract( $args );
 
-    $options = get_option( $optionname );
+    $options = get_option( BASIC_OPTION_NAME );
 
     switch ( $type ) {
 
 		case 'text':
 			$options[$id] = ( isset($options[$id]) ) ? esc_attr(stripslashes($options[$id])) : $std;
-			echo "<input class='regular-text $class' type='text' id='$id' name='" . $optionname . "[$id]' value='$options[$id]' />";
+			echo "<input class='regular-text $class' type='text' id='$id' name='" . BASIC_OPTION_NAME . "[$id]' value='$options[$id]' />";
 			echo ($desc != '') ? "<br /><span class='description'>$desc</span>" : "";
 			break;
 
 		case 'textarea':
 			$options[$id] = ( isset($options[$id]) ) ? esc_attr(stripslashes($options[$id])) : $std;
-			echo "<textarea class='regular-text $class' type='textarea' id='$id' name='" . $optionname . "[$id]' cols='40' rows='5' >" . $options[$id] . "</textarea>";
+			echo "<textarea class='regular-text $class' type='textarea' id='$id' name='" . BASIC_OPTION_NAME . "[$id]' cols='40' rows='5' >" . $options[$id] . "</textarea>";
 			echo ($desc != '') ? "<br /><span class='description'>$desc</span>" : "";
 			break;
 
         case 'select':
 			$options[$id] = ( isset($options[$id]) ) ? esc_attr(stripslashes($options[$id])) : $std;
-			echo "<select name='" . $optionname . "[$id]' class='$class' id='$id' />";
+			echo "<select name='" . BASIC_OPTION_NAME . "[$id]' class='$class' id='$id' />";
 			foreach ( $options_list as $val => $title ) {
 				$sel = ( $val == $options[$id] ) ? " selected='selected'" : "";
 				echo "<option$sel value=\"$val\">$title</option>";
@@ -326,7 +343,7 @@ function basic_display_setting($args) {
 
 		case 'multiple_select':
 			$options[$id] = ( isset($options[$id]) ) ? $options[$id] : $std;
-			echo "<select multiple name='" . $optionname . "[$id][]' class='$class' id='$id' />";
+			echo "<select multiple name='" . BASIC_OPTION_NAME . "[$id][]' class='$class' id='$id' />";
 			foreach ( $options_list as $val => $title ) {
 				$sel = ( in_array($val, $options[$id]) ) ? " selected='selected'" : "";
 				echo "<option$sel value=\"$val\">$title</option>";
@@ -338,7 +355,7 @@ function basic_display_setting($args) {
 		case 'checkbox':
 			$options[$id] = ( isset($options[$id]) ) ? esc_attr(stripslashes($options[$id])) : $std;
 			$checked = ( $options[$id] ) ? "checked='checked'" : "";
-			echo "<label for='$id'><input type='checkbox' name='". $optionname ."[$id]' id='$id' value='true' $checked class='$class' /> $desc</label>";
+			echo "<label for='$id'><input type='checkbox' name='". BASIC_OPTION_NAME ."[$id]' id='$id' value='true' $checked class='$class' /> $desc</label>";
 			break;
 
 		case 'check_select':
@@ -347,7 +364,7 @@ function basic_display_setting($args) {
 			$cnt = 1;
 			foreach ( $options_list as $val => $title ) {
 				$checked = ( in_array($val, $options[$id]) ) ? "checked='checked'" : "";
-				echo "<label for='". $optionname ."[$id]-$cnt' ><input type='checkbox' name='". $optionname ."[$id][]' value='$val' id='". $optionname ."[$id]-$cnt' $checked class='$class' />$title</label>";
+				echo "<label for='". BASIC_OPTION_NAME ."[$id]-$cnt' ><input type='checkbox' name='". BASIC_OPTION_NAME ."[$id][]' value='$val' id='". BASIC_OPTION_NAME ."[$id]-$cnt' $checked class='$class' />$title</label>";
 				$cnt++;
 			}
 			echo "</div>";
@@ -360,7 +377,7 @@ function basic_display_setting($args) {
 			$cnt = 1;
 			foreach ( $options_list as $val => $title ) {
 				$checked = ( $val == $options[$id] ) ? "checked='checked'" : "";
-				echo "<label for='". $optionname ."[$id]-$cnt' ><input type='radio' name='". $optionname ."[$id]' value='$val' id='". $optionname ."[$id]-$cnt' $checked class='$class' />$title</label>";
+				echo "<label for='". BASIC_OPTION_NAME ."[$id]-$cnt' ><input type='radio' name='". BASIC_OPTION_NAME ."[$id]' value='$val' id='". BASIC_OPTION_NAME ."[$id]-$cnt' $checked class='$class' />$title</label>";
 				$cnt++;
 			}
 			echo "</div>";
@@ -370,7 +387,7 @@ function basic_display_setting($args) {
 		case 'color':
 			$options[$id] = ( isset($options[$id]) ) ? esc_attr(stripslashes($options[$id])) : $std;
 			echo "<div class=\"farb-popup-wrapper\">";
-			echo "<input class='$class popup-colorpicker' type='text' id='$id' name='" . $optionname . "[$id]' value='$options[$id]' />";
+			echo "<input class='$class popup-colorpicker' type='text' id='$id' name='" . BASIC_OPTION_NAME . "[$id]' value='$options[$id]' />";
 			echo "<div id='".$id."picker' class='color-picker'></div>";
 			echo ($desc != '') ? "<br /><span class='description'>$desc</span></div>" : "</div>";
 			break;
@@ -398,17 +415,19 @@ function basic_display_section($section){
  * add options page in console
  * ----------------------------------------------------------------------------- */
 function basic_options_menu() {
-	global $themename;
 
 	$hook_suffix = add_theme_page( __("Theme options", 'basic'), __("Theme options", 'basic'),
 		'manage_options', 'basic_options_page', 'basic_options_func'
 	);
     add_action( "admin_print_scripts-$hook_suffix", 'basic_admin_print_scripts' );
-    add_action( "admin_footer-$hook_suffix",
-    	function(){ echo '<script>jQuery(document).ready(function(){ postboxes.add_postbox_toggles(pagenow); });</script>'; }
-    );
+    add_action( "admin_footer-$hook_suffix", 'basic_admin_print_postboxes' );
 }
 add_action( 'admin_menu', 'basic_options_menu' );
+
+function basic_admin_print_postboxes(){
+	echo '<script>jQuery(document).ready(function(){ postboxes.add_postbox_toggles(pagenow); });</script>';
+}
+
 /* ----------------------------------------------------------------------------- */
 
 
@@ -435,28 +454,27 @@ function basic_admin_print_scripts(){
  * create option page
  * ----------------------------------------------------------------------------- */
 function basic_options_func() {
-	global $avd_options, $themename, $optionname;
 
-	/* This checks whether the form has just been submitted */
-	if ( ! isset( $_REQUEST['settings-updated'] ) )
-		$_REQUEST['settings-updated'] = false;
-
-	$opt = get_option($optionname);
+//	$opt = get_option( BASIC_OPTION_NAME );
 ?>
 
 <div id="themeoptions" class="wrap" style="width:98%;">
 	<h2><?php _e("Theme options", 'basic') ?></h2>
 
-<?php /* If the form has just been submitted, this shows the notification */
-	if ( false !== $_REQUEST['settings-updated'] ) :
+	<?php
+	if ( isset( $_REQUEST['settings-updated'] ) && false !== $_REQUEST['settings-updated'] ) :
 		echo '<div class="updated fade"><p><strong>'. __( 'Options saved', 'basic' ) .'</strong></p></div>';
-	endif; ?>
+	endif;
+	?>
 
 	<form method="post" action="options.php">
 
-<?php	settings_fields( $optionname );
-		do_settings_sections('basic_options_page');
-		submit_button(); 	?>
+	<?php
+		settings_fields( BASIC_OPTION_NAME );
+		do_settings_sections( 'basic_options_page' );
+		submit_button();
+	?>
+
 	</form>
 </div>
 <?php
@@ -470,7 +488,7 @@ function basic_options_func() {
  * validate option values
  * ----------------------------------------------------------------------------- */
 function basic_validate_options( $input ) {
-	global $avd_options;
+//	global $avd_options;
 
 	/*foreach ($input as $key => $val) {
 		$newinput[$key] = trim($val);
@@ -531,5 +549,5 @@ function basic_validate_options( $input ) {
 
 
 /* ============================================================================= */
-endif;
+//endif;
 

@@ -4,7 +4,7 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.0.4
+ * Version: 1.0.5
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -228,6 +228,23 @@ input[type=button]:hover,
 .menu .current-menu-item > span:hover { color: #fff; }
 .menu .sub-menu { margin: 0; }
 
+/* custom menu */
+.widget_nav_menu .menu {
+	width: 100%;
+}
+.widget_nav_menu li:before {
+	display: none;
+}
+.widget_nav_menu li {
+	display: block;
+	text-align: left;
+	padding: 0;
+	border-bottom: 1px solid rgba(255,255,255,0.2)
+}
+body.custom-background .widget_nav_menu .menu {
+	padding: 0
+}
+
 /* ============================================================================ */
 
 
@@ -244,10 +261,16 @@ input[type=button]:hover,
 .entry li { padding-top: 5px; }
 .entry ul li { padding-left: 20px; position: relative; } 
 .entry ul li:before, .ftrwidget ul li:before { 
+	/*content: '»';*/
+	/*position: absolute;*/
+	/*top: 7px; left: 0;*/
+	/*line-height: 100%;*/
 	content: '»';
-	position: absolute;
-	top: 7px; left: 0;
+	position: relative;
+	top: -3px;
+	left: 0;
 	line-height: 100%;
+	margin: 0 10px 0 -20px;
 }
 
 .comment-body ol, .comment-body ul { margin: 0.2em 0 0.5em 40px }
@@ -298,7 +321,7 @@ input[type=button]:hover,
 /* __________ archive __________ */
 .inform { margin-bottom: 2em; border-bottom: 1px dotted #e2e2e2; }
 .inform h1 { padding-bottom: 1em; }
-.inform p { padding: 0 0 2em 4em; }
+.inform .archive-desc { padding: 0 0 2em 4em; }
 
 /* __________ socialshare __________ */
 .social_share { margin: 30px 0 0; padding: 30px 0 0; border-top: 1px solid #DDD; }
@@ -379,7 +402,8 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
 .widget ul li:before { content: '»'; position: absolute; top: 7px; left: 0; line-height: 100%; }
 .widget .children { margin-left: 20px; }
 .widget_calendar td, .widget_calendar th {padding: 10px}
-
+.widget a {	text-decoration: none; }
+.widget a:hover {	text-decoration: underline; }
 
 
 /* ============================================================================

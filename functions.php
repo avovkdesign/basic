@@ -1,5 +1,7 @@
 <?php
 
+define( 'BASIC_TEMPL_URI', get_template_directory_uri() );
+define( 'BASIC_TEMPL_PATH', get_template_directory() );
 
 
 /* ==========================================================================
@@ -20,9 +22,9 @@ function basic_setup() {
 	
 	add_theme_support( 'custom-background', apply_filters( 'basic_custom_background_args', array('default-color' => 'ffffff') ) );
 	add_theme_support( 'custom-header', array(
-		'flex-width'    => true,
-		'width'         => 1080,
-		'height'        => 300,
+		//'flex-width'    => true,
+		'width'         => 1160,
+		'height'        => 150,
 	) );
 	
 	register_nav_menus( array(
@@ -43,10 +45,8 @@ add_action( 'after_setup_theme', 'basic_setup' );
 if ( ! function_exists( 'basic_enqueue_style_and_script' ) ) :
 function basic_enqueue_style_and_script() {
 	
-	global $opt, $post, $wp_query;
+	global $post, $wp_query;
 
-	$template_dir = get_template_directory_uri();
-	
 	// STYLES
 	wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,400italic,700,700italic&amp;subset=latin,cyrillic', array(), true );
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), true);
@@ -56,13 +56,13 @@ function basic_enqueue_style_and_script() {
 	wp_register_script( 'jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, true);
 	wp_enqueue_script( 'jquery' );
 
-	wp_enqueue_script( 'scripts', $template_dir . '/js/functions.js', array('jquery'), true, true );
+	wp_enqueue_script( 'scripts', BASIC_TEMPL_URI . '/js/functions.js', array('jquery'), true, true );
 
 	if ( is_singular() ) {
 		$socbtns = get_avd_option('social_share');
 
 		if ( 'share42' == $socbtns )
-			wp_enqueue_script( 'share42', $template_dir . '/js/share42.js', array('jquery'), true, true );
+			wp_enqueue_script( 'share42', BASIC_TEMPL_URI . '/js/share42.js', array('jquery'), true, true );
 
 		if ( 'yandex' == $socbtns ) {
 			wp_enqueue_script( 'yandex-share', '//yastatic.net/share2/share.js', array(), true, true );
@@ -71,7 +71,6 @@ function basic_enqueue_style_and_script() {
 		if ( comments_open() && get_option('thread_comments') ) {
 			wp_enqueue_script( 'comment-reply', false, true, true );
 		}
-
 	}
 
 }
@@ -261,7 +260,7 @@ function the_markup_schemaorg(){
 	$adress = ( $markup && get_avd_option('markup_adress') ) ? get_avd_option('markup_adress') : 'Russia';
 	$phone  = ( $markup && get_avd_option('markup_telephone') ) ? get_avd_option('markup_telephone') : '+7 (000) 000-000-00';
 	$img_attr = ( has_post_thumbnail($post->ID) ) 
-				? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ) 
+				? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' )
 				: array( get_template_directory_uri() .'/img/default.jpg', 80, 80 );
 
 	?><!-- Schema.org Article markup -->
@@ -304,24 +303,24 @@ function the_markup_schemaorg(){
  * ========================================================================== */
 
 // layout functions and filters
-	require_once ( get_stylesheet_directory() . '/inc/layout.php' );
+	require_once ( BASIC_TEMPL_PATH . '/inc/layout.php' );
 
 // hooks
-	require_once ( get_stylesheet_directory() . '/inc/hooks.php' );
+	require_once ( BASIC_TEMPL_PATH . '/inc/hooks.php' );
 
 // custom content functions library
-	require_once ( get_stylesheet_directory() . '/inc/functions.php' );
+	require_once ( BASIC_TEMPL_PATH . '/inc/functions.php' );
 
 // admin page options
-	require_once ( get_stylesheet_directory() . '/inc/admin/options.php' );
+	require_once ( BASIC_TEMPL_PATH . '/inc/admin/options.php' );
 
 // theme customizer
-require_once ( get_stylesheet_directory() . '/inc/admin/theme-customizer.php' );
+	require_once ( BASIC_TEMPL_PATH . '/inc/admin/theme-customizer.php' );
 
 
 if ( is_admin() ) :
 
 	// meta-box for layout control
-	require_once ( get_stylesheet_directory() . '/inc/admin/meta-boxes.php' );
+	require_once ( BASIC_TEMPL_PATH . '/inc/admin/meta-boxes.php' );
 
 endif;
