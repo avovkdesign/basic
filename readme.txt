@@ -27,8 +27,22 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 == Changelog ==
 
-= 1.0.5 =
+= 1.1.0 =
 
+* Добавлены следующие экшены для использования в дочерних темах или в плагинах:
+ * `basic_before_header`
+ * `basic_after_sitelogo`
+ * `basic_before_topnav`
+ * `basic_after_topnav`
+ * `basic_after_header`
+ * `basic_before_content`
+ * `basic_after_content`
+ * `basic_before_footer`
+ * `basic_before_footer_menu`
+ * `basic_before_footer_copyrights`
+ * `basic_after_footer_copyrights`
+* Добавлен фильтр `basic_singular_content` (принимает один аргумент $content), для возможности изменения текста статьи, добавления своего кода и пр. в дочерних темах или в плагинах
+* Добавлены опции для кода html до и после статьи
 * Добавлен вывод описания для первой страницы архива метки и автора
 * В микроразметке статьи подключается ссылка на полную картнку (Google требует фото от 600 пикс.)
 * Исправлены стили маркеров списка (перекрывались с картинками)

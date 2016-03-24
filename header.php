@@ -14,6 +14,8 @@
 <body <?php body_class(); ?>>
 <div class="wrapper cleafix">
 
+<?php do_action( 'basic_before_header' ); ?>
+
 <!-- BEGIN header -->
 <header id="header">
 	<div class="sitetitle maxwidth grid">	
@@ -26,9 +28,13 @@
 			<?php endif; ?>
 			<p class="sitedescription"><?php bloginfo('description'); ?></p>
 
+			<?php do_action( 'basic_after_sitelogo' ); ?>
+
 		</div>		
 	</div>
-	
+
+	<?php do_action( 'basic_before_topnav' ); ?>
+
 	<div class="topnav grid">
 		<div id="mobile-menu" class="mm-active"><?php _e( 'Menu', 'basic' ); ?></div>
 		<nav>
@@ -51,9 +57,13 @@
 			<?php endif; ?>
 		</nav>				
 	</div>
-	
+
+	<?php do_action( 'basic_after_topnav' ); ?>
+
 </header>
-<!-- END header -->	
+<!-- END header -->
+
+<?php do_action( 'basic_after_header' ); ?>
 
 
 <div id="main" class="maxwidth clearfix">

@@ -109,14 +109,33 @@ function basic_social_share_buttons( $content ) {
 	}
 	$soc_html .= "</div>";
 
+
 	return $content . $link_pages . $soc_html;
 
 }
-add_action( 'the_content', 'basic_social_share_buttons' );
+add_action( 'the_content', 'basic_social_share_buttons', 20 );
 /* ========================================================================== */
 
 
+/* ==========================================================================
+ * add social button to the_content
+ * ========================================================================== */
+function basic_content_change( $content ) {
 
+	$before_content = get_avd_option('before_content');
+	$after_content = get_avd_option('after_content');
+
+	if ( !is_singular() ) {
+		return $content;
+	}
+
+	$filtered_content = apply_filters( 'basic_singular_content', $content );
+
+	return $before_content . $filtered_content . $after_content;
+
+}
+add_action( 'the_content', 'basic_content_change', 10 );
+/* ========================================================================== */
 
 
 /* ==========================================================================

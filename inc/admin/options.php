@@ -133,6 +133,20 @@ function basic_get_options_list() {
 			"std"  => "",
 			"type" => "textarea",
 		),
+		array(
+			"name" => __( "Before content", 'basic' ),
+			"desc" => __( "Code before single post content", 'basic' ),
+			"id"   => "before_content",
+			"std"  => "<!-- ". __( "code before single post content", "basic" ) ." -->",
+			"type" => "textarea",
+		),
+		array(
+			"name" => __( "After content", 'basic' ),
+			"desc" => __( "Code after single post content", 'basic' ),
+			"id"   => "after_content",
+			"std"  => "<!-- ". __( "code after single post content", "basic" ) ." -->",
+			"type" => "textarea",
+		),
 		// SOCIAL
 		// .........................................................................
 		array(
