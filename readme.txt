@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 3.5
 Tested up to: WordPress 4.4.2
-Version: 1.0.5
+Version: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
