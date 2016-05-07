@@ -6,7 +6,7 @@
 if ( ! function_exists( '_wp_render_title_tag' ) ) {
 function basic_render_title() {
 
-    echo '<title>'. wp_title( '|', false, 'right' ) .'</title>';
+    echo '<title>'. wp_title() .'</title>';
 
 }
 add_action( 'wp_head', 'basic_render_title' );
