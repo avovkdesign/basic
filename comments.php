@@ -47,7 +47,6 @@ if ( post_password_required() )
 	$args = array(
 	    'fields' => apply_filters( 'comment_form_default_fields', $fields ),
 	    'comment_field' => '<p class="rcomment"><textarea id="comment" name="comment" cols="45" rows="8" placeholder="'. __('Message','basic') .'" aria-required="true"></textarea></p>',
-	    'comment_notes_after' => ''
 	);
 
 	comment_form( $args ); ?>

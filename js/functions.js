@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 // responsive menu 
 	var nav = $('#header nav');
 	var pull = $('#mobile-menu');
-	if ( $(window).width() < 765) {
+	if ( $(window).width() < 1025) {
 		nav.hide();
 		pull.removeClass('mm-active');
 	}
@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 	$(window).resize(function(){  
-		if ( $(window).width() > 765 ) { 
+		if ( $(window).width() > 1025 ) { 
 			pull.hide();
 			nav.show();  
 		} else {

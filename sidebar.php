@@ -1,9 +1,14 @@
 <?php 
 
-if ( !in_array(basic_get_layout(), array('full','center')) ) : ?>
+if ( !in_array(basic_get_layout(), array('full','center')) ) : 
+
+	$mobile_sidebar = '';
+	if ( get_avd_option('show_sidebar') ){
+		$mobile_sidebar = ' class="block"';
+ 	} ?>
 
 	<!-- BEGIN #sidebar -->
-	<aside id="sidebar">
+	<aside id="sidebar"<?php echo $mobile_sidebar; ?>>
 		<ul id="widgetlist">
 
         <?php if ( is_active_sidebar( 'sidebar' ) ) :

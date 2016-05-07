@@ -4,7 +4,7 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.1.0
+ * Version: 1.1.1
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -36,6 +36,7 @@ body { width: 100%; min-width: 280px; }
 #main { padding: 60px 0; margin: 0 auto; position: relative; }
 #content { width: 100%; float: none; }
 #sidebar { display: none; }
+#sidebar.block{ display: block;}
 #footer { width: 100%; padding: 20px 0; margin: 0; background: #936; }
 .maxwidth { margin: 0 auto; position: relative; width: 89.6551724137931%; max-width: 1080px; }
 body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1160px; }
@@ -208,42 +209,25 @@ input[type=button]:hover,
 
 /* header navigation */
 .topnav { background: #FFF; }
-.menu { background: #936; position: absolute; z-index: 1000; width: 90%; }
-.menu li { padding: 0; display: block; }
-.menu li a, .menu li span { display: block; padding: 15px 20px; color: #fff; line-height: 20px; 
+.top-menu { background: #936; position: absolute; z-index: 1000; width: 90%; }
+.top-menu li { padding: 0; display: block; }
+.top-menu li a, .top-menu li span { display: block; padding: 15px 20px; color: #fff; line-height: 20px; 
 	font-weight: 500; text-decoration: none; position: relative; cursor: pointer; }
-.menu li a:hover,
-.menu li span:hover,
-.menu li .sub-menu > li:hover > a, 
-.menu li .sub-menu > li:hover > span:hover  { 
+.top-menu li a:hover,
+.top-menu li span:hover,
+.top-menu li .sub-menu > li:hover > a, 
+.top-menu li .sub-menu > li:hover > span:hover  { 
 	background-color: rgba(255,255,255,0.2);
 }
-.menu .current_page_item > a,
-.menu .current_page_item > span,
-.menu .current-menu-item > a,
-.menu .current-menu-item > span {
+.top-menu .current_page_item > a,
+.top-menu .current_page_item > span,
+.top-menu .current-menu-item > a,
+.top-menu .current-menu-item > span {
 	background-color: rgba(0, 0, 0, 0.22)
 }
-.menu .current-menu-item > a:hover,
-.menu .current-menu-item > span:hover { color: #fff; }
-.menu .sub-menu { margin: 0; }
-
-/* custom menu */
-.widget_nav_menu .menu {
-	width: 100%;
-}
-.widget_nav_menu li:before {
-	display: none;
-}
-.widget_nav_menu li {
-	display: block;
-	text-align: left;
-	padding: 0;
-	border-bottom: 1px solid rgba(255,255,255,0.2)
-}
-body.custom-background .widget_nav_menu .menu {
-	padding: 0
-}
+.top-menu .current-menu-item > a:hover,
+.top-menu .current-menu-item > span:hover { color: #fff; }
+.top-menu .sub-menu { margin: 0; }
 
 /* ============================================================================ */
 
@@ -395,6 +379,7 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
  *		SIDEBAR
  * ============================================================================ */
 #widgetlist { margin: 0; padding: 0; list-style: none; }
+#widgetlist > li:last-child { margin-bottom: 0; }
 .widget, .categories, #widgetlist > li { margin-bottom: 60px; padding: 0; }
 .wtitle { padding: 0 0 5px 0; margin-bottom: 15px; border-bottom: 2px solid #555; color: #555; font-size: 20px; text-align: center; text-transform: uppercase; }
 .widget ul { margin: 0; }
@@ -443,7 +428,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 
 #copy { text-align: center; font-size: 12px; }
 #designedby { text-align: center; opacity: 0.8; }
-#designedby, #designedby a { font: normal 10px/120% Tahoma, Verdana, Segoe, sans-serif; color: #fff; }
+#designedby, #designedby a { font-size: 12px; }
 #toTop { position: fixed; z-index: 1000; bottom: 20px; right: 20px; margin: 0; padding: 14px 12px; display: none; cursor: pointer; 
 	background: #222; color: #fff !important; border-radius: 3px; transform: rotate(-90deg); font-size: 24px; text-align: center; }
 #toTop:hover { background: #999; text-decoration: none !important; border-radius: 3px; }
@@ -459,26 +444,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 
 	#logo { text-align: left; }
 	#header .searchform { display: block; float: right; margin: 35px 0 0; }
-	#mobile-menu { display: none; }
-	
 	.sitedescription {text-align: left;}
-	.topnav {background: transparent;}
-	.menu { position: static; text-align: center; }
-	.menu li { display: inline-block; position: relative; }
-	.menu li a { border-bottom: 0; font-weight: normal; color: #fff; -webkit-transition: background 0.3s; transition: background 0.3s; }
-	.menu > li:hover > a { background: rgba(255,255,255,0.3);  }
-	.menu .sub-menu, .menu .children { display: none; margin: 0; position: absolute; top: 100%; left: 0; background: #936; width: 300px; z-index: 1000;  box-shadow: 3px 3px 0 rgba(0,0,0,0.1); }
-	.menu .sub-menu li, .menu .children li { display: block; text-align: left;}
-	.menu .sub-menu li a, .menu .children li a { color: #fff; border-top: 1px solid rgba(255,255,255,0.2); }
-	.menu li:hover > .sub-menu,
-	.menu li:hover > .children { display: block; }
-	.menu .sub-menu .sub-menu,
-	.menu .children .children { display: none; top: 0; left: 100%; padding: 0; border-top: 0; border-left: 3px solid #fff; }
-	.menu .sub-menu li:hover > .sub-menu,
-	.menu .children li:hover > .children { display: block; }
-	.menu-item-has-children > a:after, .menu-item-has-children > span:after { content: '»'; float: right; margin: 1px 0 0 15px; transform: rotate(90deg); }
-	.sub-menu > .menu-item-has-children > a:after, .sub-menu > .menu-item-has-children > span:after, .children > .menu-item-has-children > a:after,
-	.children > .menu-item-has-children > span:after { content: '»'; float: right; margin: 0; transform: none; }
 
 	.anons-thumbnail { display: block; }
 
@@ -503,12 +469,34 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	body.custom-background .wrapper {margin: 40px auto;}
 	body.custom-background .wrapper {border-radius:10px;}
 	body.custom-background #footer {border-radius: 0 0 10px 10px;}
+	
+	#mobile-menu { display: none; }
+	.topnav {background: transparent;}
+	.top-menu { position: static; text-align: center; }
+	.top-menu li { display: inline-block; position: relative; }
+	.top-menu li a { border-bottom: 0; font-weight: normal; color: #fff; -webkit-transition: background 0.3s; transition: background 0.3s; }
+	.top-menu > li:hover > a { background: rgba(255,255,255,0.3);  }
+	.top-menu .sub-menu, .top-menu .children { display: none; margin: 0; position: absolute; top: 100%; left: 0; background: #936; width: 300px; z-index: 1000;  box-shadow: 3px 3px 0 rgba(0,0,0,0.1); }
+	.top-menu .sub-menu li, .top-menu .children li { display: block; text-align: left;}
+	.top-menu .sub-menu li a, .top-menu .children li a { color: #fff; border-top: 1px solid rgba(255,255,255,0.2); }
+	.top-menu li:hover > .sub-menu,
+	.top-menu li:hover > .children { display: block; }
+	.top-menu .sub-menu .sub-menu,
+	.top-menu .children .children { display: none; top: 0; left: 100%; padding: 0; border-top: 0; border-left: 3px solid #fff; }
+	.top-menu .sub-menu li:hover > .sub-menu,
+	.top-menu .children li:hover > .children { display: block; }
+	.top-menu .menu-item-has-children > a:after, .top-menu  .menu-item-has-children > span:after { content: '»'; float: right; margin: 1px 0 0 15px; transform: rotate(90deg); }
+	.top-menu .sub-menu > .menu-item-has-children > a:after, .top-menu  .sub-menu > .menu-item-has-children > span:after, 
+	.top-menu  .children > .menu-item-has-children > a:after, .top-menu  .children > .menu-item-has-children > span:after { 
+		content: '»'; float: right; margin: 0; transform: none; 
+	}
+	
 }
 
 /* ___ Desktop ( > 1200px ) ------------------------------------------------ */
 @media only screen and (min-width: 1280px) {
 	body.custom-background #header {border-radius: 10px 10px 0 0;}
-	.menu { border-radius: 5px; }
+	.top-menu { border-radius: 5px; }
 	#navpages li { padding-left: 10px; }
 	#navpages .sub-menu { margin-left: 10px; }
 	#navpages .sub-menu .sub-menu { left: 190px; }

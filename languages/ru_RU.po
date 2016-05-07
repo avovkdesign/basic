@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Theme Basic\n"
-"POT-Creation-Date: 2016-03-01 00:54+0200\n"
-"PO-Revision-Date: 2016-03-01 09:11+0200\n"
+"POT-Creation-Date: 2016-05-08 01:07+0200\n"
+"PO-Revision-Date: 2016-05-08 01:07+0200\n"
 "Last-Translator: Alexandra Vovk <avovkdesign@gmail.com>\n"
 "Language-Team: WP Puzzle <wppuzzle@gmail.com>\n"
 "Language: ru_RU\n"
@@ -18,35 +18,35 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: js\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: archive.php:8
+#: archive.php:14
 msgid "Category"
 msgstr "Рубрики"
 
-#: archive.php:10
+#: archive.php:17
 msgid "Tag"
 msgstr "Записи с меткой"
 
-#: archive.php:11
+#: archive.php:20
 msgid "Day archives:"
 msgstr "Архивы за день"
 
-#: archive.php:12
+#: archive.php:22
 msgid "Monthly archives:"
 msgstr "Архивы за месяц"
 
-#: archive.php:13
+#: archive.php:24
 msgid "Year archives:"
 msgstr "Архивы за год"
 
-#: archive.php:14
+#: archive.php:26
 msgid "Author archives"
 msgstr "Архивы автора"
 
-#: archive.php:15
+#: archive.php:29
 msgid "Archive"
 msgstr "Архивы блога"
 
-#: archive.php:30 index.php:16
+#: archive.php:44 index.php:16
 msgid "Posts not found"
 msgstr "Записей не найдено"
 
@@ -82,52 +82,52 @@ msgstr "Сообщение"
 msgid "Read more"
 msgstr "Читать далее"
 
-#: footer.php:22
+#: footer.php:29
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: footer.php:24
+#: footer.php:31
 msgid "Theme by"
 msgstr "Шаблон от"
 
-#: footer.php:25
+#: footer.php:32
 msgid "WP Puzzle"
 msgstr "WP Puzzle"
 
-#: functions.php:29
+#: functions.php:31
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: functions.php:30
+#: functions.php:32
 msgid "Footer Menu"
 msgstr "Меню в подвале"
 
-#: functions.php:100
+#: functions.php:99 inc/admin/options.php:57
 msgid "Sidebar"
 msgstr "Боковая колонка"
 
-#: functions.php:102
+#: functions.php:101
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Добавьте сюда виджеты, чтобы вывести их в боковой колонке"
 
-#: functions.php:170 functions.php:220
+#: functions.php:169 functions.php:219
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s в %2$s"
 
-#: functions.php:173 functions.php:223
+#: functions.php:172 functions.php:222
 msgid "Edit"
 msgstr "Редактировать"
 
-#: functions.php:177 functions.php:227
+#: functions.php:176 functions.php:226
 msgid "Your comment is awaiting moderation."
 msgstr "Ваш комментарий ожидает модерации."
 
-#: header.php:33
+#: header.php:39
 msgid "Menu"
 msgstr "Меню"
 
-#: header.php:45 header.php:47
+#: header.php:51 header.php:53
 msgid "Home"
 msgstr "Главная"
 
@@ -139,169 +139,189 @@ msgstr "Выберите структуру"
 msgid "Default"
 msgstr "По-умолчанию"
 
-#: inc/admin/meta-boxes.php:32 inc/admin/options.php:54
-#: inc/admin/options.php:66 inc/admin/options.php:78 inc/admin/options.php:91
+#: inc/admin/meta-boxes.php:32 inc/admin/options.php:70
+#: inc/admin/options.php:83 inc/admin/options.php:96 inc/admin/options.php:109
 msgid "Rightbar"
 msgstr "Правая колонка"
 
-#: inc/admin/meta-boxes.php:37 inc/admin/options.php:55
-#: inc/admin/options.php:67 inc/admin/options.php:79 inc/admin/options.php:92
+#: inc/admin/meta-boxes.php:37 inc/admin/options.php:71
+#: inc/admin/options.php:84 inc/admin/options.php:97 inc/admin/options.php:110
 msgid "Leftbar"
 msgstr "Левая колонка"
 
-#: inc/admin/meta-boxes.php:42 inc/admin/options.php:56
-#: inc/admin/options.php:68 inc/admin/options.php:80 inc/admin/options.php:93
+#: inc/admin/meta-boxes.php:42 inc/admin/options.php:72
+#: inc/admin/options.php:85 inc/admin/options.php:98 inc/admin/options.php:111
 msgid "Fullwidth Content"
 msgstr "На всю ширину"
 
-#: inc/admin/meta-boxes.php:47 inc/admin/options.php:57
-#: inc/admin/options.php:69 inc/admin/options.php:81 inc/admin/options.php:94
+#: inc/admin/meta-boxes.php:47 inc/admin/options.php:73
+#: inc/admin/options.php:86 inc/admin/options.php:99 inc/admin/options.php:112
 msgid "Centered Content"
 msgstr "По центру"
 
-#: inc/admin/options.php:37
+#: inc/admin/options.php:45
 msgid "General theme options"
 msgstr "Общие настройки"
 
-#: inc/admin/options.php:37
+#: inc/admin/options.php:45
 msgid "General"
 msgstr "Общие"
 
-#: inc/admin/options.php:41
+#: inc/admin/options.php:50
 msgid "Main color"
 msgstr "Основной цвет"
 
-#: inc/admin/options.php:42
+#: inc/admin/options.php:51
 msgid "Choose main color"
 msgstr "Выберите основной цвет"
 
-#: inc/admin/options.php:49
+#: inc/admin/options.php:58
+msgid "Show sidebar on mobile"
+msgstr "Показать сайдбар на мобильных"
+
+#: inc/admin/options.php:64
 msgid "Default layout"
 msgstr "Структура по-умолчанию"
 
-#: inc/admin/options.php:50
+#: inc/admin/options.php:65
 msgid "Default layout for all pages"
 msgstr "Структура по-умолчанию для страниц"
 
-#: inc/admin/options.php:61
+#: inc/admin/options.php:77
 msgid "Home layout"
 msgstr "Структура главной странцы"
 
-#: inc/admin/options.php:73
+#: inc/admin/options.php:90
 msgid "Post layout"
 msgstr "Структура записей"
 
-#: inc/admin/options.php:86
+#: inc/admin/options.php:103
 msgid "Pages layout"
 msgstr "Структура страниц"
 
-#: inc/admin/options.php:103
+#: inc/admin/options.php:118
 msgid "Additional code"
 msgstr "Дополнительный код"
 
-#: inc/admin/options.php:103
+#: inc/admin/options.php:118
 msgid "Code"
 msgstr "Код"
 
-#: inc/admin/options.php:108
+#: inc/admin/options.php:123
 msgid "Scripts in header"
 msgstr "Скрипты в хедере"
 
-#: inc/admin/options.php:109
+#: inc/admin/options.php:124
 msgid "HTML code in &lt;head&gt; tag"
 msgstr "HTML код  в &lt;head&gt;"
 
-#: inc/admin/options.php:115
+#: inc/admin/options.php:130
 msgid "Scripts in site footer"
 msgstr "Скрипты в подвале сайта"
 
-#: inc/admin/options.php:116
+#: inc/admin/options.php:131
 msgid "HTML code before &lt;/body&gt; tag"
 msgstr "HTML код перед &lt;/body&gt; "
 
-#: inc/admin/options.php:122
+#: inc/admin/options.php:137
 msgid "Custom styles"
 msgstr "Пользовательские стили"
 
-#: inc/admin/options.php:123
+#: inc/admin/options.php:138
 msgid "Add your custom CSS styles"
 msgstr "Добавьте свои CSS стили"
 
-#: inc/admin/options.php:132
+#: inc/admin/options.php:144
+msgid "Before content"
+msgstr "Перед тестом"
+
+#: inc/admin/options.php:145 inc/admin/options.php:147
+msgid "Code before single post content"
+msgstr "Код перед текстом статьи"
+
+#: inc/admin/options.php:151
+msgid "After content"
+msgstr "После текста"
+
+#: inc/admin/options.php:152 inc/admin/options.php:154
+msgid "Code after single post content"
+msgstr "Код после текста статьи"
+
+#: inc/admin/options.php:160
 msgid "Social buttons"
 msgstr "Кнопки соцсетей"
 
-#: inc/admin/options.php:132
+#: inc/admin/options.php:160
 msgid "Social"
 msgstr "Соцсети"
 
-#: inc/admin/options.php:138
+#: inc/admin/options.php:165
 msgid "Social data"
 msgstr "Данные для соцсетей"
 
-#: inc/admin/options.php:139
+#: inc/admin/options.php:166
 msgid "Add Open Graph tags to &lt;head&gt;"
 msgstr "Добавить теги Open Graph в &lt;head&gt;"
 
-#: inc/admin/options.php:146
+#: inc/admin/options.php:172
 msgid "Social share buttons"
 msgstr "Кнопки поделиться в соцсетях"
 
-#: inc/admin/options.php:147
+#: inc/admin/options.php:173
 msgid "Select option to show or hide social share buttons after post"
 msgstr ""
 "Выберите опцию, чтобы показать скрыть кнопки социальных сетей после контента"
 
-#: inc/admin/options.php:152
+#: inc/admin/options.php:178
 msgid "Hide"
 msgstr "Скрыть"
 
-#: inc/admin/options.php:153
+#: inc/admin/options.php:179
 msgid "Custom theme buttons"
 msgstr "Стандартные кнопки (от разработчиков темы)"
 
-#: inc/admin/options.php:154
+#: inc/admin/options.php:180
 msgid "Share42 Buttons"
 msgstr "Кнопки Share42"
 
-#: inc/admin/options.php:155
+#: inc/admin/options.php:181
 msgid "Yandex Buttons"
 msgstr "Кнопки Yandex"
 
-#: inc/admin/options.php:163
+#: inc/admin/options.php:187
 msgid "Structured Data"
 msgstr "Микроразметка"
 
-#: inc/admin/options.php:167
+#: inc/admin/options.php:192
 msgid "Schema.org Mark up"
 msgstr "Разметка Schema.org"
 
-#: inc/admin/options.php:168
+#: inc/admin/options.php:193
 msgid "Schema.org mark up according Creative Work->Article and Comment"
 msgstr "Разметка Schema.org согласно схемам Article и Comment"
 
-#: inc/admin/options.php:176
+#: inc/admin/options.php:200
 msgid "Publisher logo"
 msgstr "Логитип издателя"
 
-#: inc/admin/options.php:177 inc/admin/options.php:184
-#: inc/admin/options.php:191
+#: inc/admin/options.php:201 inc/admin/options.php:208
+#: inc/admin/options.php:215
 msgid "use in https://schema.org/Organization"
 msgstr "используется в схеме https://schema.org/Organization"
 
-#: inc/admin/options.php:183
+#: inc/admin/options.php:207
 msgid "Adress"
 msgstr "Адресс"
 
-#: inc/admin/options.php:190
+#: inc/admin/options.php:214
 msgid "Phone"
 msgstr "Телефон"
 
-#: inc/admin/options.php:403 inc/admin/options.php:448
+#: inc/admin/options.php:440 inc/admin/options.php:483
 msgid "Theme options"
 msgstr "Настройки темы"
 
-#: inc/admin/options.php:452
+#: inc/admin/options.php:487
 msgid "Options saved"
 msgstr "Настройки сохранены"
 
@@ -345,6 +365,9 @@ msgstr "Ничего не найдено по запросу"
 msgid "Search"
 msgstr "Поиск"
 
-#: sidebar.php:17
+#: sidebar.php:22
 msgid "Categories"
 msgstr "Рубрики"
+
+#~ msgid "code before single post content"
+#~ msgstr "Код после текста статьи"

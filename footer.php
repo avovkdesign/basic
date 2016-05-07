@@ -13,6 +13,7 @@
 		wp_nav_menu( array(
 				'theme_location' => 'bottom',
 				'menu_id' => 'footer-menu',
+				'depth' => 1,
 				'container' => false,
 				'items_wrap' => '<ul class="footmenu clearfix">%3$s</ul>'
 			)); 

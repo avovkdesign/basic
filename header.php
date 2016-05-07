@@ -43,7 +43,7 @@
 					'theme_location' => 'top',
 					'menu_id' => 'navpages',
 					'container' => false,
-					'items_wrap' => '<ul class="menu maxwidth clearfix">%3$s</ul>'
+					'items_wrap' => '<ul class="top-menu maxwidth clearfix">%3$s</ul>'
 				) ); 
 			else : ?>
 				<ul class="menu maxwidth clearfix">

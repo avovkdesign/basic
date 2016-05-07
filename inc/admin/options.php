@@ -53,6 +53,13 @@ function basic_get_options_list() {
 			"std"  => "#936",
 			"type" => "color",
 		),
+ 		array(
+			"name" => __( "Sidebar", 'basic' ),
+			"desc" => __( "Show sidebar on mobile", 'basic' ),
+			"id"   => "show_sidebar",
+			"std"  => 0,
+			"type" => "checkbox",
+		),
 		array(
 			"name"    => __( "Default layout", 'basic' ),
 			"desc"    => __( "Default layout for all pages", 'basic' ),
@@ -137,14 +144,14 @@ function basic_get_options_list() {
 			"name" => __( "Before content", 'basic' ),
 			"desc" => __( "Code before single post content", 'basic' ),
 			"id"   => "before_content",
-			"std"  => "<!-- ". __( "code before single post content", "basic" ) ." -->",
+			"std"  => "<!-- ". __( "Code before single post content", "basic" ) ." -->",
 			"type" => "textarea",
 		),
 		array(
 			"name" => __( "After content", 'basic' ),
 			"desc" => __( "Code after single post content", 'basic' ),
 			"id"   => "after_content",
-			"std"  => "<!-- ". __( "code after single post content", "basic" ) ." -->",
+			"std"  => "<!-- ". __( "Code after single post content", "basic" ) ." -->",
 			"type" => "textarea",
 		),
 		// SOCIAL

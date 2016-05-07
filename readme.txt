@@ -1,8 +1,8 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 3.5
-Tested up to: WordPress 4.4.2
-Version: 1.1.0
+Tested up to: WordPress 4.5.2
+Version: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -27,9 +27,16 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Enable/disable sidebar show for mobile
+* Fixed custom menu styles
+* Fixed `comment_notes_after` problem in comments.php
+* Footer menu depth changed to 1 level
+
 = 1.1.0 =
 
-* Добавлены следующие экшены для использования в дочерних темах или в плагинах:
+* Added the following actionfor use in child themes or plugins:
  * `basic_before_header`
  * `basic_after_sitelogo`
  * `basic_before_topnav`
@@ -41,44 +48,43 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
  * `basic_before_footer_menu`
  * `basic_before_footer_copyrights`
  * `basic_after_footer_copyrights`
-* Добавлен фильтр `basic_singular_content` (принимает один аргумент $content), для возможности изменения текста статьи, добавления своего кода и пр. в дочерних темах или в плагинах
-* Добавлены опции для кода html до и после статьи
-* Добавлен вывод описания для первой страницы архива метки и автора
-* В микроразметке статьи подключается ссылка на полную картнку (Google требует фото от 600 пикс.)
-* Исправлены стили маркеров списка (перекрывались с картинками)
-* Исправлена проблема с некорректным отображением стиле произвольного меню
-* Исправлена проблема с переводом настроек в дочерних темах
-* Исправлена пробблема совместимости с PHP ниже 5.5
+* Added filter `basic_singular_content` (takes one argument, $content), to be able to change the text or add your code in child themes or plugins
+* Added options for the html code before and after the entry
+* Added displaying the description for the first page of the archive tags and author
+* In Schema.org Article connected link to the full image (Google requires photo by 600 pixels)
+* Fixed list bullets
+* Fixed problem with incorrect display of menu styles
+* Fixed a problem with options translation adjustments in child themes
+* Fixed compatibility issues with PHP 5.5 or higher
 
 
 = 1.0.4 =
 
-* Кнопка "Читать далее" выравнивается по правой стороне
-* В главном меню при выводе страниц по-умолчанию, также выводится ссылка на главную страницу
-* Настраиваемый цвет логотипа в шапке
-* Исправлены стили в шапке (блок с логотипом теперь на всю ширину)
-* Исправлена ошибка с отображением меню в подвале
-* Исправлены стили с абсолютным позиционированием в подвале
-* Добавлена обратная совсместимость wp_title() для WordPress ниже 4.0
-
+* "Read more" button aligned on right side
+* In main menu when displaying pages by default, also displayed link to home page
+* Customizable color logo in header
+* Fixed styles in header (block with logo on entire width now)
+* Fixed bug with displaying menus in footer
+* Fixed styles with absolute positioning in footer
+* Added backward compatibility wp_title () for WordPress lower than 4.0
 
 = 1.0.3 =
 
-* Добавлены стили для визуального редактора в админке
-* Исправлены конфликты стилей с галереями WordPress
-* Мелкие правки, рефакторинг кода
+* Added styles to visual editor in admin
+* Fixed style conflicts with galleries WordPress
+* Small edits, code refactoring
 
 = 1.0.2 =
 
-* Исправлен формат даты в микроразметке
-* Ссылка на wp-puzzle.com убрана в noindex, nofollow
-* Внесены уточнения в перевод, добавлен перевод новых настроек
-* Исправлено предупреждение в пагинации
+* Fixed date format in micro markup
+* Link to wp-puzzle.com removed to noindex, nofollow
+* Made refinement in translation, added translation of new settings
+* Fixed warning in pagination
 
 = 1.0.1 =
 
-* Исправлена микроразметка (с отдельных вариантов для яндекс и google, на один универсальный)
-* Исправлен формат вывода комментариев, убрана ссылка на себя в имени автора статьи
+* Fixed micro markup (from individual variants for yandex and google to one universal)
+* Fixed comments output format, removed link on yourself in names of author’s article
 
 = 1.0 =
 
