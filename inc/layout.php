@@ -24,10 +24,10 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 
 		$layout = 'rightbar';
 
-		$layout_def  = basic_get_option( 'layout_default' );
-		$layout_home = basic_get_option( 'layout_home' );
-		$layout_post = basic_get_option( 'layout_post' );
-		$layout_page = basic_get_option( 'layout_page' );
+		$layout_def  = basic_get_theme_option( 'layout_default' );
+		$layout_home = basic_get_theme_option( 'layout_home' );
+		$layout_post = basic_get_theme_option( 'layout_post' );
+		$layout_page = basic_get_theme_option( 'layout_page' );
 
 
 		// get custom page layout

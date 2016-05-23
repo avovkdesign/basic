@@ -1,6 +1,6 @@
 <?php 
 
-	$markup = ( is_single() && basic_get_option('schema_mark') ) ? true : false;
+	$markup = ( is_single() && basic_get_theme_option('schema_mark') ) ? true : false;
 
 ?>
 

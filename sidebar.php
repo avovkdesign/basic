@@ -2,7 +2,7 @@
 
 $no_sidebar = in_array( basic_get_layout(), array('full','center') );
 
-$class = ( basic_get_option('show_sidebar') ) ? 'block' : '';
+$class = ( basic_get_theme_option('show_sidebar') ) ? 'block' : '';
 $class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
 ?>

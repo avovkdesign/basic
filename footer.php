@@ -28,7 +28,7 @@
 			<p id="copy">
 				<!--noindex--><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="nofollow"><?php bloginfo('name'); ?></a><!--/noindex--> &copy; <?php echo date("Y",time()); ?>
 				<br/>
-				<span class="copyright-text"><?php echo basic_get_option('copyright_text'); ?></span>
+				<span class="copyright-text"><?php echo basic_get_theme_option('copyright_text'); ?></span>
 			</p>
 		</div>
 
@@ -37,7 +37,7 @@
 				<?php _e('Theme by', 'basic'); ?>
 				<!--noindex--><a href="http://wp-puzzle.com" target="_blank" rel="external nofollow"><?php _e('WP Puzzle', 'basic'); ?></a><!--/noindex-->
 			</p>
-			<?php $counters = basic_get_option('footer_counters'); ?>
+			<?php $counters = basic_get_theme_option('footer_counters'); ?>
 			<div class="footer-counter"><?php echo wp_specialchars_decode( $counters, ENT_QUOTES ); ?></div>
 		</div>
 	</div>

@@ -2,41 +2,11 @@
 
 
 
-if ( !defined('APP_NAME') ) {
-	define( 'APP_NAME', get_template() );
-}
-
-define( 'BASIC_OPTION_NAME', 'theme_options_' . APP_NAME );
 
 
-require_once( get_template_directory() . '/inc/customizer/customizer-settings.php' );
-
-
-
-/* ==========================================================================
-* 	customize get_option for theme options
-* ========================================================================== */
-if ( ! function_exists( 'basic_get_option' ) ) :
-	function basic_get_option( $key ) {
-
-		$cache = wp_cache_get( 'avd_'. BASIC_OPTION_NAME );
-		if ( $cache ) {
-			return ( isset($cache[$key]) ) ? $cache[$key] : false;
-		}
-
-		$opt = get_option( BASIC_OPTION_NAME );
-		wp_cache_add( 'avd_'. BASIC_OPTION_NAME, $opt  );
-
-		return ( isset($opt[$key]) ) ? $opt[$key] : false;
-	}
-endif;
-/* ============================================================================= */
-
-
-
-/**
+/** =============================================================================
  * CUSTOM STYLES
- */
+ * ============================================================================= */
 function basic_customizer_css() {
 
 	$style = '';
@@ -44,7 +14,7 @@ function basic_customizer_css() {
 
 // ---- header -----
 	$bgimg      = get_header_image();
-	$bg_repeat  = basic_get_option( 'header_image_repeat' );
+	$bg_repeat  = basic_get_theme_option( 'header_image_repeat' );
 
 	if ( ! empty( $bgimg ) ) {
 		$style .= "#header{background-image:url('$bgimg')}";
@@ -52,7 +22,7 @@ function basic_customizer_css() {
 	}
 
 	$header_h   = get_custom_header()->height;
-	$fit_height = basic_get_option( 'fix_header_height' );
+	$fit_height = basic_get_theme_option( 'fix_header_height' );
 	if ( ! empty( $fit_height ) && !empty( $header_h ) ) {
 		$style .= "@media screen and (min-width:1024px){.sitetitle{height:{$header_h}px}}";
 	}
@@ -63,7 +33,7 @@ function basic_customizer_css() {
 		$style .= "a#logo{color:#$header_textcolor}";
 	}
 
-	$main_color = basic_get_option( 'maincolor' );
+	$main_color = basic_get_theme_option( 'maincolor' );
 	if ( ! empty( $main_color ) && '#936' != $main_color && '#993366' != $main_color ) {
 		$style .= "a:hover,#logo,.bx-controls a:hover .fa{color:$main_color}";
 		$style .= "a:hover{color:$main_color}";
@@ -128,12 +98,9 @@ function callback_default_layout() {
 if ( class_exists( 'WP_Customize_Control' ) ) {
 	class Group_Title_Control extends WP_Customize_Control {
 		public function render_content() {
-			?>
-			<!--			<br>-->
-			<?php echo ( ! empty( $this->label ) ) ? '<h2 style="margin:20px 0 3px">' . esc_html( $this->label ) . '</h2>' : ''; ?>
-			<?php echo ( ! empty( $this->description ) ) ? '<p class="description">' . esc_html( $this->description ) . '</p>' : ''; ?>
-			<hr />
-			<?php
+			echo ( ! empty( $this->label ) ) ? '<h2 style="margin:20px 0 3px">' . esc_html( $this->label ) . '</h2>' : '';
+			echo ( ! empty( $this->description ) ) ? '<p class="description">' . esc_html( $this->description ) . '</p>' : '';
+			echo '<hr />';
 		}
 	}
 }
@@ -149,7 +116,7 @@ function basic_customizer_live() {
 	wp_enqueue_script(
 		'basic-customizer-js',
 		get_template_directory_uri() . '/inc/customizer/customizer-preview.js', // URL
-		array( 'jquery' ), null, true
+		array( 'jquery', 'customize-preview' ), null, true
 	);
 	wp_localize_script( 'basic-customizer-js', 'optname', BASIC_OPTION_NAME );
 

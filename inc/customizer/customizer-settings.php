@@ -18,7 +18,10 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	if ( class_exists( 'Group_Title_Control' ) ) {
-		$wp_customize->add_setting( 'site_title_group', array( 'default' => '' ) );
+		$wp_customize->add_setting( 'site_title_group', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_key'
+		));
 		$wp_customize->add_control( new Group_Title_Control( $wp_customize, 'site_title_group', array(
 			'label'       => __( 'Site title', 'basic' ),
 			'section'     => 'title_tagline',
@@ -38,7 +41,10 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	if ( class_exists( 'Group_Title_Control' ) ) {
-		$wp_customize->add_setting( 'blogdescription_title', array( 'default' => '' ) );
+		$wp_customize->add_setting( 'blogdescription_title', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_key',
+		));
 		$wp_customize->add_control( new Group_Title_Control( $wp_customize, 'blogdescription_title', array(
 			'label'       => __( 'Description', 'basic' ),
 			'section'     => 'title_tagline',
@@ -58,6 +64,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'left',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -82,6 +89,7 @@ function basic_customizer_init( $wp_customize ) {
 	$wp_customize->add_setting( BASIC_OPTION_NAME . '[showsitedesc]', array(
 		'type'      => 'option',
 		'default'   => 1,
+		'sanitize_callback' => 'sanitize_key',
 		'transport' => $transport
 	) );
 	$wp_customize->add_control( 'showsitedesc_control',
@@ -97,7 +105,10 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	if ( class_exists( 'Group_Title_Control' ) ) {
-		$wp_customize->add_setting( 'other_title', array( 'default' => '' ) );
+		$wp_customize->add_setting( 'other_title', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_key',
+		));
 		$wp_customize->add_control( new Group_Title_Control( $wp_customize, 'other_title', array(
 			'label'       => __( 'Other', 'basic' ),
 			'section'     => 'title_tagline',
@@ -119,6 +130,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 1,
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -128,7 +140,6 @@ function basic_customizer_init( $wp_customize ) {
 			'label'    => __( "Set header height as background image size", 'basic' ),
 			'section'  => 'header_image',
 			'type'     => 'checkbox',
-//			'priority' => 11,
 		)
 	);
 	// ---
@@ -138,6 +149,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'no-repeat',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -186,6 +198,7 @@ function basic_customizer_init( $wp_customize ) {
 			'type'      => 'option',
 			'default'   => '#936',
 			'priority'  => 10,
+			'sanitize_callback' => 'sanitize_hex_color',
 			'transport' => $transport
 		)
 	);
@@ -203,7 +216,10 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	if ( class_exists( 'Group_Title_Control' ) ) {
-		$wp_customize->add_setting( 'layout_title', array( 'default' => '' ) );
+		$wp_customize->add_setting( 'layout_title', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_key',
+		));
 		$wp_customize->add_control( new Group_Title_Control( $wp_customize, 'layout_title', array(
 			'label'       => __( 'Layout', 'basic' ),
 			'description' => __( 'Set up layout for site pages', 'basic' ),
@@ -219,13 +235,13 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => '0',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
 	$wp_customize->add_control( 'show_sidebar_control',
 		array(
 			'settings' => BASIC_OPTION_NAME . '[show_sidebar]',
-//			'label'       => __( "Sidebar", 'basic' ),
 			'label'    => __( "Show sidebar on mobile", 'basic' ),
 			'section'  => 'layout',
 			'type'     => 'checkbox',
@@ -239,6 +255,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'rightbar',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -265,6 +282,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'rightbar',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -291,6 +309,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'center',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -317,6 +336,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'rightbar',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -357,7 +377,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => '0',
-//			'sanitize_callback' => 'basic_sanitize_html',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -378,6 +398,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => 'custom',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => 'refresh'//$transport
 		)
 	);
@@ -436,6 +457,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => '0',
+			'sanitize_callback' => 'sanitize_key',
 			'transport' => $transport
 		)
 	);
@@ -498,7 +520,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'      => 'option',
 			'default'   => get_template_directory_uri() . '/img/logo.jpg',
-//			'sanitize_callback' => 'basic_sanitize_checkbox',
+			'sanitize_callback' => 'esc_url_raw',
 			'transport' => $transport
 		)
 	);
@@ -528,7 +550,10 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	if ( class_exists( 'Group_Title_Control' ) ) {
-		$wp_customize->add_setting( 'single_code_title', array( 'default' => '' ) );
+		$wp_customize->add_setting( 'single_code_title', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_key',
+		));
 		$wp_customize->add_control( new Group_Title_Control( $wp_customize, 'single_code_title', array(
 			'label'           => __( 'Singular pages', 'basic' ),
 			'section'         => 'custom_code',
@@ -585,7 +610,10 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	if ( class_exists( 'Group_Title_Control' ) ) {
-		$wp_customize->add_setting( 'global_code_title', array( 'default' => '' ) );
+		$wp_customize->add_setting( 'global_code_title', array(
+			'default' => '',
+			'sanitize_callback' => 'sanitize_key',
+		));
 		$wp_customize->add_control( new Group_Title_Control( $wp_customize, 'global_code_title', array(
 			'label'    => __( 'Global settings', 'basic' ),
 			'section'  => 'custom_code',

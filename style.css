@@ -482,7 +482,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	.sitetitle.right { text-align: right; }
 	#header {background-size: auto;}
 	#header .searchform { display: block; float: right; margin: 35px 0 0; }
-	/*.sitedescription {text-align: left;}*/
+	body.custom-background #header {background-size: contain;}
 
 	.anons-thumbnail { display: block; }
 

@@ -78,12 +78,11 @@ jQuery(document).ready(function ($) {
 	wp.customize( optname+'[fix_header_height]', function (value) {
 		value.bind(function (to) {
 			if ( false === to ) {
-				//update_style( '.sitetitle{height:', 'auto', '}' );
 				update_style( '@media screen and (min-width:1024px){.sitetitle{height:', 'auto', '}}' );
 			} else {
 				var h = wp.customize._value.header_image_data().height;
-				update_style( '@media screen and (min-width:1024px){.sitetitle{height:', h+'px', '}}' );
-				//update_style( '.sitetitle{height:', h+'px', '}' );
+				//var h = wp.customize.value('header_image_data').height;
+				update_style( '@media screen and (min-width:1024px){.sitetitle{height:', h + 'px', '}}' );
 			}
 		});
 	});

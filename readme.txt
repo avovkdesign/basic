@@ -1,6 +1,6 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
-Requires at least: WordPress 3.5
+Requires at least: WordPress 4.0
 Tested up to: WordPress 4.5.2
 Version: 1.1.2
 License: GPLv2 or later

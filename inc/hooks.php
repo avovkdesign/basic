@@ -37,8 +37,8 @@ add_action( 'excerpt_more', 'basic_change_the_excerpt' );
  * ========================================================================== */
 function basic_print_custom_css_js() {
 
-	$css = basic_get_option( 'custom_styles' );
-	$js  = basic_get_option( 'head_scripts' );
+	$css = basic_get_theme_option( 'custom_styles' );
+	$js  = basic_get_theme_option( 'head_scripts' );
 
 	if ( ! empty( $css ) ) {
 		echo "\n<style id='basic-custom-css'>" . $css . "</style>\n";
@@ -58,7 +58,7 @@ add_action( 'wp_head', 'basic_print_custom_css_js', 20 );
  * ========================================================================== */
 function basic_print_footer_js() {
 
-	$footer_js = basic_get_option( 'footer_scripts' );
+	$footer_js = basic_get_theme_option( 'footer_scripts' );
 
 	if ( ! empty( $footer_js ) ) {
 		echo "\n" . wp_specialchars_decode( $footer_js, ENT_QUOTES ) . "\n";
@@ -75,14 +75,14 @@ add_action( 'wp_footer', 'basic_print_footer_js' );
  * ========================================================================== */
 function basic_social_share_buttons( $content ) {
 
-	$socbtn     = basic_get_option( 'social_share' );
+	$socbtn     = basic_get_theme_option( 'social_share' );
 	$link_pages = wp_link_pages();
 
 	if ( ! is_singular() || empty( $socbtn ) || 'hide' == $socbtn ) {
 		return $content . $link_pages;
 	}
 
-	$soc_title = basic_get_option( 'title_before_socshare' );
+	$soc_title = basic_get_theme_option( 'title_before_socshare' );
 	$soc_html  = "<div class='social_share clearfix'>";
 	$soc_html .= ( $soc_title ) ? "<p class='socshare-title'>$soc_title</p>" : '';
 
@@ -155,8 +155,8 @@ function basic_content_custom_codes( $content ) {
 		return $content;
 	}
 
-	$before_content = basic_get_option( 'before_content' );
-	$after_content  = basic_get_option( 'after_content' );
+	$before_content = basic_get_theme_option( 'before_content' );
+	$after_content  = basic_get_theme_option( 'after_content' );
 
 	$filtered_content = apply_filters( 'basic_singular_content', $content );
 

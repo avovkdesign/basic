@@ -19,7 +19,7 @@
 <!-- BEGIN header -->
 <header id="header" class="clearfix">
 
-	<div class="sitetitle maxwidth grid <?php echo basic_get_option('title_position'); ?>">
+	<div class="sitetitle maxwidth grid <?php echo basic_get_theme_option('title_position'); ?>">
 		<div class="logo">
 			
 			<?php if ( is_home() ) : 
@@ -29,7 +29,7 @@
 			<?php endif; ?>
 			<?php do_action( 'basic_after_sitelogo' ); ?>
 
-			<?php if ( basic_get_option('showsitedesc') || is_customize_preview() ) { ?>
+			<?php if ( basic_get_theme_option('showsitedesc') || is_customize_preview() ) { ?>
 				<p class="sitedescription"><?php bloginfo('description'); ?></p>
 			<?php } ?>
 			<?php do_action( 'basic_after_sitedescription' ); ?>

@@ -59,7 +59,7 @@ function basic_enqueue_style_and_script() {
 	wp_enqueue_script( 'basic-scripts', get_template_directory_uri() . '/js/functions.js', array('jquery'), true, true );
 
 	if ( is_singular() ) {
-		$socbtns = basic_get_option('social_share');
+		$socbtns = basic_get_theme_option('social_share');
 
 		if ( 'share42' == $socbtns )
 			wp_enqueue_script( 'basic-share42', get_template_directory_uri() . '/js/share42.min.js', array('jquery'), true, true );
@@ -116,7 +116,7 @@ add_action( 'widgets_init', 'basic_widgets_init' );
 function basic_add_social($content) {
 	global $post;
 
-	if ( is_singular() && basic_get_option('add_social_meta') ) {
+	if ( is_singular() && basic_get_theme_option('add_social_meta') ) {
 		
 		$aiod = get_post_meta($post->ID, '_aioseop_description', true);
 		$descr = (isset($aiod)) ? esc_html($aiod) : $post->post_excerpt;
@@ -256,10 +256,10 @@ function basic_markup_schemaorg(){
 //function basic_markup_schemaorg(){
 	global $post;
 
-	$markup = ( is_single() && basic_get_option('schema_mark') ) ? true : false;
-	$logo   = ( $markup && basic_get_option('markup_logo') ) ? basic_get_option('markup_logo') : get_template_directory_uri() . '/img/logo.jpg';
-	$adress = ( $markup && basic_get_option('markup_adress') ) ? basic_get_option('markup_adress') : 'Russia';
-	$phone  = ( $markup && basic_get_option('markup_telephone') ) ? basic_get_option('markup_telephone') : '+7 (000) 000-000-00';
+	$markup = ( is_single() && basic_get_theme_option('schema_mark') ) ? true : false;
+	$logo   = ( $markup && basic_get_theme_option('markup_logo') ) ? basic_get_theme_option('markup_logo') : get_template_directory_uri() . '/img/logo.jpg';
+	$adress = ( $markup && basic_get_theme_option('markup_adress') ) ? basic_get_theme_option('markup_adress') : 'Russia';
+	$phone  = ( $markup && basic_get_theme_option('markup_telephone') ) ? basic_get_theme_option('markup_telephone') : '+7 (000) 000-000-00';
 	$img_attr = ( has_post_thumbnail($post->ID) ) 
 				? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' )
 				: array( get_template_directory_uri() .'/img/default.jpg', 80, 80 );
@@ -312,7 +312,11 @@ function basic_markup_schemaorg(){
 // custom content functions library
 	require_once ( get_template_directory() . '/inc/functions.php' );
 
+// theme options
+	require_once ( get_template_directory() . '/inc/admin/options.php' );
+
 // theme customizer
+	require_once ( get_template_directory() . '/inc/customizer/customizer-settings.php' );
 	require_once ( get_template_directory() . '/inc/customizer/customizer.php' );
 
 
