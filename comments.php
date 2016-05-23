@@ -21,7 +21,7 @@ if ( post_password_required() )
 					'avatar_size' => '60',
 					'callback' => 'basic_html5_comment' 
 				);
-				if ( get_avd_option('schema_mark') ) {
+				if ( basic_get_option('schema_mark') ) {
 					$comm_args['callback'] = 'basic_schemaorg_html5_comment';
 				}
 				wp_list_comments( $comm_args ); 

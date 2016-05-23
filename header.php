@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>	
+	<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.min.js"></script>
 <![endif]-->	
 
 <?php wp_head(); ?>
@@ -17,20 +17,25 @@
 <?php do_action( 'basic_before_header' ); ?>
 
 <!-- BEGIN header -->
-<header id="header">
-	<div class="sitetitle maxwidth grid">	
+<header id="header" class="clearfix">
+
+	<div class="sitetitle maxwidth grid <?php echo basic_get_option('title_position'); ?>">
 		<div class="logo">
 			
 			<?php if ( is_home() ) : 
-				?><h1><a id="logo" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
+				?><h1><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>"><?php bloginfo('name'); ?></a></h1>
 			<?php else: 
-				?><a id="logo" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
+				?><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>"><?php bloginfo('name'); ?></a>
 			<?php endif; ?>
-			<p class="sitedescription"><?php bloginfo('description'); ?></p>
-
 			<?php do_action( 'basic_after_sitelogo' ); ?>
 
-		</div>		
+			<?php if ( basic_get_option('showsitedesc') || is_customize_preview() ) { ?>
+				<p class="sitedescription"><?php bloginfo('description'); ?></p>
+			<?php } ?>
+			<?php do_action( 'basic_after_sitedescription' ); ?>
+
+		</div>
+		<?php do_action( 'basic_after_sitetitle' ); ?>
 	</div>
 
 	<?php do_action( 'basic_before_topnav' ); ?>
@@ -46,11 +51,11 @@
 					'items_wrap' => '<ul class="top-menu maxwidth clearfix">%3$s</ul>'
 				) ); 
 			else : ?>
-				<ul class="menu maxwidth clearfix">
+				<ul class="top-menu maxwidth clearfix">
 					<?php if ( is_front_page() ) { ?>
 						<li class="page_item current_page_item"><span><?php _e( 'Home', 'basic' ); ?></span></li>
 					<?php } else { ?>
-						<li class="page_item"><a href="<?php echo home_url(); ?>"><?php _e( 'Home', 'basic' ); ?></a></li>
+						<li class="page_item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php _e( 'Home', 'basic' ); ?></a></li>
 					<?php } 
 					wp_list_pages('title_li=&depth=2'); ?>
 				</ul>

@@ -1,6 +1,6 @@
 <?php 
 
-	$markup = ( is_single() && get_avd_option('schema_mark') ) ? true : false;
+	$markup = ( is_single() && basic_get_option('schema_mark') ) ? true : false;
 
 ?>
 
@@ -19,7 +19,7 @@
 			</aside>
 	
 			<?php do_action( 'basic_before_content' ); ?>
-			<div class="entry clearfix" <?php if ($markup) { echo "itemprop='articleBody'"; } ?>>
+			<div class="entry-box clearfix" <?php if ($markup) { echo "itemprop='articleBody'"; } ?>>
 				
 				<?php $thumb = get_the_post_thumbnail( get_the_ID(), 'thumbnail', 'class=thumbnail' );
 				if ( strlen($thumb) && !is_singular() ) : ?>			
@@ -49,6 +49,6 @@
 				<aside class="meta"><?php the_tags(); ?></aside>
 			<?php } ?>
 
-		<?php if ( $markup ) { the_markup_schemaorg(); } ?>
+		<?php if ( $markup ) { basic_markup_schemaorg(); } ?>
 
 		</article> 

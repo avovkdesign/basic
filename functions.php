@@ -1,7 +1,5 @@
 <?php
 
-define( 'BASIC_TEMPL_URI', get_template_directory_uri() );
-define( 'BASIC_TEMPL_PATH', get_template_directory() );
 
 
 /* ==========================================================================
@@ -22,9 +20,11 @@ function basic_setup() {
 	
 	add_theme_support( 'custom-background', apply_filters( 'basic_custom_background_args', array('default-color' => 'ffffff') ) );
 	add_theme_support( 'custom-header', array(
-		//'flex-width'    => true,
-		'width'         => 1160,
-		'height'        => 150,
+//		'width'         => 1160,
+		'width'         => 1080,
+		'height'        => 190,
+		'flex-height'            => true,
+//		'flex-width'             => false,
 	) );
 	
 	register_nav_menus( array(
@@ -48,24 +48,24 @@ function basic_enqueue_style_and_script() {
 	global $post, $wp_query;
 
 	// STYLES
-	wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,400italic,700,700italic&amp;subset=latin,cyrillic', array(), true );
-	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), true);
+	wp_enqueue_style( 'basic-fonts', '//fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,400italic,700,700italic&amp;subset=latin,cyrillic', array(), true );
+	wp_enqueue_style( 'basic-style', get_stylesheet_uri(), array(), true);
 
 	// SCRIPTS
 	wp_deregister_script( 'jquery-core' );
 	wp_register_script( 'jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, true);
 	wp_enqueue_script( 'jquery' );
 
-	wp_enqueue_script( 'scripts', BASIC_TEMPL_URI . '/js/functions.js', array('jquery'), true, true );
+	wp_enqueue_script( 'basic-scripts', get_template_directory_uri() . '/js/functions.js', array('jquery'), true, true );
 
 	if ( is_singular() ) {
-		$socbtns = get_avd_option('social_share');
+		$socbtns = basic_get_option('social_share');
 
 		if ( 'share42' == $socbtns )
-			wp_enqueue_script( 'share42', BASIC_TEMPL_URI . '/js/share42.js', array('jquery'), true, true );
+			wp_enqueue_script( 'basic-share42', get_template_directory_uri() . '/js/share42.min.js', array('jquery'), true, true );
 
 		if ( 'yandex' == $socbtns ) {
-			wp_enqueue_script( 'yandex-share', '//yastatic.net/share2/share.js', array(), true, true );
+			wp_enqueue_script( 'basic-yandexshare', '//yastatic.net/share2/share.js', array(), true, true );
 		}
 
 		if ( comments_open() && get_option('thread_comments') ) {
@@ -116,7 +116,7 @@ add_action( 'widgets_init', 'basic_widgets_init' );
 function basic_add_social($content) {
 	global $post;
 
-	if (is_singular() && get_avd_option('add_social_meta') ) {
+	if ( is_singular() && basic_get_option('add_social_meta') ) {
 		
 		$aiod = get_post_meta($post->ID, '_aioseop_description', true);
 		$descr = (isset($aiod)) ? esc_html($aiod) : $post->post_excerpt;
@@ -166,7 +166,7 @@ function basic_schemaorg_html5_comment( $comment, $args, $depth ) {
 				<div class="comment-metadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>">
 						<time datetime="<?php comment_time( 'c' ); ?>" itemprop="datePublished">
-							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'basic' ), get_comment_date(), get_comment_time() ); ?>
+							<?php printf( __( '%1$s at %2$s', 'basic' ), get_comment_date(), get_comment_time() ); ?>
 						</time>
 					</a>
 					<?php edit_comment_link( __( 'Edit', 'basic' ), '<span class="edit-link">', '</span>' ); ?>
@@ -252,13 +252,14 @@ function basic_html5_comment( $comment, $args, $depth ) {
 /* ==========================================================================
  *  ECHO markup Schema.org
  * ========================================================================== */
-function the_markup_schemaorg(){
+function basic_markup_schemaorg(){
+//function basic_markup_schemaorg(){
 	global $post;
 
-	$markup = ( is_single() && get_avd_option('schema_mark') ) ? true : false;
-	$logo   = ( $markup && get_avd_option('markup_logo') ) ? get_avd_option('markup_logo') : get_template_directory_uri() .'/img/logo.jpg';
-	$adress = ( $markup && get_avd_option('markup_adress') ) ? get_avd_option('markup_adress') : 'Russia';
-	$phone  = ( $markup && get_avd_option('markup_telephone') ) ? get_avd_option('markup_telephone') : '+7 (000) 000-000-00';
+	$markup = ( is_single() && basic_get_option('schema_mark') ) ? true : false;
+	$logo   = ( $markup && basic_get_option('markup_logo') ) ? basic_get_option('markup_logo') : get_template_directory_uri() . '/img/logo.jpg';
+	$adress = ( $markup && basic_get_option('markup_adress') ) ? basic_get_option('markup_adress') : 'Russia';
+	$phone  = ( $markup && basic_get_option('markup_telephone') ) ? basic_get_option('markup_telephone') : '+7 (000) 000-000-00';
 	$img_attr = ( has_post_thumbnail($post->ID) ) 
 				? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' )
 				: array( get_template_directory_uri() .'/img/default.jpg', 80, 80 );
@@ -303,24 +304,21 @@ function the_markup_schemaorg(){
  * ========================================================================== */
 
 // layout functions and filters
-	require_once ( BASIC_TEMPL_PATH . '/inc/layout.php' );
+	require_once ( get_template_directory() . '/inc/layout.php' );
 
 // hooks
-	require_once ( BASIC_TEMPL_PATH . '/inc/hooks.php' );
+	require_once ( get_template_directory() . '/inc/hooks.php' );
 
 // custom content functions library
-	require_once ( BASIC_TEMPL_PATH . '/inc/functions.php' );
-
-// admin page options
-	require_once ( BASIC_TEMPL_PATH . '/inc/admin/options.php' );
+	require_once ( get_template_directory() . '/inc/functions.php' );
 
 // theme customizer
-	require_once ( BASIC_TEMPL_PATH . '/inc/admin/theme-customizer.php' );
+	require_once ( get_template_directory() . '/inc/customizer/customizer.php' );
 
 
 if ( is_admin() ) :
 
 	// meta-box for layout control
-	require_once ( BASIC_TEMPL_PATH . '/inc/admin/meta-boxes.php' );
+	require_once ( get_template_directory() . '/inc/admin/meta-boxes.php' );
 
 endif;

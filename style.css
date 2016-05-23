@@ -1,13 +1,13 @@
 /*
  * Theme Name: Basic
- * Description: Responsive clean WordPress theme
+ * Description: Basic is fully responsive, clean and minimal WordPress theme. It has various options in WordPress Customizer to change look of the theme - primary design color, background and header, page layout (left or right sidebar, full or centered content). Clean valid code, semantic markup, markup by Schema.org, full adaptation to mobile devices. Basic is ready to use with child themes and gives for developers simple design change with custom hooks and action. Translation Ready (English and Russian integrated).
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.1.1
+ * Version: 1.1.2
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
+ * Tags: light, two-columns, one-column, full-width-template, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
  * Text Domain: basic
  */
 
@@ -30,9 +30,9 @@ object,embed,video{width:100%}img{height:auto;vertical-align:middle;border:0;-we
  *		LAYOUT
  * ============================================================================ */
 html { height: 100%; }
-body { width: 100%; min-width: 280px; }
+body { width: 100%; min-width: 280px; background: #fff; }
 .wrapper { margin: 0 auto; }
-#header { min-height: 100px; background-repeat: repeat; background-position: top center; }
+#header { min-height: 100px; background-repeat: no-repeat; background-position: top center; background-size: cover; }
 #main { padding: 60px 0; margin: 0 auto; position: relative; }
 #content { width: 100%; float: none; }
 #sidebar { display: none; }
@@ -194,12 +194,12 @@ input[type=button]:hover,
 /* ============================================================================
  *		HEADER
  * ============================================================================ */
-#header .col3, #header .col9 { vertical-align: middle;}
+.sitetitle { text-align: center; }
 .logo { margin: 30px auto; }
 #logo { display: block; margin: 0; padding: 0; font: bold 60px/50px 'PT Serif', Tahoma, Verdana, Segoe, sans-serif; 
-	color: #936; text-decoration: none; letter-spacing: -0.02em; text-align: center; }
+	color: #936; text-decoration: none; letter-spacing: -0.02em; }
 #logo:hover { opacity: 0.9; }
-.sitedescription {text-align: center;padding-top: 10px;}
+.sitedescription {/*text-align: center;*/padding-top: 10px;}
 
 /* mobile navigation button */
 #mobile-menu { display: block; padding: 15px 0; text-decoration: none; text-transform: uppercase; 
@@ -237,7 +237,9 @@ input[type=button]:hover,
 /* ============================================================================
  *		CONTENT
  * ============================================================================ */
-.entry { margin: 30px 0 0; }
+.entry-box { margin: 30px 0 0; }
+/*.anons .entry-box { margin: 30px 0 0; }*/
+.entry-box .entry {	padding-bottom: 30px;}
 
 .entry ul { margin: 0.5em 0 1em 30px; }
 .entry ol { margin: 0.5em 0 1em 50px; list-style: decimal; }
@@ -330,12 +332,45 @@ input[type=button]:hover,
 img.alignleft, .alignleft { float: left; margin-right: 20px; margin-left: 0; }
 img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; }
 .aligncenter, div.aligncenter, img.centered { display: block; margin-left: auto; margin-right: auto; }
-.attachment, .caption, .gallery-caption { text-align: center; }
-.attachment .navigation { height: 150px; }
+.entry .attachment, .entry .caption, .entry .gallery-caption { text-align: center; }
+.entry .attachment .navigation { height: 150px; }
 .wp-caption, .attachment img { text-align: center; max-width: 100%; }
 .wp-caption img { margin-top: 0; margin-bottom: 0;}
 .wp-caption p.wp-caption-text { font-size: 12px; color: #222; margin: 0 0 15px; }
 .entry .wp-smiley { margin: 0; padding: 0; border: 0; }
+
+
+/* __________ galleries __________*/
+.gallery { border: 2px solid #eee;padding: 15px 20px;margin: 20px 0 30px; }
+.gallery:after { content: '';display: table;clear: both;}
+.gallery-item img { display: block;margin: 0 auto; }
+
+.gallery-columns-1 .gallery-item { width: 100%; padding: 10px 0; }
+
+.gallery-columns-2 .gallery-item { width: 48%; padding: 10px 1%; float: left; }
+.gallery-columns-2 .gallery-item:nth-child(2n+1) { clear: both; }
+
+.gallery-columns-3 .gallery-item { width: 31.33333333333333%; padding: 10px 1%; float: left; }
+.gallery-columns-3 .gallery-item:nth-child(3n+1) { clear: both; }
+
+.gallery-columns-4 .gallery-item { width: 23%; padding: 10px 1%; float: left; }
+.gallery-columns-4 .gallery-item:nth-child(4n+1) { clear: both; }
+
+.gallery-columns-5 .gallery-item { width: 18%; padding: 10px 1%;float: left; }
+.gallery-columns-5 .gallery-item:nth-child(5n+1) { clear: both; }
+
+.gallery-columns-6 .gallery-item { width: 14.66666666666667%;padding: 10px 1%; float: left; }
+.gallery-columns-6 .gallery-item:nth-child(6n+1) { clear: both; }
+
+.gallery-columns-7 .gallery-item { width: 12.28571428571429%; padding: 10px 1%; float: left; }
+.gallery-columns-7 .gallery-item:nth-child(7n+1) { clear: both; }
+
+.gallery-columns-8 .gallery-item { width: 10.5%; padding: 10px 1%; float: left; }
+.gallery-columns-8 .gallery-item:nth-child(8n+1) { clear: both; }
+
+.gallery-columns-9 .gallery-item { width: 10%; padding: 10px 0.5555555555555556%; float: left; }
+.gallery-columns-9 .gallery-item:nth-child(9n+1) { clear: both; }
+
 
 
 
@@ -416,7 +451,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 /* ============================================================================
  *		FOOTER
  * ============================================================================ */
-#footer { color: #fff; font-size: 14px; line-height: 120%; text-decoration: none; }
+#footer { color: #fff; font-size: 14px; line-height: 125%; text-decoration: none; }
 #footer a {color: #fff; transition: opacity 0.3s;}
 #footer a:hover { color: #999999; text-decoration: underline; }
 #footer .maxwidth { position: relative; }
@@ -426,9 +461,9 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 .footer-menu li { display: inline-block; padding: 5px 10px; }
 #footer .footer-menu a:hover { color: #fff; opacity: 0.7; }
 
-#copy { text-align: center; font-size: 12px; }
+#copy { text-align: center; /*font-size: 12px;*/ }
 #designedby { text-align: center; opacity: 0.8; }
-#designedby, #designedby a { font-size: 12px; }
+/*#designedby, #designedby a { font-size: 12px; }*/
 #toTop { position: fixed; z-index: 1000; bottom: 20px; right: 20px; margin: 0; padding: 14px 12px; display: none; cursor: pointer; 
 	background: #222; color: #fff !important; border-radius: 3px; transform: rotate(-90deg); font-size: 24px; text-align: center; }
 #toTop:hover { background: #999; text-decoration: none !important; border-radius: 3px; }
@@ -442,9 +477,12 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 /* ___ Laptop/Tablet ( > 768px )  --------------------------------------------- */
 @media only screen and (min-width: 768px)  {
 
-	#logo { text-align: left; }
+	.sitetitle { text-align: left; }
+	.sitetitle.center { text-align: center; }
+	.sitetitle.right { text-align: right; }
+	#header {background-size: auto;}
 	#header .searchform { display: block; float: right; margin: 35px 0 0; }
-	.sitedescription {text-align: left;}
+	/*.sitedescription {text-align: left;}*/
 
 	.anons-thumbnail { display: block; }
 
@@ -458,7 +496,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	.tile .medium { float: none; width: 100%; max-width: 100%; height: auto; }
 	.tile .thumbnail { width: 30%; height: auto; }
 
-	#copy {text-align: left;} 
+	#copy {text-align: left; padding-bottom: 0;}
 	#designedby {text-align: right;}
 	
 }

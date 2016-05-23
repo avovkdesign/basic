@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 3.5
 Tested up to: WordPress 4.5.2
-Version: 1.1.1
+Version: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -26,6 +26,21 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.1.2 =
+* add: new option for customize header image repeatable and header height
+* add: new option for add counters in footer
+* add: new option for customize copyright text
+* add: styles for gallery columns
+* add: option for control site title position
+* add: option for control site description show
+* include the non-minified version for all minified scripts
+* prefix some functions, script and styles with theme slug
+* escape all home_url() functions with esc_url()
+* escape HTML attributes like title="" and alt="" with esc_attr()
+* backward title compatible function `basic_render_title()` removed
+* remove constant with template directory path and URLS
+* migrate all theme options to the Customizer
 
 = 1.1.1 =
 

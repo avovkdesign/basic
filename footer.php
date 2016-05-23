@@ -24,13 +24,22 @@
 	<?php do_action( 'basic_before_footer_copyrights' ); ?>
 
 	<div class="maxwidth grid">
-		<p id="copy" class="col6">
-			<!--noindex--><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a><!--/noindex--> &copy; <?php echo date("Y",time()); ?>
-			<br/> <?php _e("All rights reserved", 'basic'); ?>
-		</p>
-	    <p id="designedby" class="col6"><?php _e('Theme by', 'basic'); ?> 
-	    	<!--noindex--><a href="http://wp-puzzle.com" target="_blank" rel="external nofollow"><?php _e('WP Puzzle', 'basic'); ?></a><!--/noindex-->
-	    </p>
+		<div class="col6">
+			<p id="copy">
+				<!--noindex--><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="nofollow"><?php bloginfo('name'); ?></a><!--/noindex--> &copy; <?php echo date("Y",time()); ?>
+				<br/>
+				<span class="copyright-text"><?php echo basic_get_option('copyright_text'); ?></span>
+			</p>
+		</div>
+
+		<div class="col6 tr">
+			<p id="designedby">
+				<?php _e('Theme by', 'basic'); ?>
+				<!--noindex--><a href="http://wp-puzzle.com" target="_blank" rel="external nofollow"><?php _e('WP Puzzle', 'basic'); ?></a><!--/noindex-->
+			</p>
+			<?php $counters = basic_get_option('footer_counters'); ?>
+			<div class="footer-counter"><?php echo wp_specialchars_decode( $counters, ENT_QUOTES ); ?></div>
+		</div>
 	</div>
 
 	<?php do_action( 'basic_after_footer_copyrights' ); ?>

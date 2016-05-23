@@ -1,30 +1,29 @@
 <?php 
 
-if ( !in_array(basic_get_layout(), array('full','center')) ) : 
+$no_sidebar = in_array( basic_get_layout(), array('full','center') );
 
-	$mobile_sidebar = '';
-	if ( get_avd_option('show_sidebar') ){
-		$mobile_sidebar = ' class="block"';
- 	} ?>
+$class = ( basic_get_option('show_sidebar') ) ? 'block' : '';
+$class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 
-	<!-- BEGIN #sidebar -->
-	<aside id="sidebar"<?php echo $mobile_sidebar; ?>>
-		<ul id="widgetlist">
+?>
 
-        <?php if ( is_active_sidebar( 'sidebar' ) ) :
-        	dynamic_sidebar( 'sidebar' ); 
-        else : ?>
+<!-- BEGIN #sidebar -->
+<aside id="sidebar" class="<?php echo $class; ?>">
+	<ul id="widgetlist">
 
-			<li class="widget widget_search">
-				<?php get_search_form(); ?>
-			</li>
-							
-			<?php wp_list_categories('title_li=<p class="wtitle">'. __("Categories", 'basic') .'</p>');  ?>
+    <?php if ( is_active_sidebar( 'sidebar' ) ) :
+        dynamic_sidebar( 'sidebar' );
+    else : ?>
 
-		<?php endif; ?>
-			
-		</ul>
-	</aside>
-	<!-- END #sidebar -->
+		<li class="widget widget_search">
+			<?php get_search_form(); ?>
+		</li>
 
-<?php endif; ?>
+		<?php wp_list_categories('title_li=<p class="wtitle">'. __("Categories", 'basic') .'</p>');  ?>
+
+	<?php endif; ?>
+
+	</ul>
+</aside>
+<!-- END #sidebar -->
+

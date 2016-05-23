@@ -33,8 +33,6 @@ ul{margin:0.5em 0 1em 30px;}
 ol{margin:0.5em 0 1em 50px;list-style:decimal;}
 ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}
 li{padding-top:5px;}
-ul li{padding-left:20px;position:relative;}
-ul li:before,.ftrwidget ul li:before{content:'»';position:absolute;top:7px;left:0;line-height:100%;}
 h1,h2,h3,h4,h5,h6{padding-top:30px;padding-bottom:10px;}
 iframe{max-width:100%;}
 img{max-width:100%;height:auto;margin-bottom:10px;margin-top:8px;}
