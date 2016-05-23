@@ -11,35 +11,35 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
 
-#: archive.php:8
+#: archive.php:14
 msgid "Category"
 msgstr ""
 
-#: archive.php:10
+#: archive.php:17
 msgid "Tag"
 msgstr ""
 
-#: archive.php:11
+#: archive.php:20
 msgid "Day archives:"
 msgstr ""
 
-#: archive.php:12
+#: archive.php:22
 msgid "Monthly archives:"
 msgstr ""
 
-#: archive.php:13
+#: archive.php:24
 msgid "Year archives:"
 msgstr ""
 
-#: archive.php:14
+#: archive.php:26
 msgid "Author archives"
 msgstr ""
 
-#: archive.php:15
+#: archive.php:29
 msgid "Archive"
 msgstr ""
 
-#: archive.php:30 index.php:16
+#: archive.php:44 index.php:16
 msgid "Posts not found"
 msgstr ""
 
@@ -71,257 +71,362 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: content.php:39
+#: content.php:40
 msgid "Read more"
 msgstr ""
 
-#: footer.php:8
-msgid "All rights reserved"
+#: footer.php:37
+msgid "Theme by"
 msgstr ""
 
-#: footer.php:22
-msgid "All rights reserved"
-msgstr "Все права защищены"
-
-#: footer.php:24
-msgid "Theme by"
-msgstr "Шаблон от"
-
-#: footer.php:25
+#: footer.php:38
 msgid "WP Puzzle"
-msgstr "WP Puzzle"
-
-#: functions.php:30
-msgid "Main Menu"
 msgstr ""
 
 #: functions.php:31
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:32
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:101
+#: functions.php:99
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:103
+#: functions.php:101
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:171 functions.php:221
+#: functions.php:169 functions.php:219
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:174 functions.php:224
+#: functions.php:172 functions.php:222
 msgid "Edit"
 msgstr ""
 
-#: functions.php:178 functions.php:228
+#: functions.php:176 functions.php:226
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: header.php:38
+#: header.php:44
 msgid "Menu"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:11 inc/admin/meta-boxes.php:13
+#: header.php:56 header.php:58
+msgid "Home"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:12 inc/admin/meta-boxes.php:15
 msgid "Select Layout"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:27
+#: inc/admin/meta-boxes.php:30
 msgid "Default"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:32 inc/admin/options.php:54
-#: inc/admin/options.php:66 inc/admin/options.php:78 inc/admin/options.php:91
+#: inc/admin/meta-boxes.php:35 inc/customizer/customizer-settings.php:253
+#: inc/customizer/customizer-settings.php:279
+#: inc/customizer/customizer-settings.php:305
+#: inc/customizer/customizer-settings.php:332
 msgid "Rightbar"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:37 inc/admin/options.php:55
-#: inc/admin/options.php:67 inc/admin/options.php:79 inc/admin/options.php:92
+#: inc/admin/meta-boxes.php:40 inc/customizer/customizer-settings.php:254
+#: inc/customizer/customizer-settings.php:280
+#: inc/customizer/customizer-settings.php:306
+#: inc/customizer/customizer-settings.php:333
 msgid "Leftbar"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:42 inc/admin/options.php:56
-#: inc/admin/options.php:68 inc/admin/options.php:80 inc/admin/options.php:93
+#: inc/admin/meta-boxes.php:45 inc/customizer/customizer-settings.php:255
+#: inc/customizer/customizer-settings.php:281
+#: inc/customizer/customizer-settings.php:307
+#: inc/customizer/customizer-settings.php:334
 msgid "Fullwidth Content"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:47 inc/admin/options.php:57
-#: inc/admin/options.php:69 inc/admin/options.php:81 inc/admin/options.php:94
+#: inc/admin/meta-boxes.php:50 inc/customizer/customizer-settings.php:256
+#: inc/customizer/customizer-settings.php:282
+#: inc/customizer/customizer-settings.php:308
+#: inc/customizer/customizer-settings.php:335
 msgid "Centered Content"
 msgstr ""
 
-#: inc/admin/options.php:37
-msgid "General theme options"
+#: inc/customizer/customizer-settings.php:15
+#: inc/customizer/customizer-settings.php:23
+msgid "Site title"
 msgstr ""
 
-#: inc/admin/options.php:37
-msgid "General"
+#: inc/customizer/customizer-settings.php:43
+msgid "Description"
 msgstr ""
 
-#: inc/admin/options.php:41
+#: inc/customizer/customizer-settings.php:67
+msgid "Title position"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:71
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:72
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:73
+msgid "Center"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:89
+msgid "Show site description"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:102
+msgid "Other"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:112
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:128
+msgid "Set header height as background image size"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:147
+msgid "Image repeat"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:151
+msgid "No repeat"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:152
+msgid "Repeat"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:160
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:175
+msgid "Design"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:177
+msgid "Main theme options"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:196
 msgid "Main color"
 msgstr ""
 
-#: inc/admin/options.php:42
+#: inc/customizer/customizer-settings.php:197
 msgid "Choose main color"
 msgstr ""
 
-#: inc/admin/options.php:49
-msgid "Default layout"
+#: inc/customizer/customizer-settings.php:208
+msgid "Layout"
 msgstr ""
 
-#: inc/admin/options.php:50
-msgid "Default layout for all pages"
+#: inc/customizer/customizer-settings.php:209
+msgid "Set up layout for site pages"
 msgstr ""
 
-#: inc/admin/options.php:61
-msgid "Home layout"
+#: inc/customizer/customizer-settings.php:229
+msgid "Show sidebar on mobile"
 msgstr ""
 
-#: inc/admin/options.php:73
-msgid "Post layout"
+#: inc/customizer/customizer-settings.php:248
+msgid "Layout on Home"
 msgstr ""
 
-#: inc/admin/options.php:86
-msgid "Pages layout"
+#: inc/customizer/customizer-settings.php:274
+msgid "Layout on Post"
 msgstr ""
 
-#: inc/admin/options.php:103
-msgid "Additional code"
+#: inc/customizer/customizer-settings.php:300
+msgid "Layout on Page"
 msgstr ""
 
-#: inc/admin/options.php:103
-msgid "Code"
+#: inc/customizer/customizer-settings.php:326
+msgid "Global layout"
 msgstr ""
 
-#: inc/admin/options.php:108
-msgid "Scripts in header"
+#: inc/customizer/customizer-settings.php:327
+msgid "It used when individual page layout not set"
 msgstr ""
 
-#: inc/admin/options.php:109
-msgid "HTML code in &lt;head&gt; tag"
-msgstr ""
-
-#: inc/admin/options.php:115
-msgid "Scripts in site footer"
-msgstr ""
-
-#: inc/admin/options.php:116
-msgid "HTML code before &lt;/body&gt; tag"
-msgstr ""
-
-#: inc/admin/options.php:122
-msgid "Custom styles"
-msgstr ""
-
-#: inc/admin/options.php:123
-msgid "Add your custom CSS styles"
-msgstr ""
-
-#: inc/admin/options.php:132
-msgid "Social buttons"
-msgstr ""
-
-#: inc/admin/options.php:132
+#: inc/customizer/customizer-settings.php:346
 msgid "Social"
 msgstr ""
 
-#: inc/admin/options.php:138
-msgid "Social data"
+#: inc/customizer/customizer-settings.php:347
+msgid "Social buttons"
 msgstr ""
 
-#: inc/admin/options.php:139
+#: inc/customizer/customizer-settings.php:367
 msgid "Add Open Graph tags to &lt;head&gt;"
 msgstr ""
 
-#: inc/admin/options.php:146
-msgid "Social share buttons"
+#: inc/customizer/customizer-settings.php:387
+msgid "Social share buttons after post"
 msgstr ""
 
-#: inc/admin/options.php:147
-msgid "Select option to show or hide social share buttons after post"
-msgstr ""
-
-#: inc/admin/options.php:152
+#: inc/customizer/customizer-settings.php:391
 msgid "Hide"
 msgstr ""
 
-#: inc/admin/options.php:153
+#: inc/customizer/customizer-settings.php:392
 msgid "Custom theme buttons"
 msgstr ""
 
-#: inc/admin/options.php:154
+#: inc/customizer/customizer-settings.php:393
 msgid "Share42 Buttons"
 msgstr ""
 
-#: inc/admin/options.php:155
+#: inc/customizer/customizer-settings.php:394
 msgid "Yandex Buttons"
 msgstr ""
 
-#: inc/admin/options.php:163
+#: inc/customizer/customizer-settings.php:414
+msgid "Custom text before share buttons"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:426
 msgid "Structured Data"
 msgstr ""
 
-#: inc/admin/options.php:167
-msgid "Schema.org Mark up"
+#: inc/customizer/customizer-settings.php:445
+msgid "Enable Schema.org mark up according CreativeWork->Article and Comment"
 msgstr ""
+"Активировать разметку Schema.org по схеме CreativeWork->Article и Comment"
 
-#: inc/admin/options.php:168
-msgid "Schema.org mark up according Creative Work->Article and Comment"
-msgstr ""
-
-#: inc/admin/options.php:176
-msgid "Publisher logo"
-msgstr ""
-
-#: inc/admin/options.php:177 inc/admin/options.php:184
-#: inc/admin/options.php:191
-msgid "use in https://schema.org/Organization"
-msgstr ""
-
-#: inc/admin/options.php:183
-msgid "Adress"
-msgstr ""
-
-#: inc/admin/options.php:190
+#: inc/customizer/customizer-settings.php:465
 msgid "Phone"
 msgstr ""
 
-#: inc/admin/options.php:403 inc/admin/options.php:448
-msgid "Theme options"
+#: inc/customizer/customizer-settings.php:466
+#: inc/customizer/customizer-settings.php:487
+#: inc/customizer/customizer-settings.php:511
+msgid "use in https://schema.org/Organization"
 msgstr ""
 
-#: inc/admin/options.php:452
-msgid "Options saved"
+#: inc/customizer/customizer-settings.php:486
+msgid "Adress"
 msgstr ""
 
-#: inc/functions.php:20
-msgid "&laquo; Prev"
+#: inc/customizer/customizer-settings.php:510
+msgid "Publisher logo"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:522
+msgid "Custom codes"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:523
+msgid "It help you setup custom scripts and styles"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:533
+msgid "Singular pages"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:546
+#: inc/customizer/customizer-settings.php:555
+msgid "Code before single post content"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:554
+msgid "Before content"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:568
+#: inc/customizer/customizer-settings.php:577
+msgid "Code after single post content"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:576
+msgid "After content"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:590
+msgid "Global settings"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:610
+msgid "Scripts in header"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:611
+msgid "HTML code in &lt;head&gt; tag"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:631
+msgid "Scripts in site footer"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:632
+msgid "HTML code before &lt;/body&gt; tag"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:653
+msgid "Custom styles"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:654
+msgid "Add your custom CSS styles"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:667
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:668
+msgid "Customize footer"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:679
+msgid "All rights reserved"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:687
+msgid "Copyright text"
+msgstr ""
+
+#: inc/customizer/customizer-settings.php:707
+msgid "Counters code"
 msgstr ""
 
 #: inc/functions.php:21
+msgid "&laquo; Prev"
+msgstr ""
+
+#: inc/functions.php:22
 msgid "Next &raquo;"
 msgstr ""
 
-#: inc/functions.php:29
+#: inc/functions.php:30
 msgid "Page "
 msgstr ""
 
-#: inc/functions.php:29
+#: inc/functions.php:30
 msgid " from "
 msgstr ""
 
-#: inc/hooks.php:95 inc/hooks.php:98 inc/hooks.php:99
+#: inc/hooks.php:94 inc/hooks.php:97 inc/hooks.php:98
 msgid "Share in"
 msgstr ""
 
-#: inc/hooks.php:96
+#: inc/hooks.php:95
 msgid "Share in VK"
 msgstr ""
 
-#: inc/hooks.php:97
+#: inc/hooks.php:96
 msgid "Share in OK"
 msgstr ""
 
@@ -337,6 +442,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: sidebar.php:17
+#: sidebar.php:22
 msgid "Categories"
 msgstr ""
