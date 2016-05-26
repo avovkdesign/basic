@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.0
 Tested up to: WordPress 4.5.2
-Version: 1.1.3
+Version: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
@@ -26,6 +26,9 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.1.4 =
+* add: backward compatible for old option name
 
 = 1.1.3 =
 * fix: renamed main theme option prefix (from `theme_option_*` to `basic_theme_option_*`)
