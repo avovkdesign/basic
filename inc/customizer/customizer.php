@@ -74,29 +74,29 @@ function basic_sanitize_textarea( $value ) {
 
 
 // ------------------------
-function callback_single() {
+function basic_is_single() {
 	return is_single();
 }
 
 // ------------------------
-function callback_page() {
+function basic_is_page() {
 	return is_page();
 }
 
 // ------------------------
-function callback_singular() {
+function basic_is_singular() {
 	return is_singular();
 }
 
 // ------------------------
-function callback_default_layout() {
+function basic_is_default_layout() {
 	return ! is_singular() && ! is_page() && ! is_home();
 }
 
 
 // ------------------------
 if ( class_exists( 'WP_Customize_Control' ) ) {
-	class Group_Title_Control extends WP_Customize_Control {
+	class Basic_Group_Title_Control extends WP_Customize_Control {
 		public function render_content() {
 			echo ( ! empty( $this->label ) ) ? '<h2 style="margin:20px 0 3px">' . esc_html( $this->label ) . '</h2>' : '';
 			echo ( ! empty( $this->description ) ) ? '<p class="description">' . esc_html( $this->description ) . '</p>' : '';

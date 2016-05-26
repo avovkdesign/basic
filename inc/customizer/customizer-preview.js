@@ -1,17 +1,17 @@
 jQuery(document).ready(function ($) {
 
 	// live style update
-	var style = $('#basic-customizer-css'),
-	 	custom_style = $('#basic-custom-css');
+	var basic_style = $('#basic-customizer-css'),
+	 	basic_custom_style = $('#basic-custom-css');
 
-	if ( !$(style).length ) {
-		style = $('head')
+	if ( !$(basic_style).length ) {
+		basic_style = $('head')
 			.append('<style type="text/css" id="basic-customizer-css">')
 			.find('#basic-customizer-css');
 	}
 
-	if ( !$(custom_style).length ) {
-		custom_style = $('head')
+	if ( !$(basic_custom_style).length ) {
+		basic_custom_style = $('head')
 			.append('<style type="text/css" id="basic-custom-css">')
 			.find('#basic-custom-css');
 	}
@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
 	wp.customize( 'header_textcolor', function (value) {
 		value.bind(function (to) {
 			//$logo.css('title', to).html(to);
-			update_style( 'a#logo{color:', to, '}' );
+			basic_update_style( 'a#logo{color:', to, '}' );
 		});
 	});
 
@@ -78,11 +78,11 @@ jQuery(document).ready(function ($) {
 	wp.customize( optname+'[fix_header_height]', function (value) {
 		value.bind(function (to) {
 			if ( false === to ) {
-				update_style( '@media screen and (min-width:1024px){.sitetitle{height:', 'auto', '}}' );
+				basic_update_style( '@media screen and (min-width:1024px){.sitetitle{height:', 'auto', '}}' );
 			} else {
 				var h = wp.customize._value.header_image_data().height;
 				//var h = wp.customize.value('header_image_data').height;
-				update_style( '@media screen and (min-width:1024px){.sitetitle{height:', h + 'px', '}}' );
+				basic_update_style( '@media screen and (min-width:1024px){.sitetitle{height:', h + 'px', '}}' );
 			}
 		});
 	});
@@ -90,7 +90,7 @@ jQuery(document).ready(function ($) {
 	// header_image_repeat
 	wp.customize( optname + '[header_image_repeat]', function (value) {
 		value.bind(function (to) {
-			update_style( '#header{background-repeat:', to, '}' );
+			basic_update_style( '#header{background-repeat:', to, '}' );
 		});
 	});
 
@@ -98,11 +98,11 @@ jQuery(document).ready(function ($) {
 	// main color change
 	wp.customize( optname + '[maincolor]', function (value) {
 		value.bind(function (to) {
-			update_style( 'a#logo{color:', to, '}' );
-			update_style( 'a:hover,#logo,.bx-controls a:hover .fa{color:', to, '}' );
-			update_style( 'a:hover{color:', to, '}' );
-			update_style( 'blockquote,q,input:focus,textarea:focus{border-color:', to, '}' );
-			update_style( 'input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.avd-pagination a:hover,.avd-pagination .current,#footer{background-color:', to, '}' );
+			basic_update_style( 'a#logo{color:', to, '}' );
+			basic_update_style( 'a:hover,#logo,.bx-controls a:hover .fa{color:', to, '}' );
+			basic_update_style( 'a:hover{color:', to, '}' );
+			basic_update_style( 'blockquote,q,input:focus,textarea:focus{border-color:', to, '}' );
+			basic_update_style( 'input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.avd-pagination a:hover,.avd-pagination .current,#footer{background-color:', to, '}' );
 		});
 	});
 
@@ -185,7 +185,7 @@ jQuery(document).ready(function ($) {
 	// custom_styles
 	wp.customize( optname + '[custom_styles]', function (value) {
 		value.bind(function (to) {
-			$(custom_style).text( to );
+			$(basic_custom_style).text( to );
 		});
 	});
 
@@ -206,11 +206,11 @@ jQuery(document).ready(function ($) {
 
 
 	// -----------------------------------------------------------------------
-	function update_style( before, new_value, after ){
-		var style_now = $(style).text();
+	function basic_update_style( before, new_value, after ){
+		var style_now = $(basic_style).text();
 		var pos = style_now.search( before );
 		if ( pos == -1 )
-			$(style).append( before + new_value + after );
+			$(basic_style).append( before + new_value + after );
 		else{
 			var before_reg = before,
 				after_reg = after;
@@ -225,7 +225,7 @@ jQuery(document).ready(function ($) {
 				.replace('(', '\(')
 				.replace(')', '\)');
 			var reg_str = new RegExp( before_reg + '(.*?)' + after_reg );
-			$(style).text( style_now.replace( reg_str, before + new_value + after ) );
+			$(basic_style).text( style_now.replace( reg_str, before + new_value + after ) );
 
 		}
 	}

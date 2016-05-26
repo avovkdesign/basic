@@ -11,11 +11,11 @@
  *
  *	@return 	echo pagination
  *
- *  Example: 	<?php avd_the_pagination(); ?>
+ *  Example: 	<?php basic_the_pagination(); ?>
  *
  * ========================================================================== */
-if ( ! function_exists( 'avd_the_pagination' ) ) :
-function avd_the_pagination( $total = true, $prev = '', $next = '' ){
+if ( ! function_exists( 'basic_the_pagination' ) ) :
+function basic_the_pagination( $total = true, $prev = '', $next = '' ){
 	global $wp_query;
 
 	$prev = ( !empty($prev) ) ? $prev : __( '&laquo; Prev', 'basic');
@@ -25,7 +25,7 @@ function avd_the_pagination( $total = true, $prev = '', $next = '' ){
 	$currentpage = max( 1, get_query_var('paged') );
 	$maxpage = $wp_query->max_num_pages;
 
-	$res = '<div class="avd-pagination">';
+	$res = '<div class="basic-pagination avd-pagination">';
 	if ( $maxpage > 1 && $total ) {
 		$res .= '<span class="total">'. __('Page ', 'basic') . $currentpage. _(' from ') .$maxpage.':  </span>';
 	}

@@ -1,11 +1,11 @@
 <?php
 
-if ( !defined('APP_NAME') ) {
+if ( !defined('BASIC_APP_NAME') ) {
 	$theme_name = sanitize_key( '' . wp_get_theme() );
-	define( 'APP_NAME', $theme_name );
+	define( 'BASIC_APP_NAME', $theme_name );
 }
 
-define( 'BASIC_OPTION_NAME', 'theme_options_' . APP_NAME );
+define( 'BASIC_OPTION_NAME', 'basic_theme_options_' . BASIC_APP_NAME );
 
 
 

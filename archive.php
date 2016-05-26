@@ -36,7 +36,7 @@
 
 	endwhile; 
 
-	avd_the_pagination(false); 
+	basic_the_pagination(false);
 
 else: ?>
 		

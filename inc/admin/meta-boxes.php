@@ -9,10 +9,10 @@
 function basic_add_custom_box() {
 
 	// Adding layout meta box for page
-	add_meta_box( 'page-layout', __( 'Select Layout', 'basic' ), 'basic_page_layout', 'page', 'side', 'default' );
+	add_meta_box( 'basic-page-layout', __( 'Select Layout', 'basic' ), 'basic_page_layout', 'page', 'side', 'default' );
 
 	// Adding layout meta box for
-	add_meta_box( 'page-layout', __( 'Select Layout', 'basic' ), 'basic_page_layout', 'post', 'side', 'default' );
+	add_meta_box( 'basic-page-layout', __( 'Select Layout', 'basic' ), 'basic_page_layout', 'post', 'side', 'default' );
 
 }
 
@@ -69,7 +69,7 @@ function basic_page_layout() {
 	$page_layout = basic_get_default_page_layouts();
 
 	// Use nonce for verification  
-	wp_nonce_field( basename( __FILE__ ), 'custom_meta_box_nonce' );
+	wp_nonce_field( basename( __FILE__ ), 'basic_meta_box_nonce' );
 
 	foreach ( $page_layout as $field ) {
 		$layout_meta = get_post_meta( $post->ID, $field['id'], true );
@@ -77,8 +77,8 @@ function basic_page_layout() {
 			$layout_meta = 'default';
 		}
 		?>
-		<label class="post-format-icon">
-			<input class="post-format" type="radio" name="<?php echo $field['id']; ?>" value="<?php echo $field['value']; ?>" <?php checked( $field['value'], $layout_meta ); ?>/>
+		<label class="basic-post-format-icon">
+			<input class="basic-post-format" type="radio" name="<?php echo $field['id']; ?>" value="<?php echo $field['value']; ?>" <?php checked( $field['value'], $layout_meta ); ?>/>
 			<?php echo $field['label']; ?></label><br />
 		<?php
 	}
@@ -97,7 +97,7 @@ function basic_save_custom_meta( $post_id ) {
 	$page_layout = basic_get_default_page_layouts();
 
 	// Verify the nonce before proceeding.
-	if ( ! isset( $_POST['custom_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['custom_meta_box_nonce'], basename( __FILE__ ) ) ) {
+	if ( ! isset( $_POST['basic_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['basic_meta_box_nonce'], basename( __FILE__ ) ) ) {
 		return;
 	}
 

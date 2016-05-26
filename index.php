@@ -8,7 +8,7 @@
 
 	endwhile; ?>
 
-	<?php avd_the_pagination(false); 
+	<?php basic_the_pagination(false);
 	
 else: ?>
 

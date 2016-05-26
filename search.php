@@ -15,7 +15,7 @@
 
 	<?php endwhile; ?>
 
-	<?php if(function_exists('avd_the_pagination')) { avd_the_pagination(false); } ?>
+	<?php if(function_exists( 'basic_the_pagination' )) { basic_the_pagination(false); } ?>
 
 <?php else : ?>
 	<article class="post">
