@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Theme Basic\n"
-"POT-Creation-Date: 2016-05-26 19:22+0200\n"
-"PO-Revision-Date: 2016-05-26 19:24+0200\n"
+"POT-Creation-Date: 2016-05-26 19:32+0200\n"
+"PO-Revision-Date: 2016-05-26 19:32+0200\n"
 "Last-Translator: Alexandra Vovk <avovkdesign@gmail.com>\n"
 "Language-Team: WP Puzzle <wppuzzle@gmail.com>\n"
 "Language: ru_RU\n"
@@ -99,24 +99,24 @@ msgstr "Главное меню"
 msgid "Footer Menu"
 msgstr "Меню в подвале"
 
-#: functions.php:105
+#: functions.php:98
 msgid "Sidebar"
 msgstr "Боковая колонка"
 
-#: functions.php:107
+#: functions.php:100
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Добавьте сюда виджеты, чтобы вывести их в боковой колонке"
 
-#: functions.php:176 inc/schemaorg.php:24
+#: functions.php:169 inc/schemaorg.php:24
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s в %2$s"
 
-#: functions.php:179 inc/schemaorg.php:27
+#: functions.php:172 inc/schemaorg.php:27
 msgid "Edit"
 msgstr "Редактировать"
 
-#: functions.php:183 inc/schemaorg.php:31
+#: functions.php:176 inc/schemaorg.php:31
 msgid "Your comment is awaiting moderation."
 msgstr "Ваш комментарий ожидает модерации."
 
@@ -382,43 +382,31 @@ msgstr "Скрипты в подвале сайта"
 msgid "HTML code before &lt;/body&gt; tag"
 msgstr "HTML код перед &lt;/body&gt; "
 
-#: inc/customizer/customizer-settings.php:680
-msgid "jQuery library source"
-msgstr "Источник библиотеки jQuery"
-
-#: inc/customizer/customizer-settings.php:684
-msgid "Packaged with WordPress"
-msgstr "Локаьный, поставляемый в сборке WordPress"
-
-#: inc/customizer/customizer-settings.php:685
-msgid "Google CDN"
-msgstr "Из библиотеки Google"
-
-#: inc/customizer/customizer-settings.php:705
+#: inc/customizer/customizer-settings.php:681
 msgid "Custom styles"
 msgstr "Пользовательские стили"
 
-#: inc/customizer/customizer-settings.php:706
+#: inc/customizer/customizer-settings.php:682
 msgid "Add your custom CSS styles"
 msgstr "Добавьте свои CSS стили"
 
-#: inc/customizer/customizer-settings.php:719
+#: inc/customizer/customizer-settings.php:695
 msgid "Footer"
 msgstr "Подвал"
 
-#: inc/customizer/customizer-settings.php:720
+#: inc/customizer/customizer-settings.php:696
 msgid "Customize footer"
 msgstr "Настройка подвала"
 
-#: inc/customizer/customizer-settings.php:731
+#: inc/customizer/customizer-settings.php:707
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: inc/customizer/customizer-settings.php:739
+#: inc/customizer/customizer-settings.php:715
 msgid "Copyright text"
 msgstr "Текст авторского копирайта"
 
-#: inc/customizer/customizer-settings.php:759
+#: inc/customizer/customizer-settings.php:735
 msgid "Counters code"
 msgstr "Счетчики"
 
@@ -465,3 +453,5 @@ msgstr "Поиск"
 #: sidebar.php:22
 msgid "Categories"
 msgstr "Рубрики"
+
+

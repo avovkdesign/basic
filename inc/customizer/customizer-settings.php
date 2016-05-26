@@ -663,30 +663,6 @@ function basic_customizer_init( $wp_customize ) {
 		)
 	);
 
-	// ----
-
-	$wp_customize->add_setting(
-		BASIC_OPTION_NAME . '[jquery_source]',
-		array(
-			'type'              => 'option',
-			'default'           => 'packaged',
-			'sanitize_callback' => 'sanitize_key',
-			'transport'         => $transport
-		)
-	);
-	$wp_customize->add_control( 'basic_jquery_source_control',
-		array(
-			'settings'    => BASIC_OPTION_NAME . '[jquery_source]',
-			'label'       => __( "jQuery library source", 'basic' ),
-			'section'     => 'basic_custom_code',
-			'type'        => 'select',
-			'choices'     => array(
-				'packaged'  => __( 'Packaged with WordPress', 'basic' ),
-				'googlecdn' => __( 'Google CDN', 'basic' ),
-			)
-		)
-	);
-
 
 	// ----
 

@@ -374,18 +374,6 @@ msgstr ""
 msgid "HTML code before &lt;/body&gt; tag"
 msgstr ""
 
-#: inc/customizer/customizer-settings.php:680
-msgid "jQuery library source"
-msgstr ""
-
-#: inc/customizer/customizer-settings.php:684
-msgid "Packaged with WordPress"
-msgstr ""
-
-#: inc/customizer/customizer-settings.php:685
-msgid "Google CDN"
-msgstr ""
-
 #: inc/customizer/customizer-settings.php:705
 msgid "Custom styles"
 msgstr ""

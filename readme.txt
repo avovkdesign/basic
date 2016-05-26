@@ -5,7 +5,7 @@ Tested up to: WordPress 4.5.2
 Version: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: light, two-columns, one-column, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
+Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
 
 == Description ==
 Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code.
@@ -28,7 +28,6 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 == Changelog ==
 
 = 1.1.3 =
-* add: new option for opt-in include jQuery from Google CDN
 * fix: renamed main theme option prefix (from `theme_option_*` to `basic_theme_option_*`)
 * fix: some functions prefixed with `basic_`
 
