@@ -155,6 +155,3 @@ Script HTML5 Shiv v3.7.0, Copyright 2014 Alexander Farkas
 License: MIT/GPL2
 Source: https://github.com/aFarkas/html5shiv
 
-Script Share42.com with icons (file `/js/icons.png`),  Copyright 23.09.2014 Dimox
-License: GNU GPL, Version 2 (or later)
-Source: http://share42.com
