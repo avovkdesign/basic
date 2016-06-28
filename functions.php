@@ -60,9 +60,6 @@ function basic_enqueue_style_and_script() {
 	if ( is_singular() ) {
 		$socbtns = basic_get_theme_option('social_share');
 
-		if ( 'share42' == $socbtns )
-			wp_enqueue_script( 'basic-share42', get_template_directory_uri() . '/js/share42.min.js', array('jquery'), true, true );
-
 		if ( 'yandex' == $socbtns ) {
 			wp_enqueue_script( 'basic-yandexshare', '//yastatic.net/share2/share.js', array(), true, true );
 		}
@@ -209,9 +206,6 @@ function basic_html5_comment( $comment, $args, $depth ) {
 
 // hooks
 	require_once ( get_template_directory() . '/inc/hooks.php' );
-
-// custom content functions library
-	require_once ( get_template_directory() . '/inc/functions.php' );
 
 // Schema.org markup
 	require_once ( get_template_directory() . '/inc/schemaorg.php' );

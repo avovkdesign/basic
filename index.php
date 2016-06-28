@@ -8,8 +8,14 @@
 
 	endwhile; ?>
 
-	<?php basic_the_pagination(false);
-	
+	<?php
+
+	the_posts_pagination( array(
+		'mid_size' => 2,
+		'prev_text' => __( '&laquo; Prev', 'basic'),
+		'next_text' => __( 'Next &raquo;', 'basic'),
+	) );
+
 else: ?>
 
 	<div class="post clearfix">		

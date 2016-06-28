@@ -28,7 +28,7 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 		$layout_home = basic_get_theme_option( 'layout_home' );
 		$layout_post = basic_get_theme_option( 'layout_post' );
 		$layout_page = basic_get_theme_option( 'layout_page' );
-
+		$layout_page = ( !empty($layout_page) ) ? $layout_page : 'center';
 
 		// get custom page layout
 		if ( is_singular() ) {
@@ -44,7 +44,7 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 				? $custom
 				: $layout_post;
 		} // get settings for 'page' layout
-		elseif ( is_page() && $layout_page ) {
+		elseif ( is_page() && isset( $layout_page )  ) {
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_page;

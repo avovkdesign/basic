@@ -4,10 +4,10 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.1.4
+ * Version: 1.1.5
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Tags: light, two-columns, one-column, full-width-template, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
+ * Tags: two-columns, one-column, full-width-template, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
  * Text Domain: basic
  */
 
@@ -375,11 +375,11 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
 
 
 /* __________ paginate __________ */
-.avd-pagination { line-height: 40px; }
-.avd-pagination a { text-decoration: none; }
-.avd-pagination .page-numbers { padding: 4px 12px 6px; margin-right: 5px; background: #ddd; color: #444; -webkit-border-radius: 4px; border-radius: 4px; -webkit-transition: background, color 0.3s; transition: background, color 0.3s; }
-.avd-pagination a:hover, .avd-pagination .current { background: #936; color: #fff; }
-.avd-pagination .total { margin-right: 5px; }
+.nav-links { line-height: 40px; }
+.nav-links a { text-decoration: none; }
+.nav-links .page-numbers { padding: 4px 12px 6px; margin-right: 5px; background: #ddd; color: #444; -webkit-border-radius: 4px; border-radius: 4px; -webkit-transition: background, color 0.3s; transition: background, color 0.3s; }
+.nav-links a:hover, .nav-links .current { background: #936; color: #fff; }
+.nav-links .total { margin-right: 5px; }
 
 
 /* ============================================================================

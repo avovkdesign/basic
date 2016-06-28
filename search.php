@@ -15,7 +15,12 @@
 
 	<?php endwhile; ?>
 
-	<?php if(function_exists( 'basic_the_pagination' )) { basic_the_pagination(false); } ?>
+	<?php the_posts_pagination( array(
+		'mid_size' => 2,
+		'prev_text' => __( '&laquo; Prev', 'basic'),
+		'next_text' => __( 'Next &raquo;', 'basic'),
+	) );
+	?>
 
 <?php else : ?>
 	<article class="post">

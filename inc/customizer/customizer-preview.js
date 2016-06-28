@@ -102,7 +102,7 @@ jQuery(document).ready(function ($) {
 			basic_update_style( 'a:hover,#logo,.bx-controls a:hover .fa{color:', to, '}' );
 			basic_update_style( 'a:hover{color:', to, '}' );
 			basic_update_style( 'blockquote,q,input:focus,textarea:focus{border-color:', to, '}' );
-			basic_update_style( 'input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.avd-pagination a:hover,.avd-pagination .current,#footer{background-color:', to, '}' );
+			basic_update_style( 'input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:', to, '}' );
 		});
 	});
 

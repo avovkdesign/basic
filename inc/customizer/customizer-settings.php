@@ -411,7 +411,6 @@ function basic_customizer_init( $wp_customize ) {
 			'choices'  => array(
 				'hide'    => __( "Hide", 'basic' ),
 				'custom'  => __( "Custom theme buttons", 'basic' ),
-				'share42' => __( "Share42 Buttons", 'basic' ),
 				'yandex'  => __( "Yandex Buttons", 'basic' ),
 			),
 		)
@@ -456,7 +455,7 @@ function basic_customizer_init( $wp_customize ) {
 		BASIC_OPTION_NAME . '[schema_mark]',
 		array(
 			'type'              => 'option',
-			'default'           => '0',
+			'default'           => '1',
 			'sanitize_callback' => 'sanitize_key',
 			'transport'         => $transport
 		)

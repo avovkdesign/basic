@@ -84,7 +84,7 @@ function basic_social_share_buttons( $content ) {
 
 	$soc_title = basic_get_theme_option( 'title_before_socshare' );
 	$soc_html  = "<div class='social_share clearfix'>";
-	$soc_html .= ( $soc_title ) ? "<p class='socshare-title'>$soc_title</p>" : '';
+	$soc_html .= "<p class='socshare-title'>$soc_title</p>";
 
 	switch ( $socbtn ) {
 		case 'custom':
@@ -97,9 +97,6 @@ function basic_social_share_buttons( $content ) {
 			<a rel="nofollow" class="psb gp" target="_blank" href="https://plus.google.com/share?url=' . $link . '"  title="' . __( 'Share in', 'basic' ) . ' Google+"></a>
 			<a rel="nofollow" class="psb tw" target="_blank" href="http://twitter.com/share?url=' . $link . '&amp;text=' . urlencode( $title ) . '" title="' . __( 'Share in', 'basic' ) . ' Twitter"></a>
 			';
-			break;
-		case 'share42':
-			$soc_html .= '<div class="share42init"></div>';
 			break;
 		case 'yandex':
 			$soc_html .= '<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter" data-counter=""></div>';

@@ -1,10 +1,11 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.0
-Tested up to: WordPress 4.5.2
-Version: 1.1.4
+Tested up to: WordPress 4.5.3
+Version: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: https://www.liqpay.com/checkout/wppuzzle
 Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
 
 == Description ==
@@ -26,6 +27,20 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.1.5 =
+* fix: change custom pagination function with `the_posts_pagination`
+* fix: schema markup enabled by default
+* fix: layout custom setting
+* remove: Share42 social buttons
+* remove: deprecated tags
+* add: new actions:
+ * `basic_postexcerpt_before_title`
+ * `basic_postexcerpt_after_title`
+ * `basic_single_before_title`
+ * `basic_single_after_title`
+ * `basic_post_meta_before_first`
+ * `basic_post_meta_after_last`
 
 = 1.1.4 =
 * add: backward compatible for old option name
@@ -58,7 +73,7 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 = 1.1.0 =
 
-* Added the following actionfor use in child themes or plugins:
+* Added the following action for use in child themes or plugins:
  * `basic_before_header`
  * `basic_after_sitelogo`
  * `basic_before_topnav`

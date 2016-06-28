@@ -34,9 +34,14 @@
 
 		get_template_part( 'content' ); 
 
-	endwhile; 
+	endwhile;
 
-	basic_the_pagination(false);
+	the_posts_pagination( array(
+		'mid_size' => 2,
+		'prev_text' => __( '&laquo; Prev', 'basic'),
+		'next_text' => __( 'Next &raquo;', 'basic'),
+	) );
+
 
 else: ?>
 		

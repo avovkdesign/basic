@@ -38,7 +38,7 @@ function basic_customizer_css() {
 		$style .= "a:hover,#logo,.bx-controls a:hover .fa{color:$main_color}";
 		$style .= "a:hover{color:$main_color}";
 		$style .= "blockquote,q,input:focus,textarea:focus{border-color:$main_color}";
-		$style .= "input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.avd-pagination a:hover,.avd-pagination .current,#footer{background-color:$main_color}";
+		$style .= "input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:$main_color}";
 	}
 
 	echo ( $style )

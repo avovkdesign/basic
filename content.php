@@ -1,21 +1,29 @@
 <?php 
 
-	$markup = ( is_single() && basic_get_theme_option('schema_mark') ) ? true : false;
+	$markup_opt = basic_get_theme_option('schema_mark'); // false or 0
+	$markup = ( is_single() && $markup_opt || false === $markup_opt ) ? true : false;
 
 ?>
 
 		<article <?php post_class(); ?><?php echo ($markup) ? ' itemscope itemtype="http://schema.org/Article"' : ''; ?>>
-			
-		<?php if ( is_single() ) :  
+
+
+		<?php if ( is_single() ) :
+			do_action( 'basic_single_before_title' );
 			?><h1<?php echo ($markup) ? ' itemprop="headline"' : ''; ?>><?php the_title(); ?></h1>
-		<?php else: ?>
+			<?php do_action( 'basic_single_after_title' );
+		else:
+			do_action( 'basic_postexcerpt_before_title' ); ?>
 			<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-		<?php endif; ?>
+			<?php do_action( 'basic_postexcerpt_after_title' );
+		endif; ?>
 			
 			<aside class="meta">
+				<?php do_action( 'basic_post_meta_before_first' ); ?>
 				<span class="date"><?php the_time(get_option('date_format')); ?></span>
 				<span class="category"><?php the_category(', ') ?></span>
 				<span class="comments"><?php comments_popup_link( __('Comments', 'basic').': 0', __( "Comments", 'basic') .': 1', __("Comments", 'basic').': %', '', ''); ?></span>
+				<?php do_action( 'basic_post_meta_after_last' ); ?>
 			</aside>
 	
 			<?php do_action( 'basic_before_content' ); ?>
@@ -29,7 +37,7 @@
 				<?php endif; ?>
 				
 				<?php if ( !is_single() ) {
-						the_excerpt(''); 
+						the_excerpt();
 					} else {
 						the_content(''); 
 					}
