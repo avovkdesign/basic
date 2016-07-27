@@ -16,6 +16,8 @@
 <!-- BEGIN header -->
 <header id="header" class="clearfix">
 
+	<?php do_action( 'basic_before_sitetitle' ); ?>
+
 	<div class="sitetitle maxwidth grid <?php echo basic_get_theme_option('title_position'); ?>">
 		<div class="logo">
 			

@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.0
 Tested up to: WordPress 4.5.3
-Version: 1.1.5
+Version: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,12 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.1.6 =
+* add: new actions:
+ * `basic_before_sitetitle`
+ * `basic_before_post_title`
+ * `basic_after_post_title`
 
 = 1.1.5 =
 * fix: change custom pagination function with `the_posts_pagination`

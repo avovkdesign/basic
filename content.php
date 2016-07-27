@@ -8,7 +8,11 @@
 		<article <?php post_class(); ?><?php echo ($markup) ? ' itemscope itemtype="http://schema.org/Article"' : ''; ?>>
 
 
-		<?php if ( is_single() ) :
+		<?php
+
+		do_action( 'basic_before_post_title' );
+
+		if ( is_single() ) :
 			do_action( 'basic_single_before_title' );
 			?><h1<?php echo ($markup) ? ' itemprop="headline"' : ''; ?>><?php the_title(); ?></h1>
 			<?php do_action( 'basic_single_after_title' );
@@ -16,17 +20,26 @@
 			do_action( 'basic_postexcerpt_before_title' ); ?>
 			<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 			<?php do_action( 'basic_postexcerpt_after_title' );
-		endif; ?>
-			
-			<aside class="meta">
-				<?php do_action( 'basic_post_meta_before_first' ); ?>
-				<span class="date"><?php the_time(get_option('date_format')); ?></span>
-				<span class="category"><?php the_category(', ') ?></span>
-				<span class="comments"><?php comments_popup_link( __('Comments', 'basic').': 0', __( "Comments", 'basic') .': 1', __("Comments", 'basic').': %', '', ''); ?></span>
-				<?php do_action( 'basic_post_meta_after_last' ); ?>
-			</aside>
+		endif;
+
+		do_action( 'basic_after_post_title' );
+
+//		basic_the_postmeta();
+//		do_action( 'basic_before_content' );
+
+		?>
+
+
+<!--			<aside class="meta">-->
+<!--				--><?php //do_action( 'basic_post_meta_before_first' ); ?>
+<!--				<span class="date">--><?php //the_time(get_option('date_format')); ?><!--</span>-->
+<!--				<span class="category">--><?php //the_category(', ') ?><!--</span>-->
+<!--				<span class="comments">--><?php //comments_popup_link( __('Comments', 'basic').': 0', __( "Comments", 'basic') .': 1', __("Comments", 'basic').': %', '', ''); ?><!--</span>-->
+<!--				--><?php //do_action( 'basic_post_meta_after_last' ); ?>
+<!--			</aside>-->
 	
 			<?php do_action( 'basic_before_content' ); ?>
+
 			<div class="entry-box clearfix" <?php if ($markup) { echo "itemprop='articleBody'"; } ?>>
 				
 				<?php $thumb = get_the_post_thumbnail( get_the_ID(), 'thumbnail', 'class=thumbnail' );

@@ -201,6 +201,9 @@ function basic_html5_comment( $comment, $args, $depth ) {
  *  Include libs
  * ========================================================================== */
 
+// functions what display some page parts
+	require_once ( get_template_directory() . '/inc/html-blocks.php' );
+
 // layout functions and filters
 	require_once ( get_template_directory() . '/inc/layout.php' );
 
