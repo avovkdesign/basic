@@ -5,6 +5,10 @@ if ( ! defined( 'BASIC_APP_NAME' ) ) {
 	define( 'BASIC_APP_NAME', $theme_name );
 }
 
+if ( ! defined( 'BASIC_THEME_URI' ) ) {
+	define( 'BASIC_THEME_URI', 'http://wp-puzzle.com/' );
+}
+
 define( 'BASIC_OPTION_NAME', 'basic_theme_options_' . BASIC_APP_NAME );
 
 

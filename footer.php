@@ -35,7 +35,7 @@
 		<div class="col6 tr">
 			<p id="designedby">
 				<?php _e('Theme by', 'basic'); ?>
-				<!--noindex--><a href="http://wp-puzzle.com" target="_blank" rel="external nofollow"><?php _e('WP Puzzle', 'basic'); ?></a><!--/noindex-->
+				<!--noindex--><a href="<?php echo BASIC_THEME_URI; ?>" target="_blank" rel="external nofollow"><?php _e('WP Puzzle', 'basic'); ?></a><!--/noindex-->
 			</p>
 			<?php $counters = basic_get_theme_option('footer_counters'); ?>
 			<div class="footer-counter"><?php echo wp_specialchars_decode( $counters, ENT_QUOTES ); ?></div>

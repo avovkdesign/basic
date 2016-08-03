@@ -1,9 +1,6 @@
 <?php
 
 
-
-
-
 /** =============================================================================
  * CUSTOM STYLES
  * ============================================================================= */
@@ -13,8 +10,8 @@ function basic_customizer_css() {
 
 
 // ---- header -----
-	$bgimg      = get_header_image();
-	$bg_repeat  = basic_get_theme_option( 'header_image_repeat' );
+	$bgimg     = get_header_image();
+	$bg_repeat = basic_get_theme_option( 'header_image_repeat' );
 
 	if ( ! empty( $bgimg ) ) {
 		$style .= "#header{background-image:url('$bgimg')}";
@@ -23,7 +20,7 @@ function basic_customizer_css() {
 
 	$header_h   = get_custom_header()->height;
 	$fit_height = basic_get_theme_option( 'fix_header_height' );
-	if ( ! empty( $fit_height ) && !empty( $header_h ) ) {
+	if ( ! empty( $fit_height ) && ! empty( $header_h ) ) {
 		$style .= "@media screen and (min-width:1024px){.sitetitle{height:{$header_h}px}}";
 	}
 
@@ -107,21 +104,21 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 /* ======================================================================== */
 
 
-
 /* ========================================================================
  *            script & styles for CUSTOMIZER 
  * ======================================================================== */
-function basic_customizer_live() {
+if ( ! function_exists( 'basic_customizer_live' ) ):
+	function basic_customizer_live() {
 
-	wp_enqueue_script(
-		'basic-customizer-js',
-		get_template_directory_uri() . '/inc/customizer/customizer-preview.js', // URL
-		array( 'jquery', 'customize-preview' ), null, true
-	);
-	wp_localize_script( 'basic-customizer-js', 'optname', BASIC_OPTION_NAME );
+		wp_enqueue_script(
+			'basic-customizer-js',
+			get_template_directory_uri() . '/inc/customizer/assets/customizer-preview.js', // URL
+			array( 'jquery', 'customize-preview' ), null, true
+		);
+		wp_localize_script( 'basic-customizer-js', 'optname', BASIC_OPTION_NAME );
 
-}
-
+	}
+endif;
 add_action( 'customize_preview_init', 'basic_customizer_live' );
 /* ======================================================================== */
 

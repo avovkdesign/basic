@@ -148,6 +148,19 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
+	// postmeta_list
+	wp.customize( 'postmeta_list', function (value) {
+		value.bind(function (to) {
+			console.log( to );
+			$('.meta').find('span').addClass('hide');
+
+			var arr = to.split('_');
+			arr.forEach(function( item, i, arr ) {
+				$('.meta').find( '.'+item ).removeClass('hide');
+			});
+		});
+	});
+
 	// title_before_socshare
 	wp.customize( optname + '[title_before_socshare]', function (value) {
 		value.bind(function (to) {

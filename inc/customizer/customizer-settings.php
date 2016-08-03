@@ -6,7 +6,7 @@
  * ========================================================================== */
 function basic_customizer_init( $wp_customize ) {
 
-	$transport = 'postMessage'; // для обновления не перегружая страницу
+	$transport = 'postMessage';
 
 
 	/* --------------  S I T E   T I T L E   ---------------- */
@@ -359,6 +359,52 @@ function basic_customizer_init( $wp_customize ) {
 	);
 
 
+	// ----
+
+	if ( class_exists( 'Basic_Group_Title_Control' ) ) {
+		$wp_customize->add_setting( BASIC_OPTION_NAME . '[group_other_layout]', array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_key'
+		) );
+		$wp_customize->add_control( new Basic_Group_Title_Control( $wp_customize, 'basic_group_other_layout', array(
+			'label'    => __( 'Other options', 'basic' ),
+			'section'  => 'layout',
+//			'priority' => 10,
+			'settings' => BASIC_OPTION_NAME . '[group_other_layout]',
+		) ) );
+	}
+
+	// ----
+
+	$wp_customize->add_setting(
+		'postmeta_list',
+		array(
+			'default'           => 'date_category_comments',
+			'sanitize_callback' => 'sanitize_key',
+			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control(
+		new Basic_Sortable_Checkboxes_WPCC(
+			$wp_customize,
+			'fx_share_services', /* control id */
+			array(
+				'settings'    => 'postmeta_list',
+				'label'       => __( "Post meta", 'basic' ),
+				'description' => __( "What meta information display for posts", 'basic' ),
+				'section'     => 'layout',
+				'choices'     => array(
+					'date'     => __( "Published date", 'basic' ),
+					'author'   => __( "Post author", 'basic' ),
+					'category' => __( "Post categories", 'basic' ),
+					'comments' => __( "Comments count", 'basic' ),
+					'tags'     => __( "Post tags", 'basic' )
+				),
+			)
+		)
+	);
+
+
 	// -------  S O C I A L ------------------------------------------------------------------
 
 	$wp_customize->add_section(
@@ -410,9 +456,9 @@ function basic_customizer_init( $wp_customize ) {
 			'section'  => 'social',
 			'type'     => 'select',
 			'choices'  => array(
-				'hide'    => __( "Hide", 'basic' ),
-				'custom'  => __( "Custom theme buttons", 'basic' ),
-				'yandex'  => __( "Yandex Buttons", 'basic' ),
+				'hide'   => __( "Hide", 'basic' ),
+				'custom' => __( "Custom theme buttons", 'basic' ),
+				'yandex' => __( "Yandex Buttons", 'basic' ),
 			),
 		)
 	);
@@ -737,6 +783,71 @@ function basic_customizer_init( $wp_customize ) {
 			'type'     => 'textarea',
 		)
 	);
+
+
+
+	// ----------  A D D I T I O N A L   C U S T O M   D E S I G N  ----------
+
+
+	$wp_customize->add_section(
+		'basic_additional_design',
+		array(
+			'title'       => __( 'Design presets', 'basic' ),
+			'description' => __( 'Get child theme with individual design presets!', 'basic' ),
+			'priority'    => 200,
+		)
+	);
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_lobelia', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
+		'default'  => '<a href="'. BASIC_THEME_URI .'basic-lobelia/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/lobelia-mini.png" alt="lobelia"></a>',
+	));
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_lobelia',
+		array( 'label'    => 'Lobelia', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_lobelia', )
+	));
+
+	//
+	$wp_customize->add_setting( 'basicchild_peachtheme', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
+		'default'  => '<a href="'. BASIC_THEME_URI .'basic-peachtheme/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/peachtheme-mini.png" alt="peachtheme"></a>',
+	));
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_peachtheme',
+		array( 'label'    => 'PeachTheme', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_peachtheme', )
+	));
+
+	//
+	$wp_customize->add_setting( 'basicchild_westcoasts', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
+		'default'  => '<a href="'. BASIC_THEME_URI .'basic-westcoasts/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/westcoasts-mini.png" alt="westcoasts"></a>',
+	));
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_westcoasts',
+		array( 'label'    => 'WestCoasts', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_westcoasts', )
+	));
+
+	//
+	$wp_customize->add_setting( 'basicchild_travelblog', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
+	     'default'  => '<a href="'. BASIC_THEME_URI .'basic-travelblog/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/travelblog-mini.png" alt="travelblog"></a>',
+	));
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_travelblog',
+		array( 'label'    => 'TravelBlog', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_travelblog', )
+	));
+
+	//
+	$wp_customize->add_setting( 'basicchild_yellowdreams', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
+	     'default'  => '<a href="'. BASIC_THEME_URI .'basic-yellowdreams/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/yellowdreams-mini.png" alt="yellowdreams"></a>',
+	));
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_yellowdreams',
+		array( 'label'    => 'YellowDreams', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_yellowdreams', )
+	));
+
+	//
+	$wp_customize->add_setting( 'basicchild_luminous', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
+	     'default'  => '<a href="'. BASIC_THEME_URI .'basic-luminous/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/luminous-mini.png" alt="luminous"></a>',
+	));
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_luminous',
+		array( 'label'    => 'Luminous', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_luminous', )
+	));
+
 
 }
 

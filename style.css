@@ -200,6 +200,7 @@ input[type=button]:hover,
 	color: #936; text-decoration: none; letter-spacing: -0.02em; }
 #logo:hover { opacity: 0.9; }
 .sitedescription {/*text-align: center;*/padding-top: 10px;}
+body.wp-custom-logo #logo { display: none;}
 
 /* mobile navigation button */
 #mobile-menu { display: block; padding: 15px 0; text-decoration: none; text-transform: uppercase; 
@@ -294,6 +295,7 @@ input[type=button]:hover,
 /* __________ post __________ */
 .meta { margin: 10px 0 0; font-size: 12px; }
 .meta span { display: inline-block; padding-right: 20px; }
+.meta span.hide { display: none; }
 .meta .fa { padding: 0 5px 0 0; }
 .meta, .meta a { color: #999999; }
 .meta a { text-decoration: none; }

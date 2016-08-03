@@ -1,7 +1,7 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
-Requires at least: WordPress 4.0
-Tested up to: WordPress 4.5.3
+Requires at least: WordPress 4.2
+Tested up to: WordPress 4.6
 Version: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -9,7 +9,7 @@ Donate link: https://www.liqpay.com/checkout/wppuzzle
 Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
 
 == Description ==
-Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code.
+Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code. English, Russian, Ukrainian,French.
 
 * Responsive layout (mobile first)
 * Customized page layouts (leftbar, rightbar, full and centered content)
@@ -29,13 +29,27 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 == Changelog ==
 
 = 1.1.6 =
+* add: Ukrainian language
+* add: French language (Canada, France, Belgium). Thanks for translate Abdelkrim Jebbour!
+* add: custom post meta information and it order
+* add: option to set post meta information and its display order
+* add: custom logo
+* fix: translate comment date
 * fix: bug with displaying site description, social buttons and fixed header height
-* add: filter `basic_singular_thumbnail_size` for you customize thumbnail size in post excerpt
-* add: filter `basic_singular_thumbnail_attr` for you customize thumbnail attributes
-* add: filter `basic_the_postmeta` for you customize post meta information
+* add: filters for set up your custom social buttons:
+ * `basic_yandex_social_list` - set comma separated list for yandex social list (default = 'vkontakte,facebook,odnoklassniki,gplus,twitter')
+ * `basic_yandex_show_counter` - bool value true/false wtha enable or disable show social counters
+* add: filters for set up your custom thumbnail settings:
+ * filter `basic_singular_thumbnail_size` - customize feature image size
+ * filter `basic_singular_thumbnail_attr` - customize feature image attributes (see second param for `the_post_thumbnail()` function)
+* add: post meta filters:
+ * `basic_post_meta_list` - your custom post meta list (accept 'date', 'author', 'category', 'comments', 'tags')
+ * `basic_post_meta_list_html` - array with post meta slug as key and html code for echo as value
+ * `basic_post_meta_html` - full html list for display post meta information
 * add: function `basic_get_postmeta` hooked to `basic_after_post_title` and echo post meta information (published date, author, category, comments). Function can be overridden in child theme
 * add: post meta information removed from `content.php`, now it display with action `basic_after_post_title`
 * add: new actions:
+ * `basic_before_sitelogo`
  * `basic_before_sitetitle`
  * `basic_before_post_title`
  * `basic_after_post_title`

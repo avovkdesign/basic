@@ -89,7 +89,10 @@ function basic_social_share_buttons( $content ) {
 
 	switch ( $socbtn ) {
 		case 'yandex':
-			$soc_html .= '<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,gplus,twitter" data-counter=""></div>';
+			$yandex_social_list = apply_filters( 'basic_yandex_social_list', 'vkontakte,facebook,odnoklassniki,gplus,twitter' );
+			$yandex_show_counter = apply_filters( 'basic_yandex_show_counter', true );
+			$yandex_counter = ( !empty($yandex_show_counter) ) ? ' data-counter="" ' : '';
+			$soc_html .= '<div class="ya-share2" data-services="'. $yandex_social_list .'"'. $yandex_counter .'></div>';
 			break;
 		case 'custom':
 		default:

@@ -21,7 +21,8 @@
 	<div class="sitetitle maxwidth grid <?php echo basic_get_theme_option('title_position'); ?>">
 		<div class="logo">
 			
-			<?php if ( is_home() ) : 
+			<?php do_action( 'basic_before_sitelogo' );
+			if ( is_home() ) :
 				?><h1><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>"><?php bloginfo('name'); ?></a></h1>
 			<?php else: 
 				?><a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo('name') ); ?>"><?php bloginfo('name'); ?></a>
