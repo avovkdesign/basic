@@ -1,7 +1,7 @@
 <?php
 
 
-
+if( !function_exists('basic_get_postmeta') ):
 function basic_get_postmeta() {
 
 	$html = '<aside class="meta">';
@@ -20,4 +20,5 @@ function basic_get_postmeta() {
 
 	echo $html;
 }
+endif;
 add_action( 'basic_after_post_title', 'basic_get_postmeta', 10 );

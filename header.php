@@ -28,7 +28,8 @@
 			<?php endif; ?>
 			<?php do_action( 'basic_after_sitelogo' ); ?>
 
-			<?php if ( basic_get_theme_option('showsitedesc') || is_customize_preview() ) { ?>
+			<?php $tagline = basic_get_theme_option('showsitedesc');
+			if ( false === $tagline || !empty($tagline) || is_customize_preview() ) { ?>
 				<p class="sitedescription"><?php bloginfo('description'); ?></p>
 			<?php } ?>
 			<?php do_action( 'basic_after_sitedescription' ); ?>

@@ -1,75 +1,143 @@
-<?php 
+<?php
 
-	$markup_opt = basic_get_theme_option('schema_mark'); // false or 0
-	$markup = ( is_single() && $markup_opt || false === $markup_opt ) ? true : false;
+$markup_opt = basic_get_theme_option( 'schema_mark' ); // false or 0
+$markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : false;
 
 ?>
 
-		<article <?php post_class(); ?><?php echo ($markup) ? ' itemscope itemtype="http://schema.org/Article"' : ''; ?>>
+<article <?php post_class(); ?><?php echo ( $markup ) ? ' itemscope itemtype="http://schema.org/Article"' : ''; ?>><?php
 
+	/**
+	 * basic_before_post_title hook
+	 */
+	do_action( 'basic_before_post_title' );
+
+	if ( is_single() ) :
+
+		/**
+		 * basic_single_before_title hook
+		 */
+		do_action( 'basic_single_before_title' ); ?>
+		<h1<?php echo ( $markup ) ? ' itemprop="headline"' : ''; ?>><?php the_title(); ?></h1>
+		<?php
+
+		/**
+		 * basic_single_after_title hook
+		 */
+		do_action( 'basic_single_after_title' );
+
+	else:
+
+		/**
+		 * basic_postexcerpt_before_title hook
+		 */
+		do_action( 'basic_postexcerpt_before_title' ); ?>
+
+		<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+		<?php
+
+		/**
+		 * basic_postexcerpt_after_title hook
+		 */
+		do_action( 'basic_postexcerpt_after_title' );
+
+	endif;
+
+	/**
+	 * basic_after_post_title hook
+	 */
+	do_action( 'basic_after_post_title' );
+
+
+	/**
+	 * basic_before_content hook
+	 *
+	 * @hooked basic_get_postmeta - 10
+	 */
+	do_action( 'basic_before_content' ); ?>
+
+
+	<div class="entry-box clearfix" <?php if ( $markup ) {
+		echo "itemprop='articleBody'";
+	} ?>>
 
 		<?php
 
-		do_action( 'basic_before_post_title' );
+		if ( ! is_single() ) {
 
-		if ( is_single() ) :
-			do_action( 'basic_single_before_title' );
-			?><h1<?php echo ($markup) ? ' itemprop="headline"' : ''; ?>><?php the_title(); ?></h1>
-			<?php do_action( 'basic_single_after_title' );
-		else:
-			do_action( 'basic_postexcerpt_before_title' ); ?>
-			<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-			<?php do_action( 'basic_postexcerpt_after_title' );
-		endif;
+			$thumbnail_size = 'medium';
+			$attributes     = array(
+				'class' => 'thumbnail'
+			);
 
-		do_action( 'basic_after_post_title' );
+			$thumbnail_size = apply_filters( 'basic_singular_thumbnail_size', $thumbnail_size );
+			$attributes     = apply_filters( 'basic_singular_thumbnail_attr', $attributes );
 
-//		basic_the_postmeta();
-//		do_action( 'basic_before_content' );
+			/**
+			 * basic_before_post_thumbnail hook
+			 */
+			do_action( 'basic_before_post_thumbnail' );
 
-		?>
+			?>
+			<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="anons-thumbnail">
+				<?php the_post_thumbnail( $thumbnail_size, $attributes ); ?>
+			</a>
+			<?php
 
+			/**
+			 * basic_after_post_thumbnail hook
+			 */
+			do_action( 'basic_after_post_thumbnail' );
 
-<!--			<aside class="meta">-->
-<!--				--><?php //do_action( 'basic_post_meta_before_first' ); ?>
-<!--				<span class="date">--><?php //the_time(get_option('date_format')); ?><!--</span>-->
-<!--				<span class="category">--><?php //the_category(', ') ?><!--</span>-->
-<!--				<span class="comments">--><?php //comments_popup_link( __('Comments', 'basic').': 0', __( "Comments", 'basic') .': 1', __("Comments", 'basic').': %', '', ''); ?><!--</span>-->
-<!--				--><?php //do_action( 'basic_post_meta_after_last' ); ?>
-<!--			</aside>-->
-	
-			<?php do_action( 'basic_before_content' ); ?>
-
-			<div class="entry-box clearfix" <?php if ($markup) { echo "itemprop='articleBody'"; } ?>>
-				
-				<?php $thumb = get_the_post_thumbnail( get_the_ID(), 'thumbnail', 'class=thumbnail' );
-				if ( strlen($thumb) && !is_singular() ) : ?>			
-					<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="anons-thumbnail">
-						<?php echo $thumb; ?>
-					</a>				
-				<?php endif; ?>
-				
-				<?php if ( !is_single() ) {
-						the_excerpt();
-					} else {
-						the_content(''); 
-					}
-				?>
-				
-				<?php if ( !is_single() ) : ?>
-				<p class="more-link-box">	
-					<a class="more-link" href="<?php the_permalink() ?>#more-<?php the_ID(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Read more', 'basic'); ?></a>
-				</p>
-				<?php endif; ?>
-				
-			</div>
-			<?php do_action( 'basic_after_content' ); ?>
+			the_excerpt();
 
 
-			<?php if ( is_single() ) { ?>
-				<aside class="meta"><?php the_tags(); ?></aside>
-			<?php } ?>
+			/**
+			 * basic_before_more_link hook
+			 */
+			do_action( 'basic_before_more_link' );
 
-		<?php if ( $markup ) { basic_markup_schemaorg(); } ?>
+			?>
+			<p class="more-link-box">
+			<a class="more-link" href="<?php the_permalink() ?>#more-<?php the_ID(); ?>" title="<?php the_title_attribute(); ?>"><?php _e( 'Read more', 'basic' ); ?></a>
+			</p><?php
 
-		</article> 
+			/**
+			 * basic_after_more_link hook
+			 */
+			do_action( 'basic_after_more_link' );
+
+		} else {
+
+			/**
+			 * basic_before_more_link hook
+			 */
+			do_action( 'basic_before_single_content' );
+
+			the_content( '' );
+
+			/**
+			 * basic_before_more_link hook
+			 */
+			do_action( 'basic_after_single_content' );
+
+
+		} ?>
+
+	</div> <?php
+
+	/**
+	 * basic_after_content hook
+	 */
+	do_action( 'basic_after_content' );
+
+
+	if ( is_single() ) { ?>
+		<aside class="meta"><?php the_tags(); ?></aside>
+	<?php }
+
+	if ( $markup ) {
+		basic_markup_schemaorg();
+	} ?>
+
+</article>

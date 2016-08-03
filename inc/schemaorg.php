@@ -84,7 +84,7 @@ function basic_markup_schemaorg(){
 			<meta itemprop="height" content="<?php echo $img_attr[2]; ?>">
 		</div>
 
-		<meta itemprop="datePublished" content="<?php the_time('c') ?>">
+		<meta itemprop="datePublished" content="<?php echo get_the_time('c') ?>">
 		<meta itemprop="dateModified"  content="<?php the_modified_time('c')?>"/>
 		<meta itemprop="author" content="<?php the_author() ?>">
 

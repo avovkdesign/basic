@@ -29,10 +29,24 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 == Changelog ==
 
 = 1.1.6 =
+* fix: bug with displaying site description, social buttons and fixed header height
+* add: filter `basic_singular_thumbnail_size` for you customize thumbnail size in post excerpt
+* add: filter `basic_singular_thumbnail_attr` for you customize thumbnail attributes
+* add: filter `basic_the_postmeta` for you customize post meta information
+* add: function `basic_get_postmeta` hooked to `basic_after_post_title` and echo post meta information (published date, author, category, comments). Function can be overridden in child theme
+* add: post meta information removed from `content.php`, now it display with action `basic_after_post_title`
 * add: new actions:
  * `basic_before_sitetitle`
  * `basic_before_post_title`
  * `basic_after_post_title`
+ * `basic_before_post_thumbnail`
+ * `basic_after_post_thumbnail`
+ * `basic_before_more_link`
+ * `basic_after_more_link`
+ * `basic_before_page_content_box` - before div.entry-box on page.php
+ * `basic_after_page_content_box` - after div.entry-box on page.php
+ * `basic_before_page_content` - before in div.entry on page.php
+ * `basic_after_page_content` - after div.entry on page.php
 
 = 1.1.5 =
 * fix: change custom pagination function with `the_posts_pagination`

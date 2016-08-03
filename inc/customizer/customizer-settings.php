@@ -129,7 +129,8 @@ function basic_customizer_init( $wp_customize ) {
 		BASIC_OPTION_NAME . '[fix_header_height]',
 		array(
 			'type'              => 'option',
-			'default'           => 1,
+			'default'           => 0,
+//			'default'           => 1,
 			'sanitize_callback' => 'sanitize_key',
 			'transport'         => $transport
 		)

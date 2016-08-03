@@ -238,8 +238,8 @@ input[type=button]:hover,
  *		CONTENT
  * ============================================================================ */
 .entry-box { margin: 30px 0 0; }
-/*.anons .entry-box { margin: 30px 0 0; }*/
 .entry-box .entry {	padding-bottom: 30px;}
+/*.page .entry { margin-top: 30px; }*/
 
 .entry ul { margin: 0.5em 0 1em 30px; }
 .entry ol { margin: 0.5em 0 1em 50px; list-style: decimal; }
@@ -247,10 +247,6 @@ input[type=button]:hover,
 .entry li { padding-top: 5px; }
 .entry ul li { padding-left: 20px; position: relative; } 
 .entry ul li:before, .ftrwidget ul li:before { 
-	/*content: '»';*/
-	/*position: absolute;*/
-	/*top: 7px; left: 0;*/
-	/*line-height: 100%;*/
 	content: '»';
 	position: relative;
 	top: -3px;
