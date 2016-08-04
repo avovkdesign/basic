@@ -151,7 +151,7 @@ jQuery(document).ready(function ($) {
 	// postmeta_list
 	wp.customize( 'postmeta_list', function (value) {
 		value.bind(function (to) {
-			console.log( to );
+			// console.log( to );
 			$('.meta').find('span').addClass('hide');
 
 			var arr = to.split('_');
