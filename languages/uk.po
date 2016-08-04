@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Basic\n"
-"POT-Creation-Date: 2016-08-04 00:41+0200\n"
-"PO-Revision-Date: 2016-08-04 00:43+0200\n"
+"POT-Creation-Date: 2016-08-04 09:18+0200\n"
+"PO-Revision-Date: 2016-08-04 09:19+0200\n"
 "Last-Translator: Alexandra Vovk <avovkdesign@gmail.com>\n"
 "Language-Team: WP Puzzle <wppuzzle@gmail.com>\n"
 "Language: uk\n"
@@ -357,6 +357,10 @@ msgstr "Телефон"
 #: inc/customizer/customizer-settings.php:579
 msgid "use in https://schema.org/Organization"
 msgstr "використовуеться в https://schema.org/Organization"
+
+#: inc/customizer/customizer-settings.php:546
+msgid "Russia"
+msgstr "Україна"
 
 #: inc/customizer/customizer-settings.php:554
 msgid "Adress"

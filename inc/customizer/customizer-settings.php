@@ -522,7 +522,7 @@ function basic_customizer_init( $wp_customize ) {
 		BASIC_OPTION_NAME . '[markup_telephone]',
 		array(
 			'type'              => 'option',
-			'default'           => '+7 (000) 000-000-00',
+			'default'           => '(000) 000-000-00',
 			'sanitize_callback' => 'basic_sanitize_text',
 			'transport'         => $transport
 		)
@@ -543,7 +543,7 @@ function basic_customizer_init( $wp_customize ) {
 		BASIC_OPTION_NAME . '[markup_adress]',
 		array(
 			'type'              => 'option',
-			'default'           => 'Russia',
+			'default'           => __( 'Russia', 'basic'),
 			'sanitize_callback' => 'basic_sanitize_text',
 			'transport'         => $transport
 		)

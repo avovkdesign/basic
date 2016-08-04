@@ -31,7 +31,6 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 = 1.1.6 =
 * add: Ukrainian language
 * add: French language (Canada, France, Belgium). Thanks for translate Abdelkrim Jebbour!
-* add: custom post meta information and it order
 * add: option to set post meta information and its display order
 * add: custom logo
 * fix: translate comment date
