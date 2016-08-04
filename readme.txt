@@ -9,7 +9,7 @@ Donate link: https://www.liqpay.com/checkout/wppuzzle
 Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
 
 == Description ==
-Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code. English, Russian, Ukrainian, French.
+Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code. English, Russian, Ukrainian, French. Available 6 child themes with individual design
 
 * Responsive layout (mobile first)
 * Customized page layouts (leftbar, rightbar, full and centered content)
@@ -30,7 +30,7 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 = 1.1.6 =
 * add: Ukrainian language
-* add: French language (Canada, France, Belgium). Thanks for translate Abdelkrim Jebbour!
+* add: French language (Canada, France, Belgium). Thank Abdelkrim Jebbour for translation!
 * add: option to set post meta information and its display order
 * add: custom logo
 * fix: translate comment date
