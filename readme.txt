@@ -46,7 +46,7 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
  * `basic_post_meta_list_html` - array with post meta slug as key and html code for echo as value
  * `basic_post_meta_html` - full html list for display post meta information
 * add: function `basic_get_postmeta` hooked to `basic_after_post_title` and echo post meta information (published date, author, category, comments). Function can be overridden in child theme
-* add: post meta information removed from `content.php`, now it display with action `basic_after_post_title`
+* add: post meta information was removed from `content.php`, now it is displayed with action `basic_after_post_title`
 * add: new actions:
  * `basic_before_sitelogo`
  * `basic_before_sitetitle`
