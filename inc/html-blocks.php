@@ -2,6 +2,28 @@
 
 /**
  *
+ * @since  1.1.7
+ *
+ */
+if ( ! function_exists( 'basic_the_more_link' ) ):
+	function basic_the_more_link(){
+
+		do_action( 'basic_before_more_link' );
+		?>
+		<p class="more-link-box">
+			<a class="more-link" href="<?php the_permalink() ?>#more-<?php the_ID(); ?>" title="<?php the_title_attribute(); ?>"><?php _e( 'Read more', 'basic' ); ?></a>
+		</p>
+		<?php
+		do_action( 'basic_after_more_link' );
+
+	}
+endif;
+add_action( 'basic_after_post_excerpt', 'basic_the_more_link' );
+
+
+
+/**
+ *
  * @since  1.1.6
  *
  */

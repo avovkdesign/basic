@@ -23,8 +23,8 @@
 
 	<?php do_action( 'basic_before_footer_copyrights' ); ?>
 
-	<div class="maxwidth grid">
-		<div class="col6">
+	<div class="copyrights maxwidth grid">
+		<div class="<?php echo apply_filters( 'basic_footer_copytext_class', 'copytext col6' );?>">
 			<p id="copy">
 				<!--noindex--><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="nofollow"><?php bloginfo('name'); ?></a><!--/noindex--> &copy; <?php echo date("Y",time()); ?>
 				<br/>
@@ -32,7 +32,7 @@
 			</p>
 		</div>
 
-		<div class="col6 tr">
+		<div class="<?php echo apply_filters( 'basic_footer_themeby_class', 'themeby col6 tr' );?>">
 			<p id="designedby">
 				<?php _e('Theme by', 'basic'); ?>
 				<!--noindex--><a href="<?php echo BASIC_THEME_URI; ?>" target="_blank" rel="external nofollow"><?php _e('WP Puzzle', 'basic'); ?></a><!--/noindex-->

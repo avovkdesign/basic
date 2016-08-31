@@ -11,9 +11,11 @@ jQuery(document).ready(function($) {
 
 	
 // responsive menu 
-	var nav = $('#header nav');
-	var pull = $('#mobile-menu');
-	if ( $(window).width() < 1025) {
+	var nav = $('.topnav nav'),
+		pull = $('#mobile-menu');
+
+	if ( window.innerWidth < 1024) {
+	// if ( $(document).width() < 1024) {
 		nav.hide();
 		pull.removeClass('mm-active');
 	}
@@ -27,8 +29,14 @@ jQuery(document).ready(function($) {
 		}  
 		return false;
 	});
-	$(window).resize(function(){  
-		if ( $(window).width() > 1025 ) { 
+	$(window).resize(function(){
+		// console.log( 'document = ' + window.innerWidth );
+		// console.log( 'document = ' + $(document).width() );
+		// console.log( 'window = ' + $(window).width() );
+		// console.log( 'body = ' + $('body').width() );
+
+		// if ( $(document).width() > 1024 ) {
+		if ( window.innerWidth >= 1024 ) {
 			pull.hide();
 			nav.show();  
 		} else {

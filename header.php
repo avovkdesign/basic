@@ -12,14 +12,13 @@
 <div class="wrapper cleafix">
 
 <?php do_action( 'basic_before_header' ); ?>
-
 <!-- BEGIN header -->
 <header id="header" class="clearfix">
 
 	<?php do_action( 'basic_before_sitetitle' ); ?>
 
 	<div class="sitetitle maxwidth grid <?php echo basic_get_theme_option('title_position'); ?>">
-		<div class="logo">
+		<div class="<?php echo apply_filters( 'basic_logo_class', 'logo' ); ?>">
 			
 			<?php do_action( 'basic_before_sitelogo' );
 			if ( is_home() ) :
@@ -40,7 +39,6 @@
 	</div>
 
 	<?php do_action( 'basic_before_topnav' ); ?>
-
 	<div class="topnav grid">
 		<div id="mobile-menu" class="mm-active"><?php _e( 'Menu', 'basic' ); ?></div>
 		<nav>
@@ -63,7 +61,6 @@
 			<?php endif; ?>
 		</nav>				
 	</div>
-
 	<?php do_action( 'basic_after_topnav' ); ?>
 
 </header>

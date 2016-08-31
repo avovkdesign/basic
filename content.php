@@ -5,6 +5,7 @@ $markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : f
 
 ?>
 
+<?php do_action( 'basic_before_post_article' ); ?>
 <article <?php post_class(); ?><?php echo ( $markup ) ? ' itemscope itemtype="http://schema.org/Article"' : ''; ?>><?php
 
 	do_action( 'basic_before_post_title' );
@@ -41,13 +42,11 @@ $markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : f
 			</a>
 			<?php do_action( 'basic_after_post_thumbnail' );
 
+			do_action( 'basic_before_post_excerpt' );
 			the_excerpt();
+			do_action( 'basic_after_post_excerpt' );
 
-			do_action( 'basic_before_more_link' ); ?>
-			<p class="more-link-box">
-				<a class="more-link" href="<?php the_permalink() ?>#more-<?php the_ID(); ?>" title="<?php the_title_attribute(); ?>"><?php _e( 'Read more', 'basic' ); ?></a>
-			</p>
-			<?php do_action( 'basic_after_more_link' );
+			/* @since 1.1.7 more link html code located in /inc/html-blocks.php and @hooked to `basic_after_post_excerpt` */
 
 		} else {
 
@@ -70,3 +69,5 @@ $markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : f
 	} ?>
 
 </article>
+<?php do_action( 'basic_after_post_article' ); ?>
+

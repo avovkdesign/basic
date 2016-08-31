@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.2
 Tested up to: WordPress 4.6
-Version: 1.1.6
+Version: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,27 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.1.7 =
+* change: HTML code for 'Read more' link relocated to /inc/html-blocks.php in function basic_the_more_link() and hooked to 'basic_after_post_excerpt'
+* add: new filters:
+ * `basic_logo_class`
+ * `basic_footer_copytext_class`
+ * `basic_footer_themeby_class`
+* add: new actions:
+ * `basic_before_page_article`
+ * `basic_after_page_article`
+ * `basic_before_post_article`
+ * `basic_after_post_article`
+ * `basic_before_post_comments_area`
+ * `basic_after_post_comments_area`
+ * `basic_before_page_comments_area`
+ * `basic_after_page_comments_area`
+ * `basic_before_comment_list`
+ * `basic_after_comment_list`
+ * `basic_before_comment_form`
+ * `basic_after_comment_form`
+* fix: layout styles (break point to show sidebar -> 1024px)
 
 = 1.1.6 =
 * add: Ukrainian language

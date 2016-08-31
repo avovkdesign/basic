@@ -15,6 +15,7 @@ if ( post_password_required() )
 		</div>
 		<?php endif; ?>
 
+		<?php do_action( 'basic_before_comment_list' ); ?>
 		<ul class="comment-list">
 			<?php 
 				$comm_args = array( 
@@ -27,7 +28,8 @@ if ( post_password_required() )
 				wp_list_comments( $comm_args ); 
 			?>
 		</ul><!-- .comment-list -->
-	
+		<?php do_action( 'basic_after_comment_list' ); ?>
+
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :  ?>
 		<div class="comment-navigation">
 			<div class="nav-prev"><?php previous_comments_link( __('&larr; Older Comments', 'basic') ); ?></div>
@@ -50,7 +52,8 @@ if ( post_password_required() )
 	);
 
 
-
-	comment_form( $args ); ?>
+	do_action( 'basic_before_comment_form' );
+	comment_form( $args );
+	do_action( 'basic_after_comment_form' ); ?>
 
 </div><!-- #comments -->

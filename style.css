@@ -38,12 +38,13 @@ body { width: 100%; min-width: 280px; background: #fff; }
 #sidebar { display: none; }
 #sidebar.block{ display: block;}
 #footer { width: 100%; padding: 20px 0; margin: 0; background: #936; }
-.maxwidth { margin: 0 auto; position: relative; width: 89.6551724137931%; max-width: 1080px; }
+.maxwidth { margin: 0 auto; position: relative; width: 90%; max-width: 1080px; }
+/*.maxwidth { margin: 0 auto; position: relative; width: 89.6551724137931%; max-width: 1080px; }*/
 body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1160px; }
 
 /* adaptive layout */
-@media screen and (min-width:768px) {
-	.maxwidth { width: 90%; }
+@media screen and (min-width: 1024px) {
+	/*.maxwidth { width: 90%; }*/
 	#content { width: 67.12962962962963%; float: left; }
 	#sidebar { width: 27.77777777777778%; margin-top: 0; float: right; display: block; }
 	.layout-leftbar #sidebar { float: left; }
@@ -52,8 +53,8 @@ body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1
 	.layout-full #content { float: none; width: 100%; }
 	.layout-center #sidebar { display: none; }
 	.layout-center #content { float: none; width: 70%; margin-left: auto; margin-right: auto; }
-}
-@media screen and (min-width:1024px) {
+/*}*/
+/*@media screen and (min-width:1024px) {*/
 	.wrapper { width: 100%; }
 }
 /* ============================================================================ */
@@ -294,7 +295,7 @@ body.wp-custom-logo #logo { display: none;}
 	
 /* __________ post __________ */
 .meta { margin: 10px 0 0; font-size: 12px; }
-.meta span { display: inline-block; padding-right: 20px; }
+.meta span {  padding-right: 20px; }
 .meta span.hide { display: none; }
 .meta .fa { padding: 0 5px 0 0; }
 .meta, .meta a { color: #999999; }
@@ -400,8 +401,6 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
 
 
 /* _____ REPLY to comment  */
-.rinput { display: inline-block; width: 30%; margin-right: 4%; }
-.rurl { margin-right: 0; }
 .rinput input { width: 92%; padding-left: 4%; padding-right: 4%; }
 .rcomment textarea { width: 100%; }
 #cancel-comment-reply-link { font-size: 14px; float: right; }
@@ -484,15 +483,18 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 
 	.anons-thumbnail { display: block; }
 
-	.tile {display: inline-block; width: 47%; margin-right: 5%; vertical-align: top;}
-	.tile:nth-child(2n), .archive .tile:nth-child(2n +1) {margin-right:0;}
-	.archive .tile:nth-child(2n) {margin-right: 5%;}
-	.tile h2 {font-size: 26px;}
+	/*.tile {display: inline-block; width: 47%; margin-right: 5%; vertical-align: top;}*/
+	/*.tile:nth-child(2n), .archive .tile:nth-child(2n +1) {margin-right:0;}*/
+	/*.archive .tile:nth-child(2n) {margin-right: 5%;}*/
+	/*.tile h2 {font-size: 26px;}*/
 
-	.tile .largeimage, .tile .medium { margin: 0 0 1em; max-width: 100%; height: auto; }
-	.tile .thumbnail { float: left; margin: 5px 1.5em 0.5em 0; }
-	.tile .medium { float: none; width: 100%; max-width: 100%; height: auto; }
-	.tile .thumbnail { width: 30%; height: auto; }
+	/*.tile .largeimage, .tile .medium { margin: 0 0 1em; max-width: 100%; height: auto; }*/
+	/*.tile .thumbnail { float: left; margin: 5px 1.5em 0.5em 0; }*/
+	/*.tile .medium { float: none; width: 100%; max-width: 100%; height: auto; }*/
+	/*.tile .thumbnail { width: 30%; height: auto; }*/
+
+	.rinput { display: inline-block; width: 30%; margin-right: 4%; }
+	.rurl { margin-right: 0; }
 
 	#copy {text-align: left; padding-bottom: 0;}
 	#designedby {text-align: right;}
@@ -500,7 +502,8 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 }
 
 /* ___ Desktop ( > 1024px ) ------------------------------------------------ */
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1024px) {
+/*@media only screen and (min-width: 1025px) {*/
 	body.custom-background .menu{width:100%;margin:0;padding:0 40px;border-radius:0}
 	body.custom-background .wrapper {margin: 40px auto;}
 	body.custom-background .wrapper {border-radius:10px;}
