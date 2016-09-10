@@ -4,6 +4,10 @@ jQuery(document).ready(function ($) {
 	var basic_style = $('#basic-customizer-css'),
 	 	basic_custom_style = $('#basic-custom-css');
 
+	window.basic_style = basic_style;
+	window.basic_custom_style = basic_custom_style;
+
+
 	if ( !$(basic_style).length ) {
 		basic_style = $('head')
 			.append('<style type="text/css" id="basic-customizer-css">')
@@ -21,6 +25,39 @@ jQuery(document).ready(function ($) {
 
 	var $logo = $('#logo'),
 		$description = $('.sitedescription');
+
+	// title position
+	wp.customize( 'display_logo_and_title', function (value) {
+		value.bind(function (to) {
+
+			if ( '' == wp.customize.instance('custom_logo').get() ){
+				return false;
+			}
+
+			var $custom_logo = $('.custom-logo'),
+				classes = 'custom-logo-left custom-logo-right custom-logo-top custom-logo-bottom';
+
+			$custom_logo.removeClass(classes);
+
+			if ( 'image' == to ){
+				$custom_logo.prependTo(".logo");
+				$('#logo').hide();
+			} else {
+
+				$('#logo').show();
+				$custom_logo.addClass( 'custom-logo-' + to );
+
+				if ( 'bottom' == to ) {
+					$custom_logo.appendTo("#logo");
+				} else {
+					$custom_logo.prependTo("#logo");
+				}
+			}
+
+		});
+	});
+
+
 
 	// site title
 	wp.customize( 'blogname', function (value) {
@@ -103,6 +140,16 @@ jQuery(document).ready(function ($) {
 			basic_update_style( 'a:hover{color:', to, '}' );
 			basic_update_style( 'blockquote,q,input:focus,textarea:focus{border-color:', to, '}' );
 			basic_update_style( 'input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:', to, '}' );
+		});
+	});
+
+	// show_mobile_thumb
+	wp.customize( 'show_mobile_thumb', function (value) {
+		value.bind(function (to) {
+			var $images = $('.post .anons-thumbnail');
+			false === to
+				? $images.removeClass('show')
+				: $images.addClass('show');
 		});
 	});
 
@@ -220,10 +267,10 @@ jQuery(document).ready(function ($) {
 
 	// -----------------------------------------------------------------------
 	function basic_update_style( before, new_value, after ){
-		var style_now = $(basic_style).text();
+		var style_now = $( window.basic_style ).text();
 		var pos = style_now.search( before );
 		if ( pos == -1 )
-			$(basic_style).append( before + new_value + after );
+			$(window.basic_style).append( before + new_value + after );
 		else{
 			var before_reg = before,
 				after_reg = after;
@@ -231,17 +278,20 @@ jQuery(document).ready(function ($) {
 				.replace('@', '\@')
 				.replace('.', '\.')
 				.replace('(', '\(')
-				.replace(')', '\)');
+				.replace(')', '\)')
+				.replace('>', '\>');
 			after_reg.replace('}', '\}')
 				.replace('@', '\@')
 				.replace('.', '\.')
 				.replace('(', '\(')
 				.replace(')', '\)');
 			var reg_str = new RegExp( before_reg + '(.*?)' + after_reg );
-			$(basic_style).text( style_now.replace( reg_str, before + new_value + after ) );
+			$( window.basic_style ).text( style_now.replace( reg_str, before + new_value + after ) );
 
 		}
 	}
+	window.basic_update_style = basic_update_style;
+
 	// -----------------------------------------------------------------------
 
 });

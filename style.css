@@ -4,7 +4,7 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.1.7
+ * Version: 1.2.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: two-columns, one-column, full-width-template, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
@@ -192,7 +192,6 @@ input[type=button]:hover,
 
 
 
-
 /* ============================================================================
  *		HEADER
  * ============================================================================ */
@@ -202,7 +201,16 @@ input[type=button]:hover,
 	color: #936; text-decoration: none; letter-spacing: -0.02em; }
 #logo:hover { opacity: 0.9; }
 .sitedescription {/*text-align: center;*/padding-top: 10px;}
-body.wp-custom-logo #logo { display: none;}
+/*body.wp-custom-logo #logo { display: none;}*/
+.sitetitle.center .custom-logo { margin-left: auto;margin-right: auto; }
+.sitetitle.right .custom-logo { margin-left: auto;margin-right: 0; }
+.custom-logo-top { display: block; margin-bottom: 20px;}
+.custom-logo-bottom { display: block; margin-top: 20px; }
+.sitetitle .custom-logo-left { float: left; margin-right: 20px; }
+.sitetitle .custom-logo-right { float: right; margin-left: 20px; }
+.sitetitle.right .custom-logo-right, .sitetitle.left .custom-logo-right { margin-left: 20px; margin-right: 0; }
+.sitetitle.left .custom-logo-left, .sitetitle.right .custom-logo-left { margin-left: 0; margin-right: 20px; }
+
 
 /* mobile navigation button */
 #mobile-menu { display: block; padding: 15px 0; text-decoration: none; text-transform: uppercase; 
@@ -281,6 +289,7 @@ body.wp-custom-logo #logo { display: none;}
 .anons { margin-bottom: 60px;}
 .anons h2 { font-size: 30px; padding-bottom: 0; }
 .anons-thumbnail { display: none; }
+.anons-thumbnail.show { display: block; }
 .anons img { margin-bottom: 15px; margin-top: 5px; max-width: 100%; height: auto; }
 
 .largeimage { margin: 0 0 1em; max-width: 100%; height: auto; }
@@ -336,9 +345,8 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
 .entry .attachment .navigation { height: 150px; }
 .wp-caption, .attachment img { text-align: center; max-width: 100%; }
 .wp-caption img { margin-top: 0; margin-bottom: 0;}
-.wp-caption p.wp-caption-text { font-size: 12px; color: #222; margin: 0 0 15px; }
+.wp-caption-text, .wp-caption p.wp-caption-text { font-size: 12px; color: #222; margin: 0 0 15px; }
 .entry .wp-smiley { margin: 0; padding: 0; border: 0; }
-
 
 /* __________ galleries __________*/
 .gallery { border: 2px solid #eee;padding: 15px 20px;margin: 20px 0 30px; }

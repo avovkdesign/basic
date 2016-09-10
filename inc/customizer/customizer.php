@@ -27,16 +27,21 @@ function basic_customizer_css() {
 
 	$header_textcolor = get_theme_mod( 'header_textcolor', false );
 	if ( ! empty( $header_textcolor ) ) {
-		$style .= "a#logo{color:#$header_textcolor}";
+		$style .= apply_filters( 'basic_customizer_header_textcolor_css', "a#logo{color:#$header_textcolor}" );
 	}
 
 	$main_color = basic_get_theme_option( 'maincolor' );
 	if ( ! empty( $main_color ) && '#936' != $main_color && '#993366' != $main_color ) {
-		$style .= "a:hover,#logo,.bx-controls a:hover .fa{color:$main_color}";
-		$style .= "a:hover{color:$main_color}";
-		$style .= "blockquote,q,input:focus,textarea:focus{border-color:$main_color}";
-		$style .= "input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:$main_color}";
+
+		$main_color_css = "a:hover,#logo,.bx-controls a:hover .fa{color:$main_color}";
+		$main_color_css .= "a:hover{color:$main_color}";
+		$main_color_css .= "blockquote,q,input:focus,textarea:focus{border-color:$main_color}";
+		$main_color_css .= "input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:$main_color}";
+
+		$style .= apply_filters( 'basic_customizer_main_color_css', $main_color_css );
 	}
+
+	$style = apply_filters( 'basic_customizer_css', $style );
 
 	echo ( $style )
 		? "<!-- BEGIN Customizer CSS -->\n<style type='text/css' id='basic-customizer-css'>$style</style>\n<!-- END Customizer CSS -->\n"
@@ -51,6 +56,17 @@ add_action( 'wp_head', 'basic_customizer_css' );
 /* ======================================================================== *
  * Customizer functions
  * ======================================================================== */
+
+// ------------------------
+//function basic_sanitize_checkbox( $value ) {
+//	$value = sanitize_key( $value );
+//	if ( $value == 1 ) {
+//		$value = 1;
+//	} else {
+//		$value = 0;
+//	}
+//	return sanitize_text_field( $value );
+//}
 
 // ------------------------
 function basic_sanitize_text( $value ) {

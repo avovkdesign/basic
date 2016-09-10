@@ -36,11 +36,14 @@ $markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : f
 			$thumbnail_size = apply_filters( 'basic_singular_thumbnail_size', 'medium' );
 			$attributes     = apply_filters( 'basic_singular_thumbnail_attr', array('class'=>'thumbnail') );
 
-			do_action( 'basic_before_post_thumbnail' ); ?>
-			<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="anons-thumbnail">
-				<?php the_post_thumbnail( $thumbnail_size, $attributes ); ?>
-			</a>
-			<?php do_action( 'basic_after_post_thumbnail' );
+			if ( has_post_thumbnail() ) {
+				$show_thumb = ( get_theme_mod('show_mobile_thumb') ) ? ' show' : '';
+				do_action( 'basic_before_post_thumbnail' ); ?>
+				<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="anons-thumbnail<?php echo $show_thumb; ?>">
+					<?php the_post_thumbnail( $thumbnail_size, $attributes ); ?>
+				</a>
+				<?php do_action( 'basic_after_post_thumbnail' );
+			}
 
 			do_action( 'basic_before_post_excerpt' );
 			the_excerpt();
@@ -68,6 +71,7 @@ $markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : f
 		basic_markup_schemaorg();
 	} ?>
 
+	<?php do_action( 'basic_before_close_post_article' ); ?>
 </article>
 <?php do_action( 'basic_after_post_article' ); ?>
 
