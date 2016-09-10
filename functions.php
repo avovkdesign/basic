@@ -18,9 +18,6 @@ if ( ! function_exists( 'basic_setup' ) ) :
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
-		add_theme_support( 'custom-logo', array(
-			'header-text' => array( 'logo' )
-		) );
 
 		add_theme_support( 'custom-background', apply_filters( 'basic_custom_background_args', array( 'default-color' => 'ffffff' ) ) );
 		add_theme_support( 'custom-header', array(
@@ -33,6 +30,15 @@ if ( ! function_exists( 'basic_setup' ) ) :
 			'top'    => __( 'Main Menu', 'basic' ),
 			'bottom' => __( 'Footer Menu', 'basic' )
 		) );
+
+
+		// logo
+		$args = array();
+		$lpos = get_theme_mod( 'display_logo_and_title' );
+		if ( false === $lpos || 'image' == $lpos ) {
+			$args['header-text'] = array( 'blog-name' );
+		}
+		add_theme_support( 'custom-logo', $args );
 
 	}
 endif;

@@ -71,11 +71,31 @@ add_action( 'wp_footer', 'basic_print_footer_js' );
 
 
 /* ==========================================================================
+ * echo custom script in footer from options
+ * ========================================================================== */
+function basic_singular_thumbnail_attr( $args ) {
+
+	$show_mobile_thumb = get_theme_mod( 'show_mobile_thumb' );
+
+	if ( ! empty( $show_mobile_thumb ) ) {
+		$old           = ( array_key_exists( 'class', $args ) ) ? $args['class'] : '';
+		$args['class'] = "$old show";
+	}
+
+	return $args;
+
+}
+
+apply_filters( 'basic_singular_thumbnail_attr', 'basic_singular_thumbnail_attr' );
+/* ========================================================================== */
+
+
+/* ==========================================================================
  * add social button to the_content
  * ========================================================================== */
 function basic_social_share_buttons( $content ) {
 
-	$socbtn     = basic_get_theme_option( 'social_share' );
+	$socbtn = basic_get_theme_option( 'social_share' );
 
 	$link_pages = wp_link_pages();
 
@@ -89,10 +109,10 @@ function basic_social_share_buttons( $content ) {
 
 	switch ( $socbtn ) {
 		case 'yandex':
-			$yandex_social_list = apply_filters( 'basic_yandex_social_list', 'vkontakte,facebook,odnoklassniki,gplus,twitter' );
+			$yandex_social_list  = apply_filters( 'basic_yandex_social_list', 'vkontakte,facebook,odnoklassniki,gplus,twitter' );
 			$yandex_show_counter = apply_filters( 'basic_yandex_show_counter', true );
-			$yandex_counter = ( !empty($yandex_show_counter) ) ? ' data-counter="" ' : '';
-			$soc_html .= '<div class="ya-share2" data-services="'. $yandex_social_list .'"'. $yandex_counter .'></div>';
+			$yandex_counter      = ( ! empty( $yandex_show_counter ) ) ? ' data-counter="" ' : '';
+			$soc_html .= '<div class="ya-share2" data-services="' . $yandex_social_list . '"' . $yandex_counter . '></div>';
 			break;
 		case 'custom':
 		default:

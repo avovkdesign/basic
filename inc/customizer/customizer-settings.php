@@ -4,6 +4,9 @@
 /* ==========================================================================
  *  customizer settings init
  * ========================================================================== */
+/**
+ * @param $wp_customize WP_Customize_Manager
+ */
 function basic_customizer_init( $wp_customize ) {
 
 	$transport = 'postMessage';
@@ -14,6 +17,33 @@ function basic_customizer_init( $wp_customize ) {
 	// rename title setting
 	$wp_customize->get_section( 'title_tagline' )->title = __( 'Site title', 'basic' );
 	$wp_customize->remove_control( 'display_header_text' );
+
+
+	// ----
+
+	$wp_customize->add_setting( 'display_logo_and_title',
+		array(
+			'default'           => 'image',
+			'sanitize_callback' => 'sanitize_key',
+			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control( 'display_logo_and_title_control',
+		array(
+			'settings' => 'display_logo_and_title',
+			'label'    => __( "Display logo image with site title", 'basic' ),
+			'section'  => 'title_tagline',
+			'type'     => 'select',
+			'choices'  => array(
+				'image'  => __( 'Only image, without text', 'basic' ),
+				'top'    => __( 'Picture above the text', 'basic' ),
+				'left'   => __( 'Picture to the left of text', 'basic' ),
+				'right'  => __( 'Picture to the right of text', 'basic' ),
+				'bottom' => __( 'Picture under the text', 'basic' ),
+			)
+		)
+	);
+
 
 	// ----
 
@@ -88,8 +118,9 @@ function basic_customizer_init( $wp_customize ) {
 	// site descriptions
 	$wp_customize->add_setting( BASIC_OPTION_NAME . '[showsitedesc]', array(
 		'type'              => 'option',
-		'default'           => 1,
+		'default'           => '1',
 		'sanitize_callback' => 'sanitize_key',
+//		'sanitize_callback' => 'basic_sanitize_checkbox',
 		'transport'         => $transport
 	) );
 	$wp_customize->add_control( 'showsitedesc_control',
@@ -120,7 +151,7 @@ function basic_customizer_init( $wp_customize ) {
 
 	/*----------  H E A D E R    I M A G E   ----------*/
 
-	$wp_customize->get_section( 'header_image' )->title    = __( 'Header', 'basic' );
+//	$wp_customize->get_section( 'header_image' )->title    = __( 'Header', 'basic' );
 	$wp_customize->get_section( 'header_image' )->priority = 30;
 
 	// ---
@@ -130,7 +161,6 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'type'              => 'option',
 			'default'           => 0,
-//			'default'           => 1,
 			'sanitize_callback' => 'sanitize_key',
 			'transport'         => $transport
 		)
@@ -192,7 +222,6 @@ function basic_customizer_init( $wp_customize ) {
 	);
 
 	// ----
-
 	$wp_customize->add_setting(
 		BASIC_OPTION_NAME . '[maincolor]',
 		array(
@@ -251,6 +280,24 @@ function basic_customizer_init( $wp_customize ) {
 
 	// ----
 
+	$wp_customize->add_setting( 'show_mobile_thumb',
+		array(
+			'default'           => 0,
+			'sanitize_callback' => 'sanitize_key',
+			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control( 'show_mobile_thumb_control',
+		array(
+			'settings' => 'show_mobile_thumb',
+			'label'    => __( "Show featured images on mobile", 'basic' ),
+			'section'  => 'layout',
+			'type'     => 'checkbox',
+		)
+	);
+
+	// ----
+
 	$wp_customize->add_setting(
 		BASIC_OPTION_NAME . '[layout_home]',
 		array(
@@ -262,12 +309,12 @@ function basic_customizer_init( $wp_customize ) {
 	);
 	$wp_customize->add_control( 'layout_home_control',
 		array(
-			'settings'        => BASIC_OPTION_NAME . '[layout_home]',
-			'label'           => __( "Layout on Home", 'basic' ),
-			'section'         => 'layout',
-			'active_callback' => 'is_home',
-			'type'            => 'select',
-			'choices'         => array(
+			'settings' => BASIC_OPTION_NAME . '[layout_home]',
+			'label'    => __( "Layout on Home", 'basic' ),
+			'section'  => 'layout',
+//			'active_callback' => 'is_home',
+			'type'     => 'select',
+			'choices'  => array(
 				'rightbar' => __( "Rightbar", 'basic' ),
 				'leftbar'  => __( "Leftbar", 'basic' ),
 				'full'     => __( "Fullwidth Content", 'basic' ),
@@ -289,12 +336,11 @@ function basic_customizer_init( $wp_customize ) {
 	);
 	$wp_customize->add_control( 'layout_post_control',
 		array(
-			'settings'        => BASIC_OPTION_NAME . '[layout_post]',
-			'label'           => __( "Layout on Post", 'basic' ),
-			'section'         => 'layout',
-			'active_callback' => 'basic_is_single',
-			'type'            => 'select',
-			'choices'         => array(
+			'settings' => BASIC_OPTION_NAME . '[layout_post]',
+			'label'    => __( "Layout on Post", 'basic' ),
+			'section'  => 'layout',
+			'type'     => 'select',
+			'choices'  => array(
 				'rightbar' => __( "Rightbar", 'basic' ),
 				'leftbar'  => __( "Leftbar", 'basic' ),
 				'full'     => __( "Fullwidth Content", 'basic' ),
@@ -316,12 +362,12 @@ function basic_customizer_init( $wp_customize ) {
 	);
 	$wp_customize->add_control( 'layout_page_control',
 		array(
-			'settings'        => BASIC_OPTION_NAME . '[layout_page]',
-			'label'           => __( "Layout on Page", 'basic' ),
-			'section'         => 'layout',
-			'active_callback' => 'basic_is_page',
-			'type'            => 'select',
-			'choices'         => array(
+			'settings' => BASIC_OPTION_NAME . '[layout_page]',
+			'label'    => __( "Layout on Page", 'basic' ),
+			'section'  => 'layout',
+//			'active_callback' => 'basic_is_page',
+			'type'     => 'select',
+			'choices'  => array(
 				'rightbar' => __( "Rightbar", 'basic' ),
 				'leftbar'  => __( "Leftbar", 'basic' ),
 				'full'     => __( "Fullwidth Content", 'basic' ),
@@ -343,13 +389,12 @@ function basic_customizer_init( $wp_customize ) {
 	);
 	$wp_customize->add_control( 'layout_default_control',
 		array(
-			'settings'        => BASIC_OPTION_NAME . '[layout_default]',
-			'label'           => __( "Global layout", 'basic' ),
-			'description'     => __( "It used when individual page layout not set", 'basic' ),
-			'section'         => 'layout',
-			'type'            => 'select',
-			'active_callback' => 'basic_is_default_layout',
-			'choices'         => array(
+			'settings'    => BASIC_OPTION_NAME . '[layout_default]',
+			'label'       => __( "Global layout", 'basic' ),
+			'description' => __( "It used when individual page layout not set", 'basic' ),
+			'section'     => 'layout',
+			'type'        => 'select',
+			'choices'     => array(
 				'rightbar' => __( "Rightbar", 'basic' ),
 				'leftbar'  => __( "Leftbar", 'basic' ),
 				'full'     => __( "Fullwidth Content", 'basic' ),
@@ -369,15 +414,13 @@ function basic_customizer_init( $wp_customize ) {
 		$wp_customize->add_control( new Basic_Group_Title_Control( $wp_customize, 'basic_group_other_layout', array(
 			'label'    => __( 'Other options', 'basic' ),
 			'section'  => 'layout',
-//			'priority' => 10,
 			'settings' => BASIC_OPTION_NAME . '[group_other_layout]',
 		) ) );
 	}
 
 	// ----
 
-	$wp_customize->add_setting(
-		'postmeta_list',
+	$wp_customize->add_setting( 'postmeta_list',
 		array(
 			'default'           => 'date_category_comments',
 			'sanitize_callback' => 'sanitize_key',
@@ -404,16 +447,28 @@ function basic_customizer_init( $wp_customize ) {
 		)
 	);
 
+	// --------------------------------------------------------------------------------------
+
+	/**
+	 * @since 1.1.7 two sections (social and markup) moved to panel Single post options
+	 *
+	 */
+	$wp_customize->add_panel( 'basic_single_options',
+		array(
+			'title'       => __( "Post", 'basic' ),
+			'description' => __( "Set your custom options to displaying posts", 'basic' ),
+			'priority'    => 81
+		)
+	);
 
 	// -------  S O C I A L ------------------------------------------------------------------
 
-	$wp_customize->add_section(
-		'social',
+	$wp_customize->add_section( 'social',
 		array(
-			'title'           => __( 'Social', 'basic' ),
-			'description'     => __( 'Social buttons', 'basic' ),
-			'priority'        => 81,
-			'active_callback' => 'basic_is_singular'
+			'title'       => __( 'Social', 'basic' ),
+			'description' => __( 'Social buttons', 'basic' ),
+			'priority'    => 81,
+			'panel'       => 'basic_single_options',
 		)
 	);
 
@@ -490,9 +545,9 @@ function basic_customizer_init( $wp_customize ) {
 	$wp_customize->add_section(
 		'basic_structured_data',
 		array(
-			'title'           => __( 'Structured Data', 'basic' ),
-			'priority'        => 82,
-			'active_callback' => 'basic_is_singular'
+			'title'    => __( 'Structured Data', 'basic' ),
+			'priority' => 82,
+			'panel'    => 'basic_single_options',
 		)
 	);
 
@@ -543,7 +598,7 @@ function basic_customizer_init( $wp_customize ) {
 		BASIC_OPTION_NAME . '[markup_adress]',
 		array(
 			'type'              => 'option',
-			'default'           => __( 'Russia', 'basic'),
+			'default'           => __( 'Russia', 'basic' ),
 			'sanitize_callback' => 'basic_sanitize_text',
 			'transport'         => $transport
 		)
@@ -582,31 +637,15 @@ function basic_customizer_init( $wp_customize ) {
 	) );
 
 
-	// --------  C U S T O M   C O D E S  --------------------------------------------------
+	// --------  Advertisement   C O D E S  --------------------------------------------------
 
-	$wp_customize->add_section(
-		'basic_custom_code',
+	$wp_customize->add_section( 'basic_advertisement',
 		array(
-			'title'       => __( 'Custom codes', 'basic' ),
-			'description' => __( 'It help you setup custom scripts and styles', 'basic' ),
-			'priority'    => 91,
+			'title'       => __( 'Advertisement', 'basic' ),
+			'description' => __( 'Setup advertisement before and after post content', 'basic' ),
+			'panel'       => 'basic_single_options',
 		)
 	);
-
-	// ----
-
-	if ( class_exists( 'Basic_Group_Title_Control' ) ) {
-		$wp_customize->add_setting( BASIC_OPTION_NAME . '[group_single_code]', array(
-			'default'           => '',
-			'sanitize_callback' => 'sanitize_key',
-		) );
-		$wp_customize->add_control( new Basic_Group_Title_Control( $wp_customize, 'basic_group_single_code', array(
-			'label'           => __( 'Singular pages', 'basic' ),
-			'section'         => 'basic_custom_code',
-			'active_callback' => 'basic_is_singular',
-			'settings'        => BASIC_OPTION_NAME . '[group_single_code]',
-		) ) );
-	}
 
 	// ----
 
@@ -621,12 +660,11 @@ function basic_customizer_init( $wp_customize ) {
 	);
 	$wp_customize->add_control( 'before_content_control',
 		array(
-			'settings'        => BASIC_OPTION_NAME . '[before_content]',
-			'label'           => __( "Before content", 'basic' ),
-			'description'     => __( "Code before single post content", 'basic' ),
-			'section'         => 'basic_custom_code',
-			'type'            => 'textarea',
-			'active_callback' => 'basic_is_singular',
+			'settings'    => BASIC_OPTION_NAME . '[before_content]',
+			'label'       => __( "Before content", 'basic' ),
+			'description' => __( "Code before single post content", 'basic' ),
+			'section'     => 'basic_advertisement',
+			'type'        => 'textarea',
 		)
 	);
 
@@ -643,12 +681,22 @@ function basic_customizer_init( $wp_customize ) {
 	);
 	$wp_customize->add_control( 'after_content_control',
 		array(
-			'settings'        => BASIC_OPTION_NAME . '[after_content]',
-			'label'           => __( "After content", 'basic' ),
-			'description'     => __( "Code after single post content", 'basic' ),
-			'section'         => 'basic_custom_code',
-			'type'            => 'textarea',
-			'active_callback' => 'basic_is_singular',
+			'settings'    => BASIC_OPTION_NAME . '[after_content]',
+			'label'       => __( "After content", 'basic' ),
+			'description' => __( "Code after single post content", 'basic' ),
+			'section'     => 'basic_advertisement',
+			'type'        => 'textarea',
+		)
+	);
+
+
+	// --------  C U S T O M   C O D E S  --------------------------------------------------
+
+	$wp_customize->add_section( 'basic_custom_code',
+		array(
+			'title'       => __( 'Custom codes', 'basic' ),
+			'description' => __( 'It help you setup custom scripts and styles', 'basic' ),
+			'priority'    => 91,
 		)
 	);
 
@@ -709,6 +757,17 @@ function basic_customizer_init( $wp_customize ) {
 		)
 	);
 
+
+	if ( class_exists( 'Basic_Group_Title_Control' ) ) {
+		$wp_customize->add_setting( BASIC_OPTION_NAME . '[group_custom_css_code]', array(
+			'sanitize_callback' => 'sanitize_key',
+		) );
+		$wp_customize->add_control( new Basic_Group_Title_Control( $wp_customize, 'basic_group_custom_css_code', array(
+			'label'    => __( 'Custom CSS', 'basic' ),
+			'section'  => 'basic_custom_code',
+			'settings' => BASIC_OPTION_NAME . '[group_custom_css_code]',
+		) ) );
+	}
 
 	// ----
 
@@ -785,15 +844,17 @@ function basic_customizer_init( $wp_customize ) {
 	);
 
 
-
 	// ----------  A D D I T I O N A L   C U S T O M   D E S I G N  ----------
 
 
 	$wp_customize->add_section(
 		'basic_additional_design',
 		array(
-			'title'       => __( 'Design presets', 'basic' ),
-			'description' => __( 'Get child theme with individual design presets!', 'basic' ),
+			'title'       => __( 'Design skins for theme BASIC', 'basic' ),
+//			'title'       => __( 'Design skins', 'basic' ),
+//			'title'       => __( 'Design presets', 'basic' ),
+			'description' => __( 'Get child theme with additional design!', 'basic' ),
+//			'description' => __( 'Get child theme with individual design presets!', 'basic' ),
 			'priority'    => 200,
 		)
 	);
@@ -801,53 +862,107 @@ function basic_customizer_init( $wp_customize ) {
 	// ----
 
 	//
-	$wp_customize->add_setting( 'basicchild_lobelia', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
-		'default'  => '<a href="'. BASIC_THEME_URI .'basic-lobelia/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/lobelia-mini.png" alt="lobelia"></a>',
-	));
+	$wp_customize->add_setting( 'basicchild_lobelia', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-lobelia/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/08/lobelia-mini.png" alt="lobelia"></a>',
+	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_lobelia',
-		array( 'label'    => 'Lobelia', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_lobelia', )
-	));
+		array( 'label' => 'Lobelia', 'section' => 'basic_additional_design', 'settings' => 'basicchild_lobelia', )
+	) );
 
 	//
-	$wp_customize->add_setting( 'basicchild_peachtheme', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
-		'default'  => '<a href="'. BASIC_THEME_URI .'basic-peachtheme/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/peachtheme-mini.png" alt="peachtheme"></a>',
-	));
+	$wp_customize->add_setting( 'basicchild_peachtheme', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-peachtheme/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/08/peachtheme-mini.png" alt="peachtheme"></a>',
+	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_peachtheme',
-		array( 'label'    => 'PeachTheme', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_peachtheme', )
-	));
+		array( 'label' => 'PeachTheme', 'section' => 'basic_additional_design', 'settings' => 'basicchild_peachtheme', )
+	) );
 
 	//
-	$wp_customize->add_setting( 'basicchild_westcoasts', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
-		'default'  => '<a href="'. BASIC_THEME_URI .'basic-westcoasts/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/westcoasts-mini.png" alt="westcoasts"></a>',
-	));
+	$wp_customize->add_setting( 'basicchild_westcoasts', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-westcoasts/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/08/westcoasts-mini.png" alt="westcoasts"></a>',
+	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_westcoasts',
-		array( 'label'    => 'WestCoasts', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_westcoasts', )
-	));
+		array( 'label' => 'WestCoasts', 'section' => 'basic_additional_design', 'settings' => 'basicchild_westcoasts', )
+	) );
 
 	//
-	$wp_customize->add_setting( 'basicchild_travelblog', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
-	     'default'  => '<a href="'. BASIC_THEME_URI .'basic-travelblog/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/travelblog-mini.png" alt="travelblog"></a>',
-	));
+	$wp_customize->add_setting( 'basicchild_travelblog', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-travelblog/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/08/travelblog-mini.png" alt="travelblog"></a>',
+	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_travelblog',
-		array( 'label'    => 'TravelBlog', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_travelblog', )
-	));
+		array( 'label' => 'TravelBlog', 'section' => 'basic_additional_design', 'settings' => 'basicchild_travelblog', )
+	) );
 
 	//
-	$wp_customize->add_setting( 'basicchild_yellowdreams', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
-	     'default'  => '<a href="'. BASIC_THEME_URI .'basic-yellowdreams/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/yellowdreams-mini.png" alt="yellowdreams"></a>',
-	));
+	$wp_customize->add_setting( 'basicchild_yellowdreams', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-yellowdreams/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/08/yellowdreams-mini.png" alt="yellowdreams"></a>',
+	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_yellowdreams',
-		array( 'label'    => 'YellowDreams', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_yellowdreams', )
-	));
+		array(
+			'label'    => 'YellowDreams',
+			'section'  => 'basic_additional_design',
+			'settings' => 'basicchild_yellowdreams',
+		)
+	) );
 
 	//
-	$wp_customize->add_setting( 'basicchild_luminous', array( 'type' => 'option', 'sanitize_callback' => 'basic_sanitize_html',
-	     'default'  => '<a href="'. BASIC_THEME_URI .'basic-luminous/" target="_blank"><img src="'. BASIC_THEME_URI .'wp-content/uploads/2016/08/luminous-mini.png" alt="luminous"></a>',
-	));
+	$wp_customize->add_setting( 'basicchild_luminous', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-luminous/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/08/luminous-mini.png" alt="luminous"></a>',
+	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_luminous',
-		array( 'label'    => 'Luminous', 'section'  => 'basic_additional_design', 'settings' => 'basicchild_luminous', )
-	));
+		array( 'label' => 'Luminous', 'section' => 'basic_additional_design', 'settings' => 'basicchild_luminous', )
+	) );
 
+
+	// ----------  A D D I T I O N A L   C U S T O M   D E S I G N  ----------
+
+
+	$wp_customize->add_section( 'basic_other_themes',
+		array(
+			'title'       => __( 'WP Puzzle Themes', 'basic' ),
+			'description' => __( 'Choose great premium themes by WP Puzzle Shop!', 'basic' ),
+			'priority'    => 201,
+		)
+	);
+
+	//
+	$wp_customize->add_setting( 'basic_other_simplepuzzle', array(
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'simple-puzzle/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/09/simplepuzzle-mini.png" alt="simplepuzzle"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basic_other_simplepuzzle',
+		array( 'label' => 'SimplePuzzle', 'section' => 'basic_other_themes', 'settings' => 'basic_other_simplepuzzle', )
+	) );
+
+	//
+	$wp_customize->add_setting( 'basic_other_fashionista', array(
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'fashionista/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/09/fashionista-mini.png" alt="fashionista"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basic_other_fashionista',
+		array( 'label' => 'Fashionista', 'section' => 'basic_other_themes', 'settings' => 'basic_other_fashionista', )
+	) );
+
+	//
+	$wp_customize->add_setting( 'basic_other_sunsetcafe', array(
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'sunsetcafe/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2016/09/sunsetcafe-mini.png" alt="sunsetcafe"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basic_other_sunsetcafe',
+		array( 'label' => 'SunsetCafe', 'section' => 'basic_other_themes', 'settings' => 'basic_other_sunsetcafe', )
+	) );
 
 }
 
