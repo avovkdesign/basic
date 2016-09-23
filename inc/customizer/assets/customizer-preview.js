@@ -135,6 +135,7 @@ jQuery(document).ready(function ($) {
 	// main color change
 	wp.customize( optname + '[maincolor]', function (value) {
 		value.bind(function (to) {
+			console.log( to );
 			basic_update_style( 'a#logo{color:', to, '}' );
 			basic_update_style( 'a:hover,#logo,.bx-controls a:hover .fa{color:', to, '}' );
 			basic_update_style( 'a:hover{color:', to, '}' );

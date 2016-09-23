@@ -41,7 +41,7 @@ function basic_print_custom_css_js() {
 	$js  = basic_get_theme_option( 'head_scripts' );
 
 	if ( ! empty( $css ) ) {
-		echo "\n<style id='basic-custom-css'>" . $css . "</style>\n";
+		echo "\n<style id='basic-custom-css'>" . wp_specialchars_decode( $css, ENT_QUOTES ) . "</style>\n";
 	}
 	if ( ! empty( $js ) ) {
 		echo "\n" . wp_specialchars_decode( $js, ENT_QUOTES ) . "\n";

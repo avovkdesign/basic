@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 	<main id="content">
+	<?php do_action( 'basic_main_content_inner_begin' ); ?>
 
-<?php if (have_posts()) : 
+
+<?php if (have_posts()) :
 	while (have_posts()) : the_post(); 
 
 		get_template_part( 'content' ); 
@@ -24,8 +26,8 @@ else: ?>
 	</div>
 		
 <?php endif; ?>
-    
 
+	<?php do_action( 'basic_main_content_inner_end' ); ?>
 	</main> 
 	<!-- END #content -->
 	
