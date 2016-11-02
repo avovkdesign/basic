@@ -4,10 +4,10 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.2.1
+ * Version: 1.2.2
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Tags: two-columns, one-column, full-width-template, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
+ * Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
  * Text Domain: basic
  */
 
@@ -40,12 +40,10 @@ body { width: 100%; min-width: 280px; background: #fff; }
 #sidebar.block{ display: block;}
 #footer { width: 100%; padding: 20px 0; margin: 0; background: #936; }
 .maxwidth { margin: 0 auto; position: relative; width: 90%; max-width: 1080px; }
-/*.maxwidth { margin: 0 auto; position: relative; width: 89.6551724137931%; max-width: 1080px; }*/
 body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1160px; }
 
 /* adaptive layout */
 @media screen and (min-width: 1024px) {
-	/*.maxwidth { width: 90%; }*/
 	#content { width: 67.12962962962963%; float: left; }
 	#sidebar { width: 27.77777777777778%; margin-top: 0; float: right; display: block; }
 	.layout-leftbar #sidebar { float: left; }
@@ -54,8 +52,6 @@ body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1
 	.layout-full #content { float: none; width: 100%; }
 	.layout-center #sidebar { display: none; }
 	.layout-center #content { float: none; width: 70%; margin-left: auto; margin-right: auto; }
-/*}*/
-/*@media screen and (min-width:1024px) {*/
 	.wrapper { width: 100%; }
 }
 /* ============================================================================ */
@@ -250,7 +246,6 @@ input[type=button]:hover,
  * ============================================================================ */
 .entry-box { margin: 30px 0 0; }
 .entry-box .entry {	padding-bottom: 30px;}
-/*.page .entry { margin-top: 30px; }*/
 
 .entry ul { margin: 0.5em 0 1em 30px; }
 .entry ol { margin: 0.5em 0 1em 50px; list-style: decimal; }
@@ -280,7 +275,8 @@ input[type=button]:hover,
 .screen-reader-text{clip:rect(1px,1px,1px,1px);position:absolute!important;height:1px;width:1px;overflow:hidden;}
 .screen-reader-text:focus{background-color:#f1f1f1;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,0.6);
 	clip:auto!important;color:#21759b;display:block;font-size:14px;font-size:0.875rem;font-weight:bold;height:auto;
-	left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000;}
+	left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000;
+}
 
 
  
@@ -469,8 +465,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 
 #copy { text-align: center; /*font-size: 12px;*/ }
 #designedby { text-align: center; opacity: 0.8; }
-/*#designedby, #designedby a { font-size: 12px; }*/
-#toTop { position: fixed; z-index: 1000; bottom: 20px; right: 20px; margin: 0; padding: 14px 12px; display: none; cursor: pointer; 
+#toTop { position: fixed; z-index: 1000; bottom: 20px; right: 20px; margin: 0; padding: 14px 12px; display: none; cursor: pointer;
 	background: #222; color: #fff !important; border-radius: 3px; transform: rotate(-90deg); font-size: 24px; text-align: center; }
 #toTop:hover { background: #999; text-decoration: none !important; border-radius: 3px; }
 
@@ -492,16 +487,6 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 
 	.anons-thumbnail { display: block; }
 
-	/*.tile {display: inline-block; width: 47%; margin-right: 5%; vertical-align: top;}*/
-	/*.tile:nth-child(2n), .archive .tile:nth-child(2n +1) {margin-right:0;}*/
-	/*.archive .tile:nth-child(2n) {margin-right: 5%;}*/
-	/*.tile h2 {font-size: 26px;}*/
-
-	/*.tile .largeimage, .tile .medium { margin: 0 0 1em; max-width: 100%; height: auto; }*/
-	/*.tile .thumbnail { float: left; margin: 5px 1.5em 0.5em 0; }*/
-	/*.tile .medium { float: none; width: 100%; max-width: 100%; height: auto; }*/
-	/*.tile .thumbnail { width: 30%; height: auto; }*/
-
 	.rinput { display: inline-block; width: 30%; margin-right: 4%; }
 	.rurl { margin-right: 0; }
 
@@ -512,7 +497,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 
 /* ___ Desktop ( > 1024px ) ------------------------------------------------ */
 @media only screen and (min-width: 1024px) {
-/*@media only screen and (min-width: 1025px) {*/
+
 	body.custom-background .menu{width:100%;margin:0;padding:0 40px;border-radius:0}
 	body.custom-background .wrapper {margin: 40px auto;}
 	body.custom-background .wrapper {border-radius:10px;}
@@ -533,10 +518,17 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	.top-menu .children .children { display: none; top: 0; left: 100%; padding: 0; border-top: 0; border-left: 3px solid #fff; }
 	.top-menu .sub-menu li:hover > .sub-menu,
 	.top-menu .children li:hover > .children { display: block; }
-	.top-menu .menu-item-has-children > a:after, .top-menu  .menu-item-has-children > span:after { content: '»'; float: right; margin: 1px 0 0 15px; transform: rotate(90deg); }
-	.top-menu .sub-menu > .menu-item-has-children > a:after, .top-menu  .sub-menu > .menu-item-has-children > span:after, 
-	.top-menu  .children > .menu-item-has-children > a:after, .top-menu  .children > .menu-item-has-children > span:after { 
-		content: '»'; float: right; margin: 0; transform: none; 
+	.top-menu .menu-item-has-children > a:after, .top-menu .menu-item-has-children > span:after,
+	.top-menu .page_item_has_children > a:after, .top-menu .page_item_has_children > span:after{
+		content: '»'; position: absolute; right: 20px; margin: 1px 0 0 15px; transform: rotate(90deg);
+	}
+	.top-menu .sub-menu > .menu-item-has-children > a:after, .top-menu .sub-menu > .menu-item-has-children > span:after,
+	.top-menu .children > .page_item_has_children > a:after, .top-menu .children > .page_item_has_children > span:after {
+		content: '»'; margin: 0; transform: none;
+	}
+	.top-menu .menu-item-has-children> a, .top-menu .menu-item-has-children> span,
+	.top-menu .page_item_has_children> a, .top-menu .page_item_has_children> span {
+		padding-right: 40px;
 	}
 	
 }

@@ -36,11 +36,11 @@
 
 	endwhile;
 
-	the_posts_pagination( array(
+	the_posts_pagination( apply_filters( 'basic_archive_posts_pagination_args', array(
 		'mid_size' => 2,
 		'prev_text' => __( '&laquo; Prev', 'basic'),
 		'next_text' => __( 'Next &raquo;', 'basic'),
-	) );
+	)) );
 
 
 else: ?>

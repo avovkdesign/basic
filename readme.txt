@@ -2,20 +2,20 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.2
 Tested up to: WordPress 4.6.1
-Version: 1.2.1
+Version: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
 Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images,sticky-post, threaded-comments, translation-ready
 
 == Description ==
-Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code. English, Russian, Ukrainian, French. Available 6 child themes with individual design
+Basic is simple responsive WordPress theme. It has custom color option, customized layout (left- or rightbar, full or centered content). Preset share buttons, structured data mark-up, clean, valid and SEO-friendly code. English, Russian, Ukrainian, French, German, Polish. Available 6 child themes with individual design
 
 * Responsive layout (mobile first)
 * Customized page layouts (leftbar, rightbar, full and centered content)
 * Custom main color
 * Custom header and background
-* Social share links (custom, Share42 or Yandex)
+* Social share links (custom or Yandex)
 * The GPL v2.0 or later license. :) Use it to make something cool.
 
 == Installation ==
@@ -27,6 +27,17 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.2.2 =
+* fix: list styles
+* remove: descriptions as title for category link in default Categories widget
+* add: Polish language (thanks [Mamo, Tato pobawmy się!](http://mamotatopobawmysie.pl/))
+* add: German language
+* add: full [WPML](https://wpml.org/) compatible!
+* add: new filters for pagination argumets:
+ * `basic_posts_pagination_args`
+ * `basic_archive_posts_pagination_args`
+ * `basic_search_posts_pagination_args`
 
 = 1.2.1 =
 * hotfix: custom style echo without `wp_specialchars_decode`

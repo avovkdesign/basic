@@ -19,7 +19,7 @@ $class = ( $no_sidebar && is_customize_preview() ) ? $class .' hide' : $class;
 			<?php get_search_form(); ?>
 		</li>
 
-		<?php wp_list_categories('title_li=<p class="wtitle">'. __("Categories", 'basic') .'</p>');  ?>
+		<?php wp_list_categories('use_desc_for_title=0&title_li=<p class="wtitle">'. __("Categories", 'basic') .'</p>');  ?>
 
 	<?php endif; ?>
 

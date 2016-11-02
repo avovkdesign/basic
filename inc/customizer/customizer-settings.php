@@ -391,7 +391,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'settings'    => BASIC_OPTION_NAME . '[layout_default]',
 			'label'       => __( "Global layout", 'basic' ),
-			'description' => __( "It used when individual page layout not set", 'basic' ),
+			'description' => __( "It is used when individual page layout is not set", 'basic' ),
 			'section'     => 'layout',
 			'type'        => 'select',
 			'choices'     => array(
@@ -434,10 +434,10 @@ function basic_customizer_init( $wp_customize ) {
 			array(
 				'settings'    => 'postmeta_list',
 				'label'       => __( "Post meta", 'basic' ),
-				'description' => __( "What meta information display for posts", 'basic' ),
+				'description' => __( "What meta information to display for posts", 'basic' ),
 				'section'     => 'layout',
 				'choices'     => array(
-					'date'     => __( "Published date", 'basic' ),
+					'date'     => __( "Publication date", 'basic' ),
 					'author'   => __( "Post author", 'basic' ),
 					'category' => __( "Post categories", 'basic' ),
 					'comments' => __( "Comments count", 'basic' ),
@@ -606,7 +606,7 @@ function basic_customizer_init( $wp_customize ) {
 	$wp_customize->add_control( 'markup_adress_control',
 		array(
 			'settings'    => BASIC_OPTION_NAME . '[markup_adress]',
-			'label'       => __( "Adress", 'basic' ),
+			'label'       => __( "Address", 'basic' ),
 			'description' => __( "use in https://schema.org/Organization", 'basic' ),
 			'section'     => 'basic_structured_data',
 			'type'        => 'text',
@@ -695,7 +695,7 @@ function basic_customizer_init( $wp_customize ) {
 	$wp_customize->add_section( 'basic_custom_code',
 		array(
 			'title'       => __( 'Custom codes', 'basic' ),
-			'description' => __( 'It help you setup custom scripts and styles', 'basic' ),
+			'description' => __( 'It helps you to setup custom scripts and styles', 'basic' ),
 			'priority'    => 91,
 		)
 	);
