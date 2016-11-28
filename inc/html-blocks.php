@@ -80,7 +80,9 @@ function basic_custom_logo_close_hideclass() {
 if ( ! function_exists( 'basic_get_postmeta' ) ):
 	function basic_get_postmeta() {
 
-		$default_meta_list = get_theme_mod( 'postmeta_list', array( 'date', 'category', 'comments' ) );
+		$default_meta_list = get_theme_mod( 'postmeta_list', 
+						   apply_filter( 'basic_postmeta_list_defaults', array( 'date', 'category', 'comments' ) )
+						  );
 		$default_meta_list = ! is_array( $default_meta_list ) ? explode( '_', $default_meta_list ) : $default_meta_list;
 
 		$meta_list           = apply_filters( 'basic_post_meta_list', $default_meta_list );
