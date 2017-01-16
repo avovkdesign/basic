@@ -216,6 +216,7 @@ input[type=button]:hover,
 
 /* header navigation */
 .topnav { background: #FFF; }
+.topnav nav {display: none;z-index:9999;}
 .top-menu { background: #936; position: absolute; z-index: 1000; width: 90%; }
 .top-menu li { padding: 0; display: block; }
 .top-menu li a, .top-menu li span { display: block; padding: 15px 20px; color: #fff; line-height: 20px; 
@@ -504,6 +505,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	body.custom-background #footer {border-radius: 0 0 10px 10px;}
 	
 	#mobile-menu { display: none; }
+	.topnav nav {display: block;}
 	.topnav {background: transparent;}
 	.top-menu { position: static; text-align: center; }
 	.top-menu li { display: inline-block; position: relative; }
