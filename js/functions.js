@@ -11,39 +11,25 @@ jQuery(document).ready(function($) {
 
 	
 // responsive menu 
-	var nav = $('.topnav nav'),
-		pull = $('#mobile-menu');
+    $(function ()
+    {
+        var $window = $(window),
+            $nav = $('.topnav nav'),
+            $button = $('#mobile-menu');
+        $nav.hide();
+        $button.on('click', function ()
+        {
+            $nav.slideToggle();
+        });
 
-	if ( window.innerWidth < 1024) {
-	// if ( $(document).width() < 1024) {
-		nav.hide();
-		pull.removeClass('mm-active');
-	}
-	pull.click(function() {
-		if ( nav.is(':visible') ) { 
-			nav.hide();
-			pull.removeClass('mm-active');
-		} else {
-			nav.show();
-			pull.addClass('mm-active');
-		}  
-		return false;
-	});
-	$(window).resize(function(){
-		// console.log( 'document = ' + window.innerWidth );
-		// console.log( 'document = ' + $(document).width() );
-		// console.log( 'window = ' + $(window).width() );
-		// console.log( 'body = ' + $('body').width() );
-
-		// if ( $(document).width() > 1024 ) {
-		if ( window.innerWidth >= 1024 ) {
-			pull.hide();
-			nav.show();  
-		} else {
-			pull.show().removeClass('mm-active');
-			nav.hide();  
-		}  
-	});
+        $window.on('resize', function ()
+        {
+            if ($window.width() >= 1024)
+            {
+                $nav.show();
+            }
+        });
+    });
 
 	
 // social buttons
