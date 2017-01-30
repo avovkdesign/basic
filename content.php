@@ -1,7 +1,7 @@
 <?php
 
 $markup_opt = basic_get_theme_option( 'schema_mark' ); // false or 0
-$markup     = ( is_single() && $markup_opt || false === $markup_opt ) ? true : false;
+$markup = ( is_single() && ( $markup_opt || false === $markup_opt ) ) ? true : false;
 
 ?>
 
