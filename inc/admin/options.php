@@ -6,7 +6,7 @@ if ( ! defined( 'BASIC_APP_NAME' ) ) {
 }
 
 if ( ! defined( 'BASIC_THEME_URI' ) ) {
-	define( 'BASIC_THEME_URI', 'http://wp-puzzle.com/' );
+	define( 'BASIC_THEME_URI', 'https://wp-puzzle.com/' );
 }
 
 define( 'BASIC_OPTION_NAME', 'basic_theme_options_' . BASIC_APP_NAME );
@@ -16,18 +16,18 @@ define( 'BASIC_OPTION_NAME', 'basic_theme_options_' . BASIC_APP_NAME );
 * 	customize get_option for theme options
 * ========================================================================== */
 if ( ! function_exists( 'basic_get_theme_option' ) ) :
-	function basic_get_theme_option( $key ) {
+	function basic_get_theme_option( $key, $default = false ) {
 
 		$cache = wp_cache_get( BASIC_OPTION_NAME );
 		if ( $cache ) {
-			return ( isset( $cache[ $key ] ) ) ? $cache[ $key ] : false;
+			return ( isset( $cache[ $key ] ) ) ? $cache[ $key ] : $default;
 		}
 
 		$opt = get_option( BASIC_OPTION_NAME );
 
 		wp_cache_add( BASIC_OPTION_NAME, $opt );
 
-		return ( isset( $opt[ $key ] ) ) ? $opt[ $key ] : false;
+		return ( isset( $opt[ $key ] ) ) ? $opt[ $key ] : $default;
 	}
 endif;
 /* ============================================================================= */

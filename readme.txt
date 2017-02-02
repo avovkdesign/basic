@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.2
 Tested up to: WordPress 4.6.1
-Version: 1.2.2
+Version: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,22 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.2.3 =
+* add: options for customize shop and search pages layout
+* add: option for hide/show share buttons on static pages
+* add: WooCommerce support
+* add: bbPress support (styles)
+* add: Turkish language
+* fix: removed site url in logo from home page
+* fix: `comment_form` defaults args
+* fix: `pre` tag overflow
+* removed: filter menu item classes (`nav_menu_css_class`)
+* fix: show sidebar on mobile option preview
+* fix: customizer live preview working when options not saved yet
+* fix: markup print by defaults
+* add: new filter `basic_comment_form_defaults`
+* add: new filter `basic_postmeta_list_defaults`
 
 = 1.2.2 =
 * fix: list styles

@@ -28,7 +28,7 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 		$layout_home = basic_get_theme_option( 'layout_home' );
 		$layout_post = basic_get_theme_option( 'layout_post' );
 		$layout_page = basic_get_theme_option( 'layout_page' );
-		$layout_page = ( !empty($layout_page) ) ? $layout_page : 'center';
+		$layout_page = ( ! empty( $layout_page ) ) ? $layout_page : 'center';
 
 		// get custom page layout
 		if ( is_singular() ) {
@@ -43,19 +43,31 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_post;
-		} // get settings for 'page' layout
-		elseif ( is_page() && isset( $layout_page )  ) {
+		}
+
+		// get settings for 'page' layout
+		elseif ( is_page() && isset( $layout_page ) ) {
+			// other static pages
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_page;
-		} // get home layout settings
+		}
+
+		// get home layout settings
 		elseif ( is_home() && $layout_home ) {
 			$layout = $layout_home;
-		} // get default layout settings
+		}
+
+		// woocommerce shop
+		elseif ( function_exists( 'is_shop' ) && is_shop() ) {
+			$layout = get_theme_mod( 'layout_shop', 'center' );
+		}
+
+		// get default layout settings
 		elseif ( $layout_def ) {
 			$layout = $layout_def;
 			if ( is_search() ) {
-				$layout = 'center';
+				$layout = get_theme_mod( 'layout_search', 'center' );
 			}
 		}
 
@@ -68,12 +80,12 @@ endif;
 /* set custom posts classes
  * ========================================================================== */
 if ( ! function_exists( 'basic_set_post_class' ) ) :
-	function basic_set_post_class( $pc ) {
-		global $post;
+	function basic_set_post_class( $classes ) {
+//		global $post;
 
-		$classes[] = 'post post-' . $post->ID;
+//		$classes[] = 'post post-' . $post->ID;
 
-		if ( ! is_singular() ) {
+		if ( ! is_singular() && 'post' == get_post_type() ) {
 			$classes[] = 'anons';
 		}
 
@@ -81,10 +93,11 @@ if ( ! function_exists( 'basic_set_post_class' ) ) :
 			$classes[] = 'serp';
 		}
 
-		if ( in_array( 'sticky', $pc ) ) {
-			$classes[] = 'sticky';
-		}
+//		if ( in_array( 'sticky', $default_classes ) ) {
+//			$classes[] = 'sticky';
+//		}
 
+//		return $default_classes;
 		return $classes;
 	}
 endif;
@@ -94,7 +107,8 @@ add_filter( 'post_class', 'basic_set_post_class' );
 
 /* clear nav menu classes
  * ========================================================================== */
-if ( ! function_exists( 'basic_set_nav_menu_class' ) ) :
+/*
+ * if ( ! function_exists( 'basic_set_nav_menu_class' ) ) :
 	function basic_set_nav_menu_class( $classes ) {
 
 		$custom_classes = array();
@@ -112,6 +126,7 @@ if ( ! function_exists( 'basic_set_nav_menu_class' ) ) :
 	}
 endif;
 add_filter( 'nav_menu_css_class', 'basic_set_nav_menu_class' );
+*/
 /* ========================================================================== */
 
 
@@ -132,9 +147,6 @@ function basic_no_link_current_page( $output ) {
 
 add_filter( 'wp_nav_menu', 'basic_no_link_current_page' );
 /* ========================================================================== */
-
-
-
 
 
 /* set default setting for galleries

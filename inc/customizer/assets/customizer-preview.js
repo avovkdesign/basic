@@ -139,8 +139,8 @@ jQuery(document).ready(function ($) {
 			basic_update_style( 'a#logo{color:', to, '}' );
 			basic_update_style( 'a:hover,#logo,.bx-controls a:hover .fa{color:', to, '}' );
 			basic_update_style( 'a:hover{color:', to, '}' );
-			basic_update_style( 'blockquote,q,input:focus,textarea:focus{border-color:', to, '}' );
-			basic_update_style( 'input[type=submit],input[type=button],.submit,.button,#mobile-menu:hover,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:', to, '}' );
+			basic_update_style( 'blockquote,q,input:focus,textarea:focus,select:focus{border-color:', to, '}' );
+			basic_update_style( 'input[type=submit],input[type=button],button,.submit,.button,.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt, .woocommerce input.button.alt,.woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover,#mobile-menu,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:', to, '}' );
 		});
 	});
 
@@ -155,12 +155,15 @@ jQuery(document).ready(function ($) {
 	});
 
 	// show_sidebar
+	var $sidebar = $('#sidebar');
+	// if ( ! wp.customize.instance(optname + '[show_sidebar]').get() ) {
+	// 	$sidebar.hide();
+	// }
 	wp.customize( optname + '[show_sidebar]', function (value) {
 		value.bind(function (to) {
-			var $block = $('#sidebar');
 			false === to
-				? $block.removeClass('block')
-				: $block.addClass('block');
+				? $sidebar.removeClass('block')
+				: $sidebar.addClass('block');
 		});
 	});
 
@@ -191,7 +194,27 @@ jQuery(document).ready(function ($) {
 	// layout_default
 	wp.customize( optname + '[layout_default]', function (value) {
 		value.bind(function (to) {
+			// console.log(to);
 			$('body').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
+				.addClass( 'layout-' + to );
+		});
+	});
+
+
+	// layout_page
+	wp.customize( 'layout_shop', function (value) {
+		value.bind(function (to) {
+			// console.log(to);
+			$('body').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
+				.addClass( 'layout-' + to );
+		});
+	});
+
+
+	// layout_page
+	wp.customize( 'layout_search', function (value) {
+		value.bind(function (to) {
+			$('body.search').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
 				.addClass( 'layout-' + to );
 		});
 	});

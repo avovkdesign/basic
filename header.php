@@ -22,13 +22,21 @@
 			<div class="<?php echo apply_filters( 'basic_logo_class', 'logo' ); ?>">
 
 				<?php do_action( 'basic_before_sitelogo' );
-				echo ( is_home() ) ? '<h1>' : ''; ?>
+				if ( is_home() ) { ?>
+                    <h1 id="logo">
+                <?php } else { ?>
+                    <a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="blog-name">
+                <?php }
 
-				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="blog-name">
-					<?php do_action( 'basic_before_blogname_in_logo' );
+                    do_action( 'basic_before_blogname_in_logo' );
 					bloginfo( 'name' );
-					do_action( 'basic_after_blogname_in_logo' ); ?>
-				</a>
+					do_action( 'basic_after_blogname_in_logo' );
+
+                if ( is_home() ) { ?>
+                    </h1>
+				<?php } else { ?>
+                    </a>
+				<?php } ?>
 
 				<?php echo ( is_home() ) ? '</h1>' : '';
 				do_action( 'basic_after_sitelogo' ); ?>

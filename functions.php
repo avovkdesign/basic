@@ -13,6 +13,9 @@ if ( ! function_exists( 'basic_setup' ) ) :
 
 		load_theme_textdomain( 'basic', get_template_directory() . '/languages' );
 
+		add_theme_support( 'woocommerce' );
+		add_theme_support( 'bbpress' );
+
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
@@ -220,6 +223,7 @@ require_once( get_template_directory() . '/inc/layout.php' );
 
 // hooks
 require_once( get_template_directory() . '/inc/hooks.php' );
+require_once( get_template_directory() . '/inc/woo-hooks.php' );
 
 // Schema.org markup
 require_once( get_template_directory() . '/inc/schemaorg.php' );

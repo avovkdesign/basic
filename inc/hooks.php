@@ -1,9 +1,11 @@
 <?php
 
 
-/* ========================================================================== 
- *	show 20 posts in search page
- * ========================================================================== */
+/**
+ * show 20 posts in search page
+ *
+ * @param $query WP_Query
+ *               ========================================================================== */
 function basic_pre_get_posts( $query ) {
 
 	if ( is_admin() || ! $query->is_main_query() ) {
@@ -19,8 +21,35 @@ add_action( 'pre_get_posts', 'basic_pre_get_posts' );
 /* ========================================================================== */
 
 
-/* ==========================================================================
+/**
+ * @param $args
+ *
+ * @return mixed
+ * ========================================================================== */
+function basic_comment_form_defaults( $args ) {
+
+	$commenter = wp_get_current_commenter();
+
+	$fields                = apply_filters( 'basic_comment_form_defaults', array(
+		'author' => '<div class="rinput rauthor"><input type="text" placeholder="' . __( 'Your Name', 'basic' ) . '" name="author" id="author" class="required" value="' . esc_attr( $commenter['comment_author'] ) . '" /></div>',
+		'email'  => '<div class="rinput remail"><input type="text" placeholder="' . __( 'Your E-mail', 'basic' ) . '" name="email" id="email" class="required" value="' . esc_attr( $commenter['comment_author_email'] ) . '" /></div>',
+		'url'    => '<div class="rinput rurl"><input type="text" placeholder="' . __( 'Your Website', 'basic' ) . '" name="url" id="url" class="last-child" value="' . esc_attr( $commenter['comment_author_url'] ) . '"  /></div>'
+	) );
+	$args['fields']        = apply_filters( 'comment_form_default_fields', $fields );
+	$args['comment_field'] = '<div class="rcomment"><textarea id="comment" name="comment" cols="45" rows="8" placeholder="' . __( 'Message', 'basic' ) . '" aria-required="true"></textarea></div>';
+
+	return $args;
+}
+
+add_filter( 'comment_form_defaults', 'basic_comment_form_defaults', 10 );
+
+
+/**
  * customize excerpt text
+ *
+ * @param $more
+ *
+ * @return string
  * ========================================================================== */
 function basic_change_the_excerpt( $more ) {
 
@@ -95,11 +124,11 @@ apply_filters( 'basic_singular_thumbnail_attr', 'basic_singular_thumbnail_attr' 
  * ========================================================================== */
 function basic_social_share_buttons( $content ) {
 
-	$socbtn = basic_get_theme_option( 'social_share' );
+	$share_buttons = basic_get_theme_option( 'social_share' );
+	$hide_on_pages = get_theme_mod( 'hide_socshare_on_pages', 0 );
+	$link_pages    = wp_link_pages();
 
-	$link_pages = wp_link_pages();
-
-	if ( ! is_singular() || '' === $socbtn || 'hide' == $socbtn ) {
+	if ( ! is_singular() || empty( $share_buttons ) || 'hide' == $share_buttons || ( is_page() && ! empty( $hide_on_pages ) ) ) {
 		return $content . $link_pages;
 	}
 
@@ -107,7 +136,7 @@ function basic_social_share_buttons( $content ) {
 	$soc_html  = "<div class='social_share clearfix'>";
 	$soc_html .= "<p class='socshare-title'>$soc_title</p>";
 
-	switch ( $socbtn ) {
+	switch ( $share_buttons ) {
 		case 'yandex':
 			$yandex_social_list  = apply_filters( 'basic_yandex_social_list', 'vkontakte,facebook,odnoklassniki,gplus,twitter' );
 			$yandex_show_counter = apply_filters( 'basic_yandex_show_counter', true );
@@ -217,7 +246,7 @@ if ( ! function_exists( 'basic_search_highlight' ) ) :
 				$query_terms = explode( ' ', $s );
 			}
 			if ( empty( $query_terms ) ) {
-				return;
+				return '';
 			}
 
 			foreach ( $query_terms as $term ) {

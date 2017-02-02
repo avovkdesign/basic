@@ -264,7 +264,7 @@ function basic_customizer_init( $wp_customize ) {
 		BASIC_OPTION_NAME . '[show_sidebar]',
 		array(
 			'type'              => 'option',
-			'default'           => '0',
+			'default'           => 0,
 			'sanitize_callback' => 'sanitize_key',
 			'transport'         => $transport
 		)
@@ -376,6 +376,61 @@ function basic_customizer_init( $wp_customize ) {
 		)
 	);
 
+
+	// ----
+
+	if ( function_exists('is_woocommerce') ){
+//		echo '-------------------------------';
+		$wp_customize->add_setting(
+			'layout_shop',
+			array(
+				'type'              => 'option',
+				'default'           => 'center',
+				'sanitize_callback' => 'sanitize_key',
+				'transport'         => $transport
+			)
+		);
+		$wp_customize->add_control( 'layout_shop_control',
+			array(
+				'settings' => 'layout_shop',
+				'label'    => __( "Layout on WooCommerce Shop page", 'basic' ),
+				'section'  => 'layout',
+				'type'     => 'select',
+				'choices'  => array(
+					'rightbar' => __( "Rightbar", 'basic' ),
+					'leftbar'  => __( "Leftbar", 'basic' ),
+					'full'     => __( "Fullwidth Content", 'basic' ),
+					'center'   => __( "Centered Content", 'basic' )
+				),
+			)
+		);
+	}
+
+	// ----
+
+	$wp_customize->add_setting(
+		'layout_search',
+		array(
+			'type'              => 'option',
+			'default'           => 'center',
+			'sanitize_callback' => 'sanitize_key',
+			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control( 'layout_search_control',
+		array(
+			'settings' => 'layout_search',
+			'label'    => __( "Layout on Search results page", 'basic' ),
+			'section'  => 'layout',
+			'type'     => 'select',
+			'choices'  => array(
+				'rightbar' => __( "Rightbar", 'basic' ),
+				'leftbar'  => __( "Leftbar", 'basic' ),
+				'full'     => __( "Fullwidth Content", 'basic' ),
+				'center'   => __( "Centered Content", 'basic' )
+			),
+		)
+	);
 	// ----
 
 	$wp_customize->add_setting(
@@ -536,6 +591,26 @@ function basic_customizer_init( $wp_customize ) {
 			'label'    => __( "Custom text before share buttons", 'basic' ),
 			'section'  => 'social',
 			'type'     => 'text',
+		)
+	);
+
+
+	// ----
+
+	$wp_customize->add_setting( 'hide_socshare_on_pages',
+		array(
+//			'type'              => 'option',
+			'default'           => 0,
+			'sanitize_callback' => 'sanitize_key',
+			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control( 'hide_socshare_on_pages_control',
+		array(
+			'settings' => 'hide_socshare_on_pages',
+			'label'    => __( "Hide share buttons on static pages", 'basic' ),
+			'section'  => 'social',
+			'type'     => 'checkbox',
 		)
 	);
 
@@ -851,13 +926,88 @@ function basic_customizer_init( $wp_customize ) {
 		'basic_additional_design',
 		array(
 			'title'       => __( 'Design skins for theme BASIC', 'basic' ),
-//			'title'       => __( 'Design skins', 'basic' ),
-//			'title'       => __( 'Design presets', 'basic' ),
 			'description' => __( 'Get child theme with additional design!', 'basic' ),
-//			'description' => __( 'Get child theme with individual design presets!', 'basic' ),
-			'priority'    => 200,
+			'priority'    => 2,
 		)
 	);
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_callmetomato', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-callmetomato/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/callmetomato-mini.png" alt="callmetomato"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_magicsky',
+		array( 'label' => 'CallMeTomato', 'section' => 'basic_additional_design', 'settings' => 'basicchild_magicsky', )
+	) );
+
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_ukrainiansoul', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-ukrainiansoul/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/ukrainiansoul-mini.png" alt="ukrainiansoul"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_ukrainiansoul',
+		array( 'label' => 'UkrainianSoul', 'section' => 'basic_additional_design', 'settings' => 'basicchild_ukrainiansoul', )
+	) );
+
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_businesscity', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-businesscity/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/businesscity-mini.png" alt="businesscity"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_businesscity',
+		array( 'label' => 'BusinessCity', 'section' => 'basic_additional_design', 'settings' => 'basicchild_businesscity', )
+	) );
+
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_magicsky', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-magicsky/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/magicsky-mini.png" alt="magicsky"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_magicsky',
+		array( 'label' => 'MagicSky', 'section' => 'basic_additional_design', 'settings' => 'basicchild_magicsky', )
+	) );
+
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_repairservice', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-repairservice/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/repairservice-mini.png" alt="repairservice"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_repairservice',
+		array( 'label' => 'RepairService', 'section' => 'basic_additional_design', 'settings' => 'basicchild_repairservice', )
+	) );
+
+
+	// ----
+
+	//
+	$wp_customize->add_setting( 'basicchild_theelegance', array(
+		'type'              => 'option',
+		'sanitize_callback' => 'basic_sanitize_html',
+		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-theelegance/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/theelegance-mini.png" alt="theelegance"></a>',
+	) );
+	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_theelegance',
+		array( 'label' => 'TheElegance', 'section' => 'basic_additional_design', 'settings' => 'basicchild_theelegance', )
+	) );
+
 
 	// ----
 
@@ -933,7 +1083,7 @@ function basic_customizer_init( $wp_customize ) {
 		array(
 			'title'       => __( 'WP Puzzle Themes', 'basic' ),
 			'description' => __( 'Choose great premium themes by WP Puzzle Shop!', 'basic' ),
-			'priority'    => 201,
+			'priority'    => 1,
 		)
 	);
 

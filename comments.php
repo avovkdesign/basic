@@ -37,23 +37,10 @@ if ( post_password_required() )
 		</div>
 		<?php endif; ?>
 
-<?php endif; // have_comments() 
-
-	$commenter = wp_get_current_commenter();
-
-	$fields =  array(
-		'author' => '<p class="rinput rauthor"><input type="text" placeholder="'.__('Your Name','basic').'" name="author" id="author" class="required" value="' . esc_attr( $commenter['comment_author'] ) . '" /></p>',		
-		'email'  => '<p class="rinput remail"><input type="text" placeholder="'.__('Your E-mail','basic').'" name="email" id="email" class="required" value="'.esc_attr(  $commenter['comment_author_email'] ) . '" /></p>',
-		'url'  => '<p class="rinput rurl"><input type="text" placeholder="'.__('Your Website','basic').'" name="url" id="url" class="last-child" value="'. esc_attr( $commenter['comment_author_url'] ) . '"  /></p>'
-	);
-	$args = array(
-	    'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-	    'comment_field' => '<p class="rcomment"><textarea id="comment" name="comment" cols="45" rows="8" placeholder="'. __('Message','basic') .'" aria-required="true"></textarea></p>',
-	);
-
+<?php endif; // have_comments()
 
 	do_action( 'basic_before_comment_form' );
-	comment_form( $args );
+	comment_form();
 	do_action( 'basic_after_comment_form' ); ?>
 
 </div><!-- #comments -->
