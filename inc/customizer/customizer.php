@@ -27,7 +27,7 @@ function basic_customizer_css() {
 
 	$header_textcolor = get_theme_mod( 'header_textcolor', false );
 	if ( ! empty( $header_textcolor ) ) {
-		$style .= apply_filters( 'basic_customizer_header_textcolor_css', "a#logo{color:#$header_textcolor}" );
+		$style .= apply_filters( 'basic_customizer_header_textcolor_css', "#logo{color:#$header_textcolor}" );
 	}
 
 	$main_color = basic_get_theme_option( 'maincolor' );

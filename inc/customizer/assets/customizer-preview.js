@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
 	wp.customize( 'header_textcolor', function (value) {
 		value.bind(function (to) {
 			//$logo.css('title', to).html(to);
-			basic_update_style( 'a#logo{color:', to, '}' );
+			basic_update_style( '#logo{color:', to, '}' );
 		});
 	});
 

@@ -595,7 +595,7 @@ li.bbp-topic-freshness {
 /* ___ Desktop ( > 1024px ) ------------------------------------------------ */
 @media only screen and (min-width: 1024px) {
 
-	body.custom-background .menu{width:100%;margin:0;padding:0 40px;border-radius:0}
+	body.custom-background #header .menu{width:100%;margin:0;padding:0 40px;border-radius:0}
 	body.custom-background .wrapper {margin: 40px auto;}
 	body.custom-background .wrapper {border-radius:10px;}
 	body.custom-background #footer {border-radius: 0 0 10px 10px;}
