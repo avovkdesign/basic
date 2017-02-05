@@ -38,8 +38,7 @@
                     </a>
 				<?php } ?>
 
-				<?php echo ( is_home() ) ? '</h1>' : '';
-				do_action( 'basic_after_sitelogo' ); ?>
+				<?php do_action( 'basic_after_sitelogo' ); ?>
 
 				<?php $description = basic_get_theme_option( 'showsitedesc' );
 				$show_description  = ( false === $description || ! empty( $description ) || is_customize_preview() );
