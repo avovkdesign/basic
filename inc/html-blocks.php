@@ -30,8 +30,9 @@ if ( ! function_exists( 'basic_the_custom_logo' ) ):
 	function basic_the_custom_logo() {
 
 		$logo_pos = get_theme_mod( 'display_logo_and_title' );
+		$custom_logo = get_theme_mod( 'custom_logo', false );
 
-		if ( function_exists( 'the_custom_logo' ) ) {
+		if ( function_exists( 'the_custom_logo' ) && !empty($custom_logo) ) {
 			$logo = get_custom_logo();
 
 			$logo = preg_replace( '%<a[^>]+>(.*?)<\/a>%i', '$1', $logo );
