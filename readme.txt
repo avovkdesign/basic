@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.2
 Tested up to: WordPress 4.7.3
-Version: 1.3.1
+Version: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -28,13 +28,16 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 == Changelog ==
 
+= 1.3.2 =
+* fix: lang prefix
+* update: translations
+
 = 1.3.1 =
 * fix: check for empty logo image
 * check: WordPress 4.7.3 compatibility
 
 = 1.3.0 =
 * fix: a stray end tag h1
-
 
 = 1.2.3 =
 * add: options for customize shop and search pages layout
