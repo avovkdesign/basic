@@ -126,9 +126,10 @@ function basic_social_share_buttons( $content ) {
 
 	$share_buttons = basic_get_theme_option( 'social_share' );
 	$hide_on_pages = get_theme_mod( 'hide_socshare_on_pages', 0 );
-	$link_pages    = wp_link_pages();
+	$link_pages    = wp_link_pages( 'echo=0' );
 
 	if ( ! is_singular() || empty( $share_buttons ) || 'hide' == $share_buttons || ( is_page() && ! empty( $hide_on_pages ) ) ) {
+//		return $content;
 		return $content . $link_pages;
 	}
 
@@ -160,6 +161,7 @@ function basic_social_share_buttons( $content ) {
 
 	$fitered_soc_html = apply_filters( 'basic_social_share', $soc_html );
 
+//	return $content . $fitered_soc_html;
 	return $content . $link_pages . $fitered_soc_html;
 
 }
