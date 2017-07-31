@@ -125,7 +125,7 @@ if ( ! function_exists( 'basic_get_postmeta' ) ):
 
 		$html = '';
 		foreach ( $meta_list as $meta ) {
-			$html .= $meta_html[ $meta ];
+			$html .= ( array_key_exists($meta,$meta_html) ) ? $meta_html[ $meta ] : '';
 		}
 
 		$html = apply_filters( 'basic_post_meta_html', $html );

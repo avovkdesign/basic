@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<main id="content">
+	<main id="content" class="content">
 	<?php do_action( 'basic_main_content_inner_begin' ); ?>
 
 

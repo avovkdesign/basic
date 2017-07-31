@@ -30,7 +30,9 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 = 1.3.3 =
 * tested up to WordPress 4.8
-* `li:before` changed by `list-style-image` and svg image
+* fix: notice `undefined index in inc\html-blocks.php on line 128`
+* add: filter for copyrights `basic_footer_copyrights_enabled`
+* fix: `li:before` changed by `list-style-image` and svg image
 
 = 1.3.2 =
 * fix: lang prefix

@@ -22,7 +22,7 @@
 	<?php endif; ?>
 
 	<?php do_action( 'basic_before_footer_copyrights' ); ?>
-
+    <?php if ( apply_filters( 'basic_footer_copyrights_enabled', true ) ) : ?>
 	<div class="<?php echo apply_filters( 'basic_footer_copyrights_class', 'copyrights maxwidth grid' );?>">
 		<div class="<?php echo apply_filters( 'basic_footer_copytext_class', 'copytext col6' );?>">
 			<p id="copy">
@@ -41,7 +41,7 @@
 			<div class="footer-counter"><?php echo wp_specialchars_decode( $counters, ENT_QUOTES ); ?></div>
 		</div>
 	</div>
-
+    <?php endif; ?>
 	<?php do_action( 'basic_after_footer_copyrights' ); ?>
 
 </footer>
