@@ -270,3 +270,15 @@ add_filter( 'the_content', 'basic_search_highlight' );
 add_filter( 'the_excerpt', 'basic_search_highlight' );
 add_filter( 'the_title', 'basic_search_highlight' );
 /* ========================================================================== */
+
+
+/* ==========================================================================
+ *
+/* ========================================================================== */
+function basic_wrap_embed_with_div( $html, $url, $attr ) {
+	return '<div class="video-responsive">'.$html.'</div>';
+}
+add_filter('embed_oembed_html', 'basic_wrap_embed_with_div', 10, 3);
+/* ========================================================================== */
+
+

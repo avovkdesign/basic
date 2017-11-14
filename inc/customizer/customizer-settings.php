@@ -602,7 +602,7 @@ function basic_customizer_init( $wp_customize ) {
 //			'type'              => 'option',
 			'default'           => 0,
 			'sanitize_callback' => 'sanitize_key',
-			'transport'         => $transport
+			'transport'         => 'refresh', //$transport
 		)
 	);
 	$wp_customize->add_control( 'hide_socshare_on_pages_control',

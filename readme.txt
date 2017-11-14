@@ -1,7 +1,7 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.3
-Tested up to: WordPress 4.8
+Tested up to: WordPress 4.9
 Version: 1.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,14 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.4 =
+* tested up to WordPress 4.9
+* fix: error preview option "Hide share buttons on static pages"
+* fix: showing marker with comments list
+* fix: hierarchy visibility in mobile menu
+* add: responsive video container
+* delete: removed CSS class 'hentry' for posts
 
 = 1.3.3 =
 * tested up to WordPress 4.8

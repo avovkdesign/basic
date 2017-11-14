@@ -43,27 +43,19 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_post;
-		}
-
-		// get settings for 'page' layout
+		} // get settings for 'page' layout
 		elseif ( is_page() && isset( $layout_page ) ) {
 			// other static pages
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_page;
-		}
-
-		// get home layout settings
+		} // get home layout settings
 		elseif ( is_home() && $layout_home ) {
 			$layout = $layout_home;
-		}
-
-		// woocommerce shop
+		} // woocommerce shop
 		elseif ( function_exists( 'is_shop' ) && is_shop() ) {
 			$layout = get_theme_mod( 'layout_shop', 'center' );
-		}
-
-		// get default layout settings
+		} // get default layout settings
 		elseif ( $layout_def ) {
 			$layout = $layout_def;
 			if ( is_search() ) {
@@ -91,6 +83,11 @@ if ( ! function_exists( 'basic_set_post_class' ) ) :
 
 		if ( is_search() ) {
 			$classes[] = 'serp';
+		}
+
+		$hentry_pos = array_search( 'hentry', $classes );
+		if ( $hentry_pos !== false ) {
+			unset( $classes[ $hentry_pos ] );
 		}
 
 //		if ( in_array( 'sticky', $default_classes ) ) {
