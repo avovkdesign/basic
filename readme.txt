@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.3
 Tested up to: WordPress 4.9
-Version: 1.3.3
+Version: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
