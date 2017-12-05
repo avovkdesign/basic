@@ -22,7 +22,7 @@
 			<div class="<?php echo apply_filters( 'basic_logo_class', 'logo' ); ?>">
 
 				<?php do_action( 'basic_before_sitelogo' );
-				if ( is_home() ) { ?>
+				if ( is_home() && ! is_paged() ) { ?>
                     <h1 id="logo">
                 <?php } else { ?>
                     <a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="blog-name">
