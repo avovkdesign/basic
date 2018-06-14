@@ -29,6 +29,9 @@
 				<!--noindex--><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="nofollow"><?php bloginfo('name'); ?></a><!--/noindex--> &copy; <?php echo date("Y",time()); ?>
 				<br/>
 				<span class="copyright-text"><?php echo basic_get_theme_option('copyright_text'); ?></span>
+				<?php if ( function_exists( 'the_privacy_policy_link' ) ) {
+					the_privacy_policy_link( '<br>' );
+				} ?>
 			</p>
 		</div>
 

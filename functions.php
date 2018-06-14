@@ -27,6 +27,7 @@ if ( ! function_exists( 'basic_setup' ) ) :
 			'width'       => 1080,
 			'height'      => 190,
 			'flex-height' => true,
+			'flex-width' => true,
 		) );
 
 		register_nav_menus( array(

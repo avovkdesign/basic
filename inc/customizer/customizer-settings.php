@@ -151,8 +151,34 @@ function basic_customizer_init( $wp_customize ) {
 
 	/*----------  H E A D E R    I M A G E   ----------*/
 
-//	$wp_customize->get_section( 'header_image' )->title    = __( 'Header', 'basic' );
 	$wp_customize->get_section( 'header_image' )->priority = 30;
+
+	// ---
+
+	$wp_customize->add_setting(
+		BASIC_OPTION_NAME . '[header_image_position]',
+		array(
+			'type'              => 'option',
+			'default'           => 'background_no_repeat',
+			'sanitize_callback' => 'sanitize_key',
+		)
+	);
+	$wp_customize->add_control( 'header_image_position_control',
+		array(
+			'settings' => BASIC_OPTION_NAME . '[header_image_position]',
+			'label'    => __( "How to display image", 'basic' ),
+			'section'  => 'header_image',
+			'type'     => 'radio',
+			'choices'  => array(
+				'before' => __( "Image before site title", 'basic' ),
+				'after'  => __( "Image after site title", 'basic' ),
+				'background_no_repeat' => __( "Background without repeat", 'basic' ),
+				'background_repeat' => __( "Background with full repeat", 'basic' ),
+				'background_repeat_x' => __( "Background with horizontal repeat", 'basic' ),
+				'background_repeat_y' => __( "Background with vertical repeat", 'basic' ),
+			),
+		)
+	);
 
 	// ---
 
@@ -168,35 +194,13 @@ function basic_customizer_init( $wp_customize ) {
 	$wp_customize->add_control( 'fix_header_height_control',
 		array(
 			'settings' => BASIC_OPTION_NAME . '[fix_header_height]',
-			'label'    => __( "Set header height as background image size", 'basic' ),
+			'label'    => __( "Fit minimal header height to image height", 'basic' ),
 			'section'  => 'header_image',
 			'type'     => 'checkbox',
 		)
 	);
+
 	// ---
-
-	$wp_customize->add_setting(
-		BASIC_OPTION_NAME . '[header_image_repeat]',
-		array(
-			'type'              => 'option',
-			'default'           => 'no-repeat',
-			'sanitize_callback' => 'sanitize_key',
-			'transport'         => $transport
-		)
-	);
-	$wp_customize->add_control( 'header_image_repeat_control',
-		array(
-			'settings' => BASIC_OPTION_NAME . '[header_image_repeat]',
-			'label'    => __( "Image repeat", 'basic' ),
-			'section'  => 'header_image',
-			'type'     => 'radio',
-			'choices'  => array(
-				'no-repeat' => __( "No repeat", 'basic' ),
-				'repeat-x'  => __( "Repeat", 'basic' ),
-			),
-		)
-	);
-
 
 	/*----------  C O L O R S   &&   B A C K G R O U N D  ----------*/
 

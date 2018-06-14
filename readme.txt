@@ -1,8 +1,8 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.3
-Tested up to: WordPress 4.9.1
-Version: 1.3.6
+Tested up to: WordPress 4.9.6
+Version: 1.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,21 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.7 =
+* tested up to WordPress 4.9.6
+* added: new customizer option `header_image_position` with 6 ways to display header image
+* added: action hooks:
+	* `basic_header_top_wrap_begin`
+	* `basic_header_top_wrap_end`
+* added: css mobile menu (box-shadow)
+* added: toggle mobile submenus
+* added: Privacy Policy link in footer
+* added: acceptance checkbox to save user data in cookies when commenting
+* fixed: adaptive header image
+* fixed: adaptive site title font size
+* fixed: css `line-height` units
+* deleted: customizer option `header_image_repeat`
 
 = 1.3.6 =
 * fixed bug with h1 unclosed tag

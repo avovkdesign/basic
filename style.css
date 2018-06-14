@@ -4,7 +4,7 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.3.6
+ * Version: 1.3.7
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
@@ -44,6 +44,7 @@ body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1
 
 /* adaptive layout */
 @media screen and (min-width: 1024px) {
+	.header-image {margin: 0 auto; position: relative; width: 90%; max-width: 1080px;}
 	#content { width: 67.12962962962963%; float: left; }
 	#sidebar { width: 27.77777777777778%; margin-top: 0; float: right; display: block; }
 	.layout-leftbar #sidebar { float: left; }
@@ -62,7 +63,7 @@ body.custom-background .wrapper { margin: 0 auto; background: #fff; max-width: 1
 /* ============================================================================
  *		inline HTML TAGS
  * ============================================================================ */
-body { font: 16px/140% 'Open Sans', Tahoma, Verdana, Segoe, sans-serif; color: #222; word-wrap: break-word; }
+body { font: 16px/1.4 'Open Sans', Tahoma, Verdana, Segoe, sans-serif; color: #222; word-wrap: break-word; }
 
 a { color: #222; }
 a:hover { color: #936; }
@@ -73,7 +74,7 @@ p:last-child { padding-bottom: 0; }
 h1, h2, h3, h4, h5, h6, .wtitle, .title { 
 	margin: 0;
 	padding: 0 0 0.5em;
-	line-height: 110%;
+	line-height: 1.1;
 	font-family: 'PT Serif', TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 	font-weight: bold;
 }
@@ -82,6 +83,13 @@ h2 { font-size: 30px; }
 h3 { font-size: 24px; }
 h4 { font-size: 20px; }
 h5, h6 { font-size: 18px; }
+@media screen and (min-width: 768px){
+	h1 { font-size: 36px; padding: 0; }
+	h2 { font-size: 30px; }
+	h3 { font-size: 24px; }
+	h4 { font-size: 20px; }
+	h5, h6 { font-size: 18px; }
+}
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { text-decoration: none; }
 
@@ -90,7 +98,7 @@ blockquote, q {
 	padding: 30px 30px 30px 80px;
 	margin: 10px 0 20px 30px;
 	color: #444;
-	font: normal 1em/120% 'PT Serif', TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+	font: normal 1em/1.2 'PT Serif', TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 	background: #EFEFEF;
 	border-left: 3px solid #936;
 	border-radius: 3px;
@@ -102,14 +110,14 @@ blockquote:after {
 	top: 10px;
 	left: 20px;
 	font-size: 4em;
-	line-height: 100%;
+	line-height: 1;
 }
 
 table th { background: #ddd; border-right: 1px solid #fff; padding: 10px 20px; }
 table tr th:last-child { border-right: 1px solid #ddd; }
 table td { padding: 5px 20px; border: 1px solid #ddd; }
 
-pre { background: #f5f5f5; border: 1px solid #ddd; padding: 10px; text-shadow: 1px 1px rgba(255, 255, 255, 0.4); font-size: 12px; line-height: 15px; margin: 0 0 1em 0; overflow:auto }
+pre { background: #f5f5f5; border: 1px solid #ddd; padding: 10px; text-shadow: 1px 1px rgba(255, 255, 255, 0.4); font-size: 12px; line-height: 1.25; margin: 0 0 1em 0; overflow:auto }
 sup, sub { font-size: 75%; height: 0; line-height: 0; position: relative; vertical-align: baseline }
 sup { bottom: 1ex }
 sub { top: .5ex }
@@ -126,7 +134,7 @@ input, textarea, select, button {
 	border-color: #ddd;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	font: 300 16px/140% 'Open Sans', Tahoma, Verdana, Segoe, sans-serif; 
+	font: 300 16px/1.25 'Open Sans', Tahoma, Verdana, Segoe, sans-serif;
 	color: #222;
 }
 textarea { 
@@ -196,12 +204,13 @@ button:hover,
  *		HEADER
  * ============================================================================ */
 .sitetitle { text-align: center; }
-.logo { margin: 30px auto; }
-#logo { display: block; margin: 0; padding: 0; font: bold 60px/50px 'PT Serif', Tahoma, Verdana, Segoe, sans-serif; 
-	color: #936; text-decoration: none; letter-spacing: -0.02em; }
+.logo { margin: 0 auto; padding: 30px 0; }
+#logo {
+	display: block; margin: 0; padding: 0; color: #936; text-decoration: none;
+	font: bold 26px/0.83 'PT Serif', Tahoma, Verdana, Segoe, sans-serif; letter-spacing: -0.02em;
+}
 #logo:hover { opacity: 0.9; }
 .sitedescription {/*text-align: center;*/padding-top: 10px;}
-/*body.wp-custom-logo #logo { display: none;}*/
 .sitetitle.center .custom-logo { margin-left: auto;margin-right: auto; }
 .sitetitle.right .custom-logo { margin-left: auto;margin-right: 0; }
 .custom-logo-top { display: block; margin-bottom: 20px;}
@@ -211,6 +220,9 @@ button:hover,
 .sitetitle.right .custom-logo-right, .sitetitle.left .custom-logo-right { margin-left: 20px; margin-right: 0; }
 .sitetitle.left .custom-logo-left, .sitetitle.right .custom-logo-left { margin-left: 0; margin-right: 20px; }
 
+@media screen and (min-width: 768px){
+	#logo {font-size:60px;}
+}
 
 /* mobile navigation button */
 #mobile-menu { display: block; padding: 15px 0; text-decoration: none; text-transform: uppercase; color: #fff;
@@ -219,16 +231,17 @@ button:hover,
 
 
 /* header navigation */
-.topnav { background: #FFF; }
 .topnav nav {display: none;z-index:9999;}
-.top-menu { background: #936; position: absolute; z-index: 1000; width: 90%; }
+.top-menu { background: #936; position: absolute; z-index: 1000; width: 90%; left: 5%; }
 .top-menu li { padding: 0; display: block; }
-.top-menu li a, .top-menu li span { display: block; padding: 15px 20px; color: #fff; line-height: 20px; 
-	font-weight: 500; text-decoration: none; position: relative; cursor: pointer; }
+.top-menu li a, .top-menu li span {
+	display: block; padding: 15px 20px; color: #fff; line-height: 20px;
+	font-weight: 500; text-decoration: none; position: relative; cursor: pointer;
+}
 .top-menu li a:hover,
 .top-menu li span:hover,
-.top-menu li .sub-menu > li:hover > a, 
-.top-menu li .sub-menu > li:hover > span:hover  { 
+.top-menu li .sub-menu > li > a:hover,
+.top-menu li .sub-menu > li > span:hover  {
 	background-color: rgba(255,255,255,0.2);
 }
 .top-menu .current_page_item > a,
@@ -241,9 +254,27 @@ button:hover,
 .top-menu .current-menu-item > span:hover { color: #fff; }
 .top-menu .sub-menu { margin: 0; }
 
+@media screen and (min-width: 1024px) {
+	.top-menu .open-submenu:after, .top-menu .open-submenu { display: none; }
+}
+
 @media screen and (max-width: 1023px) {
+	.topnav { background: #936; }
+	.top-menu { margin-top: 1px; box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.25); }
 	.top-menu .sub-menu li a { padding: 10px 20px; }
 	.top-menu .sub-menu { margin: 0 0 0 20px; font-size: 14px; }
+	.top-menu li.menu-item-has-children { position: relative; }
+	.top-menu li.menu-item-has-children > .open-submenu {
+		width: 50px; height: 50px; position: absolute; top: 0; right: 0;
+		background: rgba(255,255,255,0.3); box-sizing: border-box; font-size: 24px;
+		line-height: 50px; padding: 0; text-align: center;
+	}
+	.top-menu a { border-bottom: 1px solid #ffffff1a; }
+	.top-menu .sub-menu li.menu-item-has-children > .open-submenu { height: 40px; line-height: 40px; }
+	.top-menu .sub-menu.closed { display: none; }
+	.top-menu .submenu-opened .sub-menu.closed { display: none; }
+	.top-menu .open-submenu:before { content: '+'; position: absolute; width: 100%; top: 0; left: 0; }
+	.top-menu .submenu-opened > .open-submenu:before { content: '–'; }
 }
 
 /* ============================================================================ */
@@ -410,7 +441,7 @@ img.alignright, .alignright { float: right; margin-left: 20px; margin-right: 0; 
 .comment-author { float: left; margin-right: 10px; line-height: 20px; }
 .comment-metadata { font-size: 0.7em; line-height: 17px; padding-top: 3px; }
 .says { display: none; }
-.comment-content { margin: 10px 0; font-size: 14px; line-height: 130%; clear: both; }
+.comment-content { margin: 10px 0; font-size: 14px; line-height: 1.3; clear: both; }
 .comment-reply-link { font-size: 10px; text-transform: uppercase; font-weight: 500; color: #C5C5C5; position: absolute; bottom: 5px; right: 10px; }
 .bypostauthor .comment-body { background: #EFEFEF; }
 
@@ -452,9 +483,9 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 .serp { margin-bottom: 40px; margin-left: 20px; position: relative; }
 .serp:before { content: ''; position: absolute; left: -20px; top: 8px; border: 3px solid black; border-radius: 50%; }
 .serp h2 { font-size: 20px; }
-.serp .meta { margin: 5px 0 0 0; font-size: 10px; line-height: 100%; }
+.serp .meta { margin: 5px 0 0 0; font-size: 10px; line-height: 1; }
 .serp .entry { margin-top: 10px; }
-.serp .entry p { font-size: 14px; line-height: 130%; }
+.serp .entry p { font-size: 14px; line-height: 1.3; }
 
 
 /* _____ Woocommerce */
@@ -554,7 +585,7 @@ li.bbp-topic-freshness {
 /* ============================================================================
  *		FOOTER
  * ============================================================================ */
-#footer { color: #fff; font-size: 14px; line-height: 125%; text-decoration: none; }
+#footer { color: #fff; font-size: 14px; line-height: 1.25; text-decoration: none; }
 #footer a {color: #fff; transition: opacity 0.3s;}
 #footer a:hover { color: #999999; text-decoration: underline; }
 #footer .maxwidth { position: relative; }
@@ -606,8 +637,7 @@ li.bbp-topic-freshness {
 	
 	#mobile-menu { display: none; }
 	.topnav nav {display: block;}
-	.topnav {background: transparent;}
-	.top-menu { position: static; text-align: center; }
+	.top-menu { border-radius: 5px; position: static; text-align: center; }
 	.top-menu li { display: inline-block; position: relative; }
 	.top-menu li a { border-bottom: 0; font-weight: normal; color: #fff; -webkit-transition: background 0.3s; transition: background 0.3s; }
 	.top-menu > li:hover > a { background: rgba(255,255,255,0.3);  }
@@ -638,7 +668,6 @@ li.bbp-topic-freshness {
 /* ___ Desktop ( > 1200px ) ------------------------------------------------ */
 @media only screen and (min-width: 1280px) {
 	body.custom-background #header {border-radius: 10px 10px 0 0;}
-	.top-menu { border-radius: 5px; }
 	#navpages li { padding-left: 10px; }
 	#navpages .sub-menu { margin-left: 10px; }
 	#navpages .sub-menu .sub-menu { left: 190px; }

@@ -16,44 +16,49 @@
 	<!-- BEGIN header -->
 	<header id="header" class="<?php echo apply_filters( 'basic_header_class', 'clearfix' ); ?>">
 
-		<?php do_action( 'basic_before_sitetitle' ); ?>
-		<div class="<?php echo apply_filters( 'basic_header_sitetitle_class', 'sitetitle maxwidth grid ' . basic_get_theme_option( 'title_position' ) ); ?>">
+        <div class="header-top-wrap">
+        <?php do_action( 'basic_header_top_wrap_begin' ); ?>
 
-			<div class="<?php echo apply_filters( 'basic_logo_class', 'logo' ); ?>">
+            <?php do_action( 'basic_before_sitetitle' ); ?>
+            <div class="<?php echo apply_filters( 'basic_header_sitetitle_class', 'sitetitle maxwidth grid ' . basic_get_theme_option( 'title_position' ) ); ?>">
 
-				<?php do_action( 'basic_before_sitelogo' );
-				if ( is_front_page() && ! is_paged() ) { ?>
-                    <h1 id="logo">
-                <?php } else { ?>
-                    <a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="blog-name">
-                <?php }
+                <div class="<?php echo apply_filters( 'basic_logo_class', 'logo' ); ?>">
 
-                    do_action( 'basic_before_blogname_in_logo' );
-					bloginfo( 'name' );
-					do_action( 'basic_after_blogname_in_logo' );
+                    <?php do_action( 'basic_before_sitelogo' );
+                    if ( is_front_page() && ! is_paged() ) { ?>
+                        <h1 id="logo">
+                    <?php } else { ?>
+                        <a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="blog-name">
+                    <?php }
 
-                if ( is_front_page() && ! is_paged() ) { ?>
-                    </h1>
-				<?php } else { ?>
-                    </a>
-				<?php } ?>
+                        do_action( 'basic_before_blogname_in_logo' );
+                        bloginfo( 'name' );
+                        do_action( 'basic_after_blogname_in_logo' );
 
-				<?php do_action( 'basic_after_sitelogo' ); ?>
+                    if ( is_front_page() && ! is_paged() ) { ?>
+                        </h1>
+                    <?php } else { ?>
+                        </a>
+                    <?php } ?>
 
-				<?php $description = basic_get_theme_option( 'showsitedesc' );
-				$show_description  = ( false === $description || ! empty( $description ) || is_customize_preview() );
-				if ( $show_description ) { ?>
-					<p class="sitedescription"><?php bloginfo( 'description' ); ?></p>
-				<?php }
-				do_action( 'basic_after_sitedescription' ); ?>
+                    <?php do_action( 'basic_after_sitelogo' ); ?>
 
-			</div>
-			<?php do_action( 'basic_after_sitetitle' ); ?>
+                    <?php $description = basic_get_theme_option( 'showsitedesc' );
+                    $show_description  = ( false === $description || ! empty( $description ) || is_customize_preview() );
+                    if ( $show_description ) { ?>
+                        <p class="sitedescription"><?php bloginfo( 'description' ); ?></p>
+                    <?php }
+                    do_action( 'basic_after_sitedescription' ); ?>
 
-		</div>
+                </div>
+                <?php do_action( 'basic_after_sitetitle' ); ?>
+            </div>
+
+        <?php do_action( 'basic_header_top_wrap_end' ); ?>
+        </div>
 
 		<?php do_action( 'basic_before_topnav' ); ?>
-		<div class="<?php echo apply_filters( 'basic_header_topnav_class', 'topnav grid' ); ?>">
+        <div class="<?php echo apply_filters( 'basic_header_topnav_class', 'topnav' ); ?>">
 
 			<div id="mobile-menu" class="mm-active"><?php _e( 'Menu', 'basic' ); ?></div>
 

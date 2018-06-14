@@ -115,22 +115,13 @@ jQuery(document).ready(function ($) {
 	wp.customize( optname+'[fix_header_height]', function (value) {
 		value.bind(function (to) {
 			if ( false === to ) {
-				basic_update_style( '@media screen and (min-width:1024px){.sitetitle{height:', 'auto', '}}' );
+				basic_update_style( '@media screen and (min-width:1024px){.header-top-wrap{min-height:', 'auto', '}}' );
 			} else {
 				var h = wp.customize._value.header_image_data().height;
-				//var h = wp.customize.value('header_image_data').height;
-				basic_update_style( '@media screen and (min-width:1024px){.sitetitle{height:', h + 'px', '}}' );
+				basic_update_style( '@media screen and (min-width:1024px){.header-top-wrap{min-height:', h + 'px', '}}' );
 			}
 		});
 	});
-
-	// header_image_repeat
-	wp.customize( optname + '[header_image_repeat]', function (value) {
-		value.bind(function (to) {
-			basic_update_style( '#header{background-repeat:', to, '}' );
-		});
-	});
-
 
 	// main color change
 	wp.customize( optname + '[maincolor]', function (value) {
@@ -141,6 +132,7 @@ jQuery(document).ready(function ($) {
 			basic_update_style( 'a:hover{color:', to, '}' );
 			basic_update_style( 'blockquote,q,input:focus,textarea:focus,select:focus{border-color:', to, '}' );
 			basic_update_style( 'input[type=submit],input[type=button],button,.submit,.button,.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt, .woocommerce input.button.alt,.woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover,#mobile-menu,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:', to, '}' );
+			basic_update_style( '@media screen and (max-width:1023px){.topnav{background-color:', to, '}}' );
 		});
 	});
 
@@ -156,9 +148,6 @@ jQuery(document).ready(function ($) {
 
 	// show_sidebar
 	var $sidebar = $('#sidebar');
-	// if ( ! wp.customize.instance(optname + '[show_sidebar]').get() ) {
-	// 	$sidebar.hide();
-	// }
 	wp.customize( optname + '[show_sidebar]', function (value) {
 		value.bind(function (to) {
 			false === to

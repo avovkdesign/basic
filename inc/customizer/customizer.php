@@ -11,18 +11,43 @@ function basic_customizer_css() {
 
 // ---- header -----
 	$bgimg     = get_header_image();
-	$bg_repeat = basic_get_theme_option( 'header_image_repeat' );
 
-	if ( ! empty( $bgimg ) ) {
-		$style .= "#header{background-image:url('$bgimg')}";
-		$style .= "#header{background-repeat:$bg_repeat}";
-	}
+	if ( !empty($bgimg) ) {
+		$header_h   = get_custom_header()->height;
+		$fit_height = basic_get_theme_option( 'fix_header_height' );
+		if ( ! empty( $fit_height ) && ! empty( $header_h ) ) {
+			$fit_height = "@media screen and (min-width:1024px){.header-top-wrap{min-height:{$header_h}px}}";
+		} else {
+			$fit_height = '';
+		}
 
-	$header_h   = get_custom_header()->height;
-	$fit_height = basic_get_theme_option( 'fix_header_height' );
-	if ( ! empty( $fit_height ) && ! empty( $header_h ) ) {
-		$style .= "@media screen and (min-width:1024px){.sitetitle{height:{$header_h}px}}";
+		//-----------------
+
+		$himg_position = basic_get_theme_option( 'header_image_position' );
+		switch ( $himg_position ) {
+			case 'before':
+				add_action( 'basic_header_top_wrap_begin', 'basic_the_header_image' );
+				break;
+			case 'after':
+				add_action( 'basic_header_top_wrap_end', 'basic_the_header_image' );
+				break;
+			case 'background_no_repeat':
+			default:
+				$style .= '.sitetitle{position:relative}.logo{position:absolute;top:0;left:0;width:100%;z-index:1;}';
+				add_action( 'basic_header_top_wrap_end', 'basic_the_header_image' );
+				break;
+			case 'background_repeat':
+				$style .= ".header-top-wrap{background:url('$bgimg') top center repeat;}";
+				break;
+			case 'background_repeat_x':
+				$style .= ".header-top-wrap{background:url('$bgimg') top center repeat-x}" . $fit_height;
+				break;
+			case 'background_repeat_y':
+				$style .= ".header-top-wrap{background:url('$bgimg') top center repeat-y}" . $fit_height;
+				break;
+		}
 	}
+	//-----------------
 
 
 	$header_textcolor = get_theme_mod( 'header_textcolor', false );
@@ -37,6 +62,7 @@ function basic_customizer_css() {
 		$main_color_css .= "a:hover{color:$main_color}";
 		$main_color_css .= "blockquote,q,input:focus,textarea:focus,select:focus{border-color:$main_color}";
 		$main_color_css .= "input[type=submit],input[type=button],button,.submit,.button,.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt, .woocommerce input.button.alt,.woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover,#mobile-menu,.top-menu,.top-menu .sub-menu,.top-menu .children,.more-link,.nav-links a:hover,.nav-links .current,#footer{background-color:$main_color}";
+		$main_color_css .= "@media screen and (max-width:1023px){.topnav{background-color:$main_color}}";
 
 		$style .= apply_filters( 'basic_customizer_main_color_css', $main_color_css );
 	}
@@ -60,17 +86,6 @@ add_action( 'wp_head', 'basic_customizer_css' );
 /* ======================================================================== *
  * Customizer functions
  * ======================================================================== */
-
-// ------------------------
-//function basic_sanitize_checkbox( $value ) {
-//	$value = sanitize_key( $value );
-//	if ( $value == 1 ) {
-//		$value = 1;
-//	} else {
-//		$value = 0;
-//	}
-//	return sanitize_text_field( $value );
-//}
 
 // ------------------------
 function basic_sanitize_text( $value ) {
