@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Theme Basic\n"
-"POT-Creation-Date: 2018-06-14 12:58+0300\n"
-"PO-Revision-Date: 2018-06-14 13:08+0300\n"
+"POT-Creation-Date: 2018-07-22 15:30+0300\n"
+"PO-Revision-Date: 2018-07-22 15:30+0300\n"
 "Last-Translator: Alexandra Vovk <avovkdesign@gmail.com>\n"
 "Language-Team: WP Puzzle <wppuzzle@gmail.com>\n"
 "Language: ru_RU\n"
@@ -18,6 +18,15 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: img\n"
 "X-Poedit-SearchPathExcluded-1: js\n"
+
+#: 404.php:8
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Ой! Страница не найдена."
+
+#: 404.php:12
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+"По данному адресу ничего не найдено. Попробуйте воспользоваться поиском."
 
 #: archive.php:14
 msgid "Category"
