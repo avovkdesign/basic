@@ -1,8 +1,8 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.3
-Tested up to: WordPress 4.9.6
-Version: 1.3.7
+Tested up to: WordPress 4.9.7
+Version: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,19 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.8 =
+* tested up to WordPress 4.9.7
+* fixed: class name mistake `wrapper clearfix`
+* added: 404.php template
+* added actions:
+ * `basic_main_content_404_inner_begin`
+ * `basic_main_content_404_inner_end`
+ * `basic_before_page_404_article`
+ * `basic_after_page_404_article`
+ * `basic_before_page_404_content_box`
+ * `basic_after_page_404_content_box`
+
 
 = 1.3.7 =
 * tested up to WordPress 4.9.6

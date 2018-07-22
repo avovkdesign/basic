@@ -10,7 +10,7 @@
 
 </head>
 <body <?php body_class(); ?>>
-<div class="wrapper cleafix">
+<div class="wrapper clearfix">
 
 	<?php do_action( 'basic_before_header' ); ?>
 	<!-- BEGIN header -->
