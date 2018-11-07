@@ -131,7 +131,7 @@ apply_filters( 'basic_singular_thumbnail_attr', 'basic_singular_thumbnail_attr' 
  * ========================================================================== */
 function basic_social_share_buttons( $content ) {
 
-	$share_buttons = basic_get_theme_option( 'social_share' );
+	$share_buttons = basic_get_theme_option( 'social_share', 'custom' );
 	$hide_on_pages = get_theme_mod( 'hide_socshare_on_pages', 0 );
 	$link_pages    = wp_link_pages( 'echo=0' );
 
@@ -158,7 +158,7 @@ function basic_social_share_buttons( $content ) {
 			$soc_html .= '
 			<a rel="nofollow" class="psb fb" target="_blank" href="http://www.facebook.com/sharer.php?u=' . $link . '&amp;t=' . urlencode( $title ) . '&amp;src=sp" title="' . __( 'Share in', 'basic' ) . ' Facebook"></a>
 			<a rel="nofollow" class="psb vk" target="_blank" href="http://vkontakte.ru/share.php?url=' . $link . '" title="' . __( 'Share in VK', 'basic' ) . '"></a>
-			<a rel="nofollow" class="psb ok" target="_blank" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=' . $link . '&amp;st.comments=' . urlencode( $title ) . '" title="' . __( 'Share in OK', 'basic' ) . '"></a>
+			<a rel="nofollow" class="psb ok" target="_blank" href="https://connect.ok.ru/offer?url=' . $link . '&amp;title=' . urlencode( $title ) . '" title="' . __( 'Share in OK', 'basic' ) . '"></a>
 			<a rel="nofollow" class="psb gp" target="_blank" href="https://plus.google.com/share?url=' . $link . '"  title="' . __( 'Share in', 'basic' ) . ' Google+"></a>
 			<a rel="nofollow" class="psb tw" target="_blank" href="http://twitter.com/share?url=' . $link . '&amp;text=' . urlencode( $title ) . '" title="' . __( 'Share in', 'basic' ) . ' Twitter"></a>
 			';

@@ -1,8 +1,8 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.3
-Tested up to: WordPress 4.9.7
-Version: 1.3.8
+Tested up to: WordPress 5.0
+Version: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,11 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.9 =
+* tested up to WordPress 5.0 Beta 3
+* changed: ok.ru share button URL
+* fixed: show custom share button by default
 
 = 1.3.8 =
 * tested up to WordPress 4.9.7
