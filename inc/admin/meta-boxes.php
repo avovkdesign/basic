@@ -70,11 +70,16 @@ add_action( 'admin_print_styles', 'basic_update_widget_admin_print_styles');
  * ======================================================================== */
 function basic_add_custom_box() {
 
-	// Adding layout meta box for page
-	add_meta_box( 'basic-page-layout', __( 'Select Layout', 'basic' ), 'basic_page_layout', 'page', 'side', 'default' );
+	// Adding layout meta box for page / post / product
 
-	// Adding layout meta box for
-	add_meta_box( 'basic-page-layout', __( 'Select Layout', 'basic' ), 'basic_page_layout', 'post', 'side', 'default' );
+	add_meta_box(
+        'basic-page-layout',
+        __( 'Select Layout', 'basic' ),
+        'basic_page_layout',
+        array('post', 'page', 'product'),
+        'side',
+        'default'
+    );
 
 }
 

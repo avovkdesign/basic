@@ -66,6 +66,7 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
+
 	// site title COLOR
 	wp.customize( 'header_textcolor', function (value) {
 		value.bind(function (to) {
@@ -190,11 +191,27 @@ jQuery(document).ready(function ($) {
 	});
 
 
-	// layout_page
+	// layout_shop
 	wp.customize( 'layout_shop', function (value) {
 		value.bind(function (to) {
 			// console.log(to);
-			$('body').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
+			$('body.woocommerce.post-type-archive-product').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
+				.addClass( 'layout-' + to );
+		});
+	});
+
+	// layout_product
+	wp.customize( 'layout_product', function (value) {
+		value.bind(function (to) {
+			$('body.woocommerce.single-product').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
+				.addClass( 'layout-' + to );
+		});
+	});
+
+	// layout_product_cat
+	wp.customize( 'layout_product_cat', function (value) {
+		value.bind(function (to) {
+			$('body.woocommerce.tax-product_cat').removeClass('layout-rightbar layout-leftbar layout-full layout-center')
 				.addClass( 'layout-' + to );
 		});
 	});

@@ -113,6 +113,72 @@ function basic_customizer_init( $wp_customize ) {
 		)
 	);
 
+	if ( class_exists( 'Basic_Group_Title_Control' ) ) {
+		$wp_customize->add_setting( 'group_blog_h1_title', array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_key',
+		) );
+		$wp_customize->add_control( new Basic_Group_Title_Control( $wp_customize, 'basic_group_blog_h1_title', array(
+			'label'    => __( 'Blog home page H1', 'basic' ),
+			'section'  => 'title_tagline',
+			'priority' => 11,
+			'settings' => 'group_blog_h1_title',
+			'active_callback' => 'basic_show_on_home_posts'
+		) ) );
+	}
+
+	// ---
+
+	$wp_customize->add_setting(
+		'home_h1_type',
+		array(
+//			'type'              => 'option',
+			'default'           => 'sitetitle',
+			'sanitize_callback' => 'sanitize_key',
+//			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control( 'home_h1_type_control',
+		array(
+			'settings'    => 'home_h1_type',
+			'label'       => __( "Home H1 position", 'basic' ),
+			'description' => __( "This option not affect to other pages, for home blog page only.", 'basic' ),
+			'section'     => 'title_tagline',
+			'type'        => 'radio',
+			'choices'     => array(
+				'sitetitle'   => __( "Site title in header", 'basic' ),
+				'customtitle' => __( "My custom title before posts", 'basic' ),
+			),
+			'active_callback' => 'basic_show_on_home_posts',
+			'priority'    => 11,
+		)
+	);
+
+	// ---
+
+	$wp_customize->add_setting(
+		'custom_home_h1',
+		array(
+//			'type'              => 'option',
+			'default'           => get_bloginfo( 'sitetitle' ),
+			'sanitize_callback' => 'sanitize_text_field',
+//			'transport'         => $transport
+		)
+	);
+	$wp_customize->add_control( 'custom_home_h1_control',
+		array(
+			'settings'        => 'custom_home_h1',
+			'label'           => __( "Custom blog home H1", 'basic' ),
+			'section'         => 'title_tagline',
+			'type'            => 'text',
+			'active_callback' => 'basic_custom_home_h1',
+//			'choices'  => array(
+//				'sitetitle'   => __( "Site title", 'basic' ),
+//				'customtitle'  => __( "Custom title", 'basic' ),
+//			),
+			'priority'        => 11,
+		)
+	);
 	// ---
 
 	// site descriptions
@@ -170,12 +236,12 @@ function basic_customizer_init( $wp_customize ) {
 			'section'  => 'header_image',
 			'type'     => 'radio',
 			'choices'  => array(
-				'before' => __( "Image before site title", 'basic' ),
-				'after'  => __( "Image after site title", 'basic' ),
+				'before'               => __( "Image before site title", 'basic' ),
+				'after'                => __( "Image after site title", 'basic' ),
 				'background_no_repeat' => __( "Background without repeat", 'basic' ),
-				'background_repeat' => __( "Background with full repeat", 'basic' ),
-				'background_repeat_x' => __( "Background with horizontal repeat", 'basic' ),
-				'background_repeat_y' => __( "Background with vertical repeat", 'basic' ),
+				'background_repeat'    => __( "Background with full repeat", 'basic' ),
+				'background_repeat_x'  => __( "Background with horizontal repeat", 'basic' ),
+				'background_repeat_y'  => __( "Background with vertical repeat", 'basic' ),
 			),
 		)
 	);
@@ -383,35 +449,6 @@ function basic_customizer_init( $wp_customize ) {
 
 	// ----
 
-	if ( function_exists('is_woocommerce') ){
-//		echo '-------------------------------';
-		$wp_customize->add_setting(
-			'layout_shop',
-			array(
-				'type'              => 'option',
-				'default'           => 'center',
-				'sanitize_callback' => 'sanitize_key',
-				'transport'         => $transport
-			)
-		);
-		$wp_customize->add_control( 'layout_shop_control',
-			array(
-				'settings' => 'layout_shop',
-				'label'    => __( "Layout on WooCommerce Shop page", 'basic' ),
-				'section'  => 'layout',
-				'type'     => 'select',
-				'choices'  => array(
-					'rightbar' => __( "Rightbar", 'basic' ),
-					'leftbar'  => __( "Leftbar", 'basic' ),
-					'full'     => __( "Fullwidth Content", 'basic' ),
-					'center'   => __( "Centered Content", 'basic' )
-				),
-			)
-		);
-	}
-
-	// ----
-
 	$wp_customize->add_setting(
 		'layout_search',
 		array(
@@ -435,6 +472,9 @@ function basic_customizer_init( $wp_customize ) {
 			),
 		)
 	);
+
+
+
 	// ----
 
 	$wp_customize->add_setting(
@@ -461,6 +501,103 @@ function basic_customizer_init( $wp_customize ) {
 			),
 		)
 	);
+
+	// ----
+
+	if ( function_exists( 'is_woocommerce' ) ) {
+
+
+		if ( class_exists( 'Basic_Group_Title_Control' ) ) {
+			$wp_customize->add_setting( 'group_woolayout_title', array(
+				'default'           => '',
+				'sanitize_callback' => 'sanitize_key',
+			) );
+			$wp_customize->add_control( new Basic_Group_Title_Control( $wp_customize, 'basic_group_woolayout_title', array(
+				'label'       => __( 'WooCommerce Layout', 'basic' ),
+//				'description' => __( 'Set up layout for site pages', 'basic' ),
+				'section'     => 'layout',
+				'settings'    => 'group_woolayout_title',
+			) ) );
+		}
+
+		// ---
+		$wp_customize->add_setting(
+			'layout_shop',
+			array(
+//				'type'              => 'option',
+				'default'           => 'full',
+				'sanitize_callback' => 'sanitize_key',
+				'transport'         => $transport
+			)
+		);
+		$wp_customize->add_control( 'layout_shop_control',
+			array(
+				'settings' => 'layout_shop',
+				'label'    => __( "Layout on WooCommerce Shop page", 'basic' ),
+				'section'  => 'layout',
+				'type'     => 'select',
+				'choices'  => array(
+					'rightbar' => __( "Rightbar", 'basic' ),
+					'leftbar'  => __( "Leftbar", 'basic' ),
+					'full'     => __( "Fullwidth Content", 'basic' ),
+					'center'   => __( "Centered Content", 'basic' )
+				),
+			)
+		);
+
+		// ---
+		$wp_customize->add_setting(
+			'layout_product',
+			array(
+//				'type'              => 'option',
+				'default'           => 'rightbar',
+				'sanitize_callback' => 'sanitize_key',
+				'transport'         => $transport
+			)
+		);
+		$wp_customize->add_control( 'layout_product_control',
+			array(
+				'settings' => 'layout_product',
+				'label'    => __( "Layout on WooCommerce Product page", 'basic' ),
+				'section'  => 'layout',
+				'type'     => 'select',
+				'choices'  => array(
+					'rightbar' => __( "Rightbar", 'basic' ),
+					'leftbar'  => __( "Leftbar", 'basic' ),
+					'full'     => __( "Fullwidth Content", 'basic' ),
+					'center'   => __( "Centered Content", 'basic' )
+				),
+			)
+		);
+
+		// ---
+		$wp_customize->add_setting(
+			'layout_product_cat',
+			array(
+//				'type'              => 'option',
+				'default'           => 'rightbar',
+				'sanitize_callback' => 'sanitize_key',
+				'transport'         => $transport
+			)
+		);
+		$wp_customize->add_control( 'layout_product_cat_control',
+			array(
+				'settings' => 'layout_product_cat',
+				'label'    => __( "Layout on WooCommerce Product's category", 'basic' ),
+				'section'  => 'layout',
+				'type'     => 'select',
+				'choices'  => array(
+					'rightbar' => __( "Rightbar", 'basic' ),
+					'leftbar'  => __( "Leftbar", 'basic' ),
+					'full'     => __( "Fullwidth Content", 'basic' ),
+					'center'   => __( "Centered Content", 'basic' )
+				),
+			)
+		);
+
+
+	}
+
 
 
 	// ----
@@ -957,7 +1094,10 @@ function basic_customizer_init( $wp_customize ) {
 		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-ukrainiansoul/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/ukrainiansoul-mini.png" alt="ukrainiansoul"></a>',
 	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_ukrainiansoul',
-		array( 'label' => 'UkrainianSoul', 'section' => 'basic_additional_design', 'settings' => 'basicchild_ukrainiansoul', )
+		array( 'label'    => 'UkrainianSoul',
+		       'section'  => 'basic_additional_design',
+		       'settings' => 'basicchild_ukrainiansoul',
+		)
 	) );
 
 
@@ -970,7 +1110,10 @@ function basic_customizer_init( $wp_customize ) {
 		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-businesscity/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/businesscity-mini.png" alt="businesscity"></a>',
 	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_businesscity',
-		array( 'label' => 'BusinessCity', 'section' => 'basic_additional_design', 'settings' => 'basicchild_businesscity', )
+		array( 'label'    => 'BusinessCity',
+		       'section'  => 'basic_additional_design',
+		       'settings' => 'basicchild_businesscity',
+		)
 	) );
 
 
@@ -996,7 +1139,10 @@ function basic_customizer_init( $wp_customize ) {
 		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-repairservice/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/repairservice-mini.png" alt="repairservice"></a>',
 	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_repairservice',
-		array( 'label' => 'RepairService', 'section' => 'basic_additional_design', 'settings' => 'basicchild_repairservice', )
+		array( 'label'    => 'RepairService',
+		       'section'  => 'basic_additional_design',
+		       'settings' => 'basicchild_repairservice',
+		)
 	) );
 
 
@@ -1009,7 +1155,10 @@ function basic_customizer_init( $wp_customize ) {
 		'default'           => '<a href="' . BASIC_THEME_URI . 'basic-theelegance/" target="_blank"><img src="' . BASIC_THEME_URI . 'wp-content/uploads/2017/01/theelegance-mini.png" alt="theelegance"></a>',
 	) );
 	$wp_customize->add_control( new Basic_Child_Design_WPCC( $wp_customize, 'basicchild_theelegance',
-		array( 'label' => 'TheElegance', 'section' => 'basic_additional_design', 'settings' => 'basicchild_theelegance', )
+		array( 'label'    => 'TheElegance',
+		       'section'  => 'basic_additional_design',
+		       'settings' => 'basicchild_theelegance',
+		)
 	) );
 
 

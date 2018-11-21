@@ -10,9 +10,9 @@ function basic_customizer_css() {
 
 
 // ---- header -----
-	$bgimg     = get_header_image();
+	$bgimg = get_header_image();
 
-	if ( !empty($bgimg) ) {
+	if ( ! empty( $bgimg ) ) {
 		$header_h   = get_custom_header()->height;
 		$fit_height = basic_get_theme_option( 'fix_header_height' );
 		if ( ! empty( $fit_height ) && ! empty( $header_h ) ) {
@@ -69,7 +69,7 @@ function basic_customizer_css() {
 
 	$style = apply_filters( 'basic_customizer_css', $style );
 
-	if ( is_customize_preview() && empty($style) ){
+	if ( is_customize_preview() && empty( $style ) ) {
 		$style = 'body{}';
 	}
 
@@ -125,6 +125,32 @@ function basic_is_default_layout() {
 	return ! is_singular() && ! is_page() && ! is_home();
 }
 
+// ------------------------
+function basic_show_on_home_posts( $control ) {
+
+	$on_front = $control->manager->get_setting( 'show_on_front' )->value();
+
+	if ( $on_front == 'posts' ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+// ------------------------
+function basic_custom_home_h1( $control ) {
+
+	$on_front = $control->manager->get_setting( 'show_on_front' )->value();
+	$home_h1  = $control->manager->get_setting( 'home_h1_type' )->value();
+
+	if ( $on_front == 'posts' && $home_h1 == 'customtitle' ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
 
 // ------------------------
 if ( class_exists( 'WP_Customize_Control' ) ) {
@@ -155,6 +181,20 @@ if ( ! function_exists( 'basic_customizer_live' ) ):
 	}
 endif;
 add_action( 'customize_preview_init', 'basic_customizer_live' );
+
+if ( ! function_exists( 'basic_customizer_control_toggle' ) ):
+	function basic_customizer_control_toggle() {
+
+		wp_enqueue_script(
+			'basic-customizer-js',
+			get_template_directory_uri() . '/inc/customizer/assets/customizer-control-toggle.js', // URL
+			array( 'jquery', 'customize-preview' ), null, true
+		);
+//		wp_localize_script( 'basic-customizer-js', 'optname', BASIC_OPTION_NAME );
+
+	}
+endif;
+add_action( 'customize_controls_enqueue_scripts', 'basic_customizer_control_toggle' );
 /* ======================================================================== */
 
 

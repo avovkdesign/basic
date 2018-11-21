@@ -4,7 +4,7 @@
  * Theme URI: http://wp-puzzle.com/basic/
  * Author: WP Puzzle
  * Author URI: http://wp-puzzle.com/
- * Version: 1.3.9
+ * Version: 1.3.10
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags: two-columns, one-column, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, sticky-post, threaded-comments, translation-ready, microformats
@@ -319,6 +319,7 @@ button:hover,
 	left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000;
 }
 
+.blog-home-header {margin-bottom: 50px;}
 
  
 /* ANONS 
@@ -501,7 +502,7 @@ input.search_submit { position: absolute; top: 0; right: 0; width: 40px; padding
 	transition: opacity 0.3s;
 }
 
-
+.woocommerce-page .page-description {margin: 1em 0 2em;}
 .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
 	background: #936;
 	opacity: 0.8;

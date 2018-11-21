@@ -25,7 +25,8 @@
                 <div class="<?php echo apply_filters( 'basic_logo_class', 'logo' ); ?>">
 
                     <?php do_action( 'basic_before_sitelogo' );
-                    if ( is_front_page() && ! is_paged() ) { ?>
+                    $h1_type = get_theme_mod( 'home_h1_type', 'sitetitle' );
+                    if ( 'sitetitle' == $h1_type && is_home() ) { ?>
                         <h1 id="logo">
                     <?php } else { ?>
                         <a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" class="blog-name">
@@ -35,7 +36,7 @@
                         bloginfo( 'name' );
                         do_action( 'basic_after_blogname_in_logo' );
 
-                    if ( is_front_page() && ! is_paged() ) { ?>
+                    if ( 'sitetitle' == $h1_type && is_home() ) { ?>
                         </h1>
                     <?php } else { ?>
                         </a>

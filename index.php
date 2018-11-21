@@ -2,6 +2,11 @@
 	<main id="content" class="content">
 	<?php do_action( 'basic_main_content_inner_begin' ); ?>
 
+    <?php if ( is_home() && 'customtitle' == get_theme_mod( 'home_h1_type', 'sitetitle' )  ) { ?>
+        <div class="blog-home-header">
+            <h1><?php echo get_theme_mod( 'custom_home_h1', get_bloginfo('sitetitle') ); ?></h1>
+        </div>
+    <?php } ?>
 
 <?php if (have_posts()) :
 	while (have_posts()) : the_post(); 

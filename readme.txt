@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 4.3
 Tested up to: WordPress 5.0
-Version: 1.3.9
+Version: 1.3.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,12 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.10 =
+* tested up to WordPress 5.0 Beta 5
+* added: option for customize layout for WooCommerce product page and product archive
+* added: custom H1 text and position for blog home page
+* fixed: H1 in header disabled for static front page
 
 = 1.3.9 =
 * tested up to WordPress 5.0 Beta 3

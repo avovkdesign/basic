@@ -100,3 +100,7 @@
 #customize-controls #accordion-section-basic_other_themes:hover > .accordion-section-title:after {
 	right: 5px;
 }
+
+.customize-control-radio .customize-inside-control-row {
+	padding: 0 0 2px 0;
+}

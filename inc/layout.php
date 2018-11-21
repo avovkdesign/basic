@@ -32,6 +32,11 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 
 		// get custom page layout
 		if ( is_singular() ) {
+
+			if ( is_singular('product') ){
+				$layout_post = get_theme_mod( 'layout_product', 'rightbar' );
+			}
+
 			$custom = get_post_meta( $post->ID, 'basic_page_layout', true );
 			if ( '' == $custom || 'default' == $custom ) {
 				unset( $custom );
@@ -43,19 +48,36 @@ if ( ! function_exists( 'basic_get_layout' ) ) :
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_post;
-		} // get settings for 'page' layout
+		}
+
+		// get settings for 'page' layout
 		elseif ( is_page() && isset( $layout_page ) ) {
 			// other static pages
 			$layout = ( isset( $custom ) )
 				? $custom
 				: $layout_page;
-		} // get home layout settings
+		}
+
+		// get home layout settings
 		elseif ( is_home() && $layout_home ) {
 			$layout = $layout_home;
-		} // woocommerce shop
-		elseif ( function_exists( 'is_shop' ) && is_shop() ) {
-			$layout = get_theme_mod( 'layout_shop', 'center' );
-		} // get default layout settings
+		}
+
+		// woocommerce shop
+		elseif ( function_exists( 'is_shop' )  ) {
+
+			if ( is_shop() ){
+				$layout = get_theme_mod( 'layout_shop', 'full' );
+			}
+
+			if ( is_tax('product_cat') ) {
+				$layout = get_theme_mod( 'layout_product_cat', 'rightbar' );
+			}
+
+		}
+
+
+		// get default layout settings
 		elseif ( $layout_def ) {
 			$layout = $layout_def;
 			if ( is_search() ) {
