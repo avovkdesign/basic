@@ -94,7 +94,7 @@
 	<?php do_action( 'basic_after_header' ); ?>
 
 
-	<div id="main" class="maxwidth clearfix">
-
+	<div id="main" class="<?php echo apply_filters( 'basic_main_wrap_class', 'maxwidth clearfix' ); ?>">
+		<?php do_action( 'basic_main_wrap_inner_begin' ); ?>
 		<!-- BEGIN content -->
 	

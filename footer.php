@@ -1,4 +1,5 @@
-</div> 
+<?php do_action( 'basic_main_wrap_inner_end' ); ?>
+</div>
 <!-- #main -->
 
 <?php do_action( 'basic_before_footer' ); ?>

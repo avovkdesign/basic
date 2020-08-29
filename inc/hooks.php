@@ -40,7 +40,7 @@ function basic_comment_form_defaults( $args ) {
 		             . esc_attr( $commenter['comment_author_url'] ) . '"  /></div>',
 		'cookies' => '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" '
 		             . $consent . ' />' .
-		             '<label for="wp-comment-cookies-consent">' . __( 'Save my name, email, and website in this browser for the next time I comment.' ) . '</label></p>',
+		             '<label for="wp-comment-cookies-consent">' . __( 'Save my name, email, and website in this browser for the next time I comment.', 'basic' ) . '</label></p>',
 	) );
 	$args['fields']        = apply_filters( 'comment_form_default_fields', $fields );
 	$args['comment_field'] = '<div class="rcomment"><textarea id="comment" name="comment" cols="45" rows="8" placeholder="' . __( 'Message', 'basic' ) . '" aria-required="true"></textarea></div>';

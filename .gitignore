@@ -37,7 +37,7 @@ vendor
 *~
 
 # Other
-docs/
 _build/
+docs/
 .ftppass
 

@@ -1,8 +1,8 @@
 === Basic ===
 Contributors: wppuzzle, avovkdesign
-Requires at least: WordPress 4.3
-Tested up to: WordPress 5.0
-Version: 1.3.10
+Requires at least: WordPress 5.0
+Tested up to: WordPress 5.5
+Version: 1.3.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,19 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.11 =
+* tested up PHP 7.3
+* tested up to WordPress 5.5
+* added: filter hooks:
+	* `basic_main_wrap_class`
+* added: action hooks:
+	* `basic_main_wrap_inner_begin`
+	* `basic_main_wrap_inner_end`
+	* `basic_main_archive_inner_begin`
+	* `basic_main_archive_inner_end`
+	* `basic_main_archive_after_before_loop`
+
 
 = 1.3.10 =
 * tested up to WordPress 5.0 Beta 5
