@@ -12,6 +12,8 @@
 <body <?php body_class(); ?>>
 <div class="wrapper clearfix">
 
+	<?php if ( function_exists('wp_body_open') ) { wp_body_open(); } ?>
+
 	<?php do_action( 'basic_before_header' ); ?>
 	<!-- BEGIN header -->
 	<header id="header" class="<?php echo apply_filters( 'basic_header_class', 'clearfix' ); ?>">

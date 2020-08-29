@@ -2,7 +2,7 @@
 Contributors: wppuzzle, avovkdesign
 Requires at least: WordPress 5.0
 Tested up to: WordPress 5.5
-Version: 1.3.11
+Version: 1.3.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.liqpay.com/checkout/wppuzzle
@@ -27,6 +27,12 @@ Basic is simple responsive WordPress theme. It has custom color option, customiz
 
 
 == Changelog ==
+
+= 1.3.12 =
+* added missing style.css tags
+* added `wp_body_open();`
+* added 'esc_html' for custom home h1 title
+
 
 = 1.3.11 =
 * tested up PHP 7.3
